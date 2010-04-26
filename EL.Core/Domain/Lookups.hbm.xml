@@ -3,7 +3,7 @@
 
   <!-- One class definition for each lookup-->
   <class name="EL.Core.Domain.ActionType, EL.Core" table="ActionTypes">
-    <id name="id" access="field" column="ActionTypeID" unsaved-value="0">
+      <id name="ID" access="nosetter.lowercase" column="ActionTypeID" unsaved-value="0">
       <generator class="identity" />      
     </id>
 
