@@ -57,9 +57,11 @@ namespace EligibilityList.Core.Domain
         public virtual Action Action { get; set; }
 
         [NotNull]
+        [Min(0)]
         public virtual int YearsAtRank { get; set; }
 
         [NotNull]
+        [Min(0)]
         public virtual int YearsAtStep { get; set; }
 
         [NotNull]

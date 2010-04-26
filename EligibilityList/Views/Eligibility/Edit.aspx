@@ -38,7 +38,13 @@
                         .Label("Committee: ")
                         
                     %>
-            </p>            
+            </p>
+            <p>
+                Dean: TODO
+            </p>          
+            <p>
+                Analyst: TODO
+            </p>  
             <p>
                 <%= this.Select("CurrentTitle") 
                         .Options(Model.Titles, x=>x.Id, x=>x.AbbreviatedName)
@@ -47,6 +53,24 @@
                     %>
             </p>
             <p>
+                Current Step
+            </p>
+            <p>
+                <%= this.TextBox("CurrentAppointmentPercent")
+                    .Value(Model.Eligibility.CurrentAppointmentPercent)
+                    .Label("Current Appt %: ")
+                %>
+            </p>
+            <p>
+                <%= this.TextBox("CurrentBlankTitle").Value(Model.Eligibility.CurrentBlankTitle).Label("Current Blank In the ---: ")%>
+            </p>
+            <p>
+                <%= this.TextBox("YearsAtRank").Value(Model.Eligibility.YearsAtRank).Label("Current Years @ Rank: ")%>
+            </p>
+            <p>
+                <%= this.TextBox("YearsAtStep").Value(Model.Eligibility.YearsAtStep).Label("Current Years @ Step: ")%>
+            </p>            
+            <p>
                 <%= this.Select("ProposedTitle") 
                         .Options(Model.Titles, x=>x.Id, x=>x.AbbreviatedName)
                         .Selected(Model.Eligibility.ProposedTitle == null ? string.Empty : Model.Eligibility.ProposedTitle.Id)
@@ -54,12 +78,6 @@
                         .Label("Proposed Title: ")
                     %>
             </p>        
-            <p>
-            <%= this.TextBox("CurrentAppointmentPercent")
-                    .Value(Model.Eligibility.CurrentAppointmentPercent)
-                    .Label("Current Appt %: ")
-                %>
-            </p>
             <p>
                 <input type="submit" value="Save" />
             </p>
