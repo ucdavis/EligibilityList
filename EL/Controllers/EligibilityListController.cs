@@ -12,7 +12,7 @@ namespace EL.Web.Controllers
         {
             bool onlyChanged = changed ?? true; 
 
-            IQueryable<Eligibility> els = EligibilityBLL.GetChanged(onlyChanged);
+            IQueryable<Eligibility> els = EligibilityBLL.GetChanged(onlyChanged, ControllerContext.HttpContext.User);
 
             ViewData["Changed"] = onlyChanged;
 

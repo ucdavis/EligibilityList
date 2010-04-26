@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using EL.BLL;
 using System.ComponentModel;
@@ -22,28 +23,28 @@ namespace EL.BLL
     {
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static IQueryable<Eligibility> GetActive()
+        public static IQueryable<Eligibility> GetActive(IPrincipal principal)
         {
             return Queryable.Where(el => el.IsActive == true);
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static IQueryable<Eligibility> GetChanged()
+        public static IQueryable<Eligibility> GetChanged(IPrincipal principal)
         {
             return Queryable.Where(el => el.OriginalEligibility != null);
             //return Queryable.Where(el => el.IsActive == false).ToList();
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static IQueryable<Eligibility> GetChanged(bool changed)
+        public static IQueryable<Eligibility> GetChanged(bool changed, IPrincipal userContext)
         {
             if (changed)
             {
-                return GetChanged();
+                return GetChanged(userContext);
             }
             else
             {
-                return GetActive();
+                return GetActive(userContext);
             }
         }
 
