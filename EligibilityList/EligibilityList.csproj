@@ -164,6 +164,7 @@
     <Content Include="Views\Eligibility\Index.aspx" />
     <Content Include="Views\Eligibility\ViewByDepartment.aspx" />
     <Content Include="Views\Eligibility\ViewPending.aspx" />
+    <Content Include="Views\Review\Index.aspx" />
     <Content Include="Views\Step\Create.aspx" />
     <Content Include="Views\Step\Edit.aspx" />
     <Content Include="Views\Step\Index.aspx" />

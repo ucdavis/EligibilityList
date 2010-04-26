@@ -1,6 +1,4 @@
-using System;
 using System.Web.Mvc;
-using EligibilityList.Core;
 using EligibilityList.Core.Domain;
 using MvcContrib.Attributes;
 using UCDArch.Core.PersistanceSupport;
@@ -16,31 +14,34 @@ namespace EligibilityList.Controllers
         /// <summary>
         /// Review of a pending eligibility request
         /// </summary>
-        /// <param name="eligibilityId">Id of the temporary eligibility record</param>
+        /// <param name="id">Id of the temporary eligibility record</param>
         /// <returns></returns>
-        public ActionResult Index(int eligibilityId)
+        public ActionResult Index(int id)
         {
-            var viewModel = ElibiilityViewModel.Create(Repository);
+            var viewModel = ElibiilityReviewViewModel.Create(Repository);
 
-            viewModel.Eligibility = Repository.OfType<Eligibility>().GetNullableByID(eligibilityId);
+            viewModel.Eligibility = Repository.OfType<Eligibility>().GetNullableByID(id);
 
             // not valid redirect to another page
             if (viewModel.Eligibility == null) return this.RedirectToAction<HomeController>(a => a.Index());
+
+            Check.Require(viewModel.Eligibility != null, "Proposed eligibility is required.");
+            Check.Require(viewModel.Eligibility.OriginalEligibility != null, "Original eligibility is required.");
 
             return View(viewModel);
         }
 
         /// <summary>
-        /// POST: /Review/Index/{eligibilityId}
+        /// POST: /Review/Index/{id}
         /// </summary>
-        /// <param name="eligibilityId">Id of the temporary eligibility record</param>
+        /// <param name="id">Id of the temporary eligibility record</param>
         /// <param name="approved"></param>
         /// <param name="comments"></param>
         /// <returns></returns>
         [AcceptPost]
-        public ActionResult Index(int eligibilityId, bool approved, string comments)
+        public ActionResult Index(int id, bool approved, string comments)
         {
-            var child = Repository.OfType<Eligibility>().GetNullableByID(eligibilityId);
+            var child = Repository.OfType<Eligibility>().GetNullableByID(id);
 
             // not valid redirec to another page
             if (child == null) return this.RedirectToAction<HomeController>(a => a.Index());
@@ -75,7 +76,7 @@ namespace EligibilityList.Controllers
             }
 
             // failed, ready the display back out to the user
-            var viewModel = ElibiilityViewModel.Create(Repository);
+            var viewModel = ElibiilityReviewViewModel.Create(Repository);
             viewModel.Eligibility = child;
             viewModel.Comment = comments;
 
@@ -88,16 +89,16 @@ namespace EligibilityList.Controllers
         }
     }
 
-    public class ElibiilityViewModel
+    public class ElibiilityReviewViewModel
     {
         public Eligibility Eligibility{ get; set; }
         public string Comment { get; set; }
 
-        public static ElibiilityViewModel Create(IRepository repository)
+        public static ElibiilityReviewViewModel Create(IRepository repository)
         {
             Check.Require(repository != null, "Repository is required.");
 
-            var viewModel = new ElibiilityViewModel() {};
+            var viewModel = new ElibiilityReviewViewModel() {};
 
             return viewModel;
         }

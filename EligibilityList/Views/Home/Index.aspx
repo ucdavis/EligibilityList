@@ -12,4 +12,8 @@
     <p>
         <%= Html.ActionLink<EligibilityController>(x=>x.ViewPending(null), "View Pending") %>
     </p>
+    
+    <p>
+        <%= Html.ActionLink<ReviewController>(a => a.Index(1130), "Review") %>
+    </p>
 </asp:Content>
