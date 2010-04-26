@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <class name="EL.Core.Eligibility, EL.Core" table="EligibilityList">
+    <id name="id" access="field" column="EligibilityID" unsaved-value="0">
+      <generator class="identity" />
+    </id>
+    
+    <property name="AppointmentID" column="AppointmentID" />
+    <property name="EmployeeID" column="EmployeeID" />
+    <property name="DeptCode" column="DIST_DEPT_CODE" />
+    <property name="DeanID" column="DADAssociateDeanID" />
+    <property name="AnalystID" column="AnalystID" />
+    <property name="ActionID" column="ActionID" />
+    <property name="YearsAtRank" column="YearsAtRank" />
+    <property name="YearsAtStep" column="YearsAtStep" />
+    <property name="AppointmentPercent" column="AppointmentPercent" />
+    <property name="CommitteeID" column="CommitteeID" />
+    <property name="TitleCode" column="TITLE_CODE" />
+    <property name="CurrentStep" column="CurrentStep" />
+    <property name="CurrentBlankTitle" column="CurrentBlankTitle" />
+    <property name="ProposedTitleCode" column="ProposedTitleCode" />
+    <property name="ProposedStep" column="ProposedStep" />
+    <property name="ProposedBlankTitle" column="ProposedBlankTitle" />
+    <property name="YearsAccelerated" column="YearsAccelerated" />
+    <property name="YearsDecelerated" column="YearsDecelerated" />
+    <property name="Defer" column="Defer" />
+    <property name="DateDue" column="DateDue" />
+    <property name="DateToCommittee" column="DateToCommittee" />
+    <property name="DateCommitteeReceived" column="DateCommitteeReceived" />
+    <property name="DateEffective" column="DateEffective" />
+    <property name="Comment" column="Comment" />
+    <property name="FinalAction" column="FinalAction" />
+    <property name="TPCCode" column="TPC_PAY_REP_CODE" />
+    <property name="AppNum" column="APPT_NUM" />
+    <property name="LastUpdated" column="LastUpdated" />
+    <property name="ProposedAppointmentPercent" column="ProposedAppointmentPercent" />
+    <property name="IsActive" column="IsActive" />
+    
+  </class>
+
+</hibernate-mapping>

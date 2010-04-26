@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EligibilityBLL.cs" />
     <Compile Include="GenericBLL.cs" />
     <Compile Include="LookupsBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

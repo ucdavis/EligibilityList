@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NHibernate;
 using NHibernate.Expression;
 using EL.Core.DataInterfaces;
+using System.Linq;
 
 namespace CAESDO.EL.Data
 {
