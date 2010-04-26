@@ -120,7 +120,7 @@
     
         <input type="submit" value="Save" />
         
-        <% if (HttpContext.Current.User.IsInRole("Admin")) { %>
+        <% if (HttpContext.Current.User.IsInRole(RoleNames.Admin)) { %>
             <%= this.CheckBox("updateAllAppointments").Label("Update All Appointments for " + Model.Eligibility.Employee.FullName) %>
         <% } %>
 </fieldset>

@@ -303,8 +303,8 @@ namespace EligibilityList.Controllers
                                     Units = repository.OfType<Unit>().Queryable.ToList(),
                                     Titles = repository.OfType<Title>().Queryable.ToList(),
                                     Steps = repository.OfType<Step>().Queryable.Where(x=>x.Inactive == false).ToList(),
-                                    Deans = userBLL.GetUsersInRole("Deans"),
-                                    Analysts = userBLL.GetUsersInRole("Admin")
+                                    Deans = userBLL.GetUsersInRole(RoleNames.Dean),
+                                    Analysts = userBLL.GetUsersInRole(RoleNames.Admin)
                                 };
 
             return viewModel;
