@@ -83,6 +83,11 @@ namespace EligibilityList.Controllers
             return View(viewModel);
         }
 
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Edit(Eligibility eligibility)
+        {
+            return RedirectToAction("Edit"); //TODO: Implement save
+        }
 
         /// <summary>
         /// Returns current user

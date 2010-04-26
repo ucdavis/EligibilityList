@@ -13,13 +13,14 @@
     <%= Html.ClientSideValidation<Eligibility>() %>
 
     <% using (Html.BeginForm()) {%>
-
+        <%= Html.AntiForgeryToken() %>
+        
         <fieldset>
             <legend>Fields</legend>
             <p>
                 <%= this.Select("Unit")
-                        .Options(Model.Units, x=>x.FISCode, x=>x.FullName)
-                        .Selected(Model.Eligibility.Unit.FISCode)
+                        .Options(Model.Units, x=>x.Id, x=>x.FullName)
+                        .Selected(Model.Eligibility.Unit.Id)
                         .Label("Appointment Department: ")
                     %>
             </p>
@@ -105,10 +106,10 @@
                 <%= this.TextBox("YearsDecelerated").Value(Model.Eligibility.YearsDecelerated).Label("Years at Decel: ")%>
             </p>
             <p>
-                <%= this.TextBox("DateDue").Value(Model.Eligibility.DateDue).Label("Date Due: ")%>
+                <%= this.TextBox("DateDue").Class("pickable-date").Value(Model.Eligibility.DateDue).Format("d").Label("Date Due: ")%>
             </p>
             <p>
-                <%= this.TextBox("DateEffective").Value(Model.Eligibility.DateEffective).Label("Date Effective: ") %>
+                <%= this.TextBox("DateEffective").Class("pickable-date").Value(Model.Eligibility.DateEffective).Format("d").Label("Date Effective: ") %>
             </p>
             <p>
                 <%= this.TextArea("Comment").Value(Model.Eligibility.Comment).Label("Comment: ")%>
@@ -123,5 +124,11 @@
     <div>
         <%=Html.ActionLink("Back to List", "Index") %>
     </div>
+
+    <script type="text/javascript">
+        $(function() {
+            $(".pickable-date").datepicker();
+        });
+    </script>
 
 </asp:Content>
