@@ -38,6 +38,18 @@ namespace EligibilityListBLL
             return user;
         }
 
+        /// <summary>
+        /// Return the user represented by the given login
+        /// </summary>
+        /// <param name="login">Kerberos login ID</param>
+        /// <returns>User or null if no user found</returns>
+        public User GetByLogin(string login)
+        {
+            var user = _userRepository.Queryable.Where(x => x.Login == login).SingleOrDefault();
+
+            return user;
+        }
+
         public IEnumerable<Unit> GetUnitsByUser(IPrincipal principal)
         {
             if (principal.IsInRole("Admin"))
