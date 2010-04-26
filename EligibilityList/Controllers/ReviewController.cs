@@ -1,3 +1,4 @@
+using System;
 using System.Web.Mvc;
 using EligibilityList.Core.Domain;
 using EligibilityList.Helpers;
@@ -37,30 +38,36 @@ namespace EligibilityList.Controllers
         /// POST: /Review/Index/{id}
         /// </summary>
         /// <param name="id">Id of the temporary eligibility record</param>
-        /// <param name="approved"></param>
+        /// <param name="reviewAction">Accept or Deny</param>
         /// <param name="comments"></param>
         /// <returns></returns>
         [AcceptPost]
-        public ActionResult Index(int id, bool approved, string comments)
+        public ActionResult Index(int id, string reviewAction, string comments)
         {
+            return RedirectToAction("Index"); //TODO: For testing only so there are no saves
+            
             var child = Repository.OfType<Eligibility>().GetNullableByID(id);
 
-            // not valid redirec to another page
+            // not valid redirect to another page
             if (child == null) return this.RedirectToAction<HomeController>(a => a.Index());
 
             var parent = child.OriginalEligibility;
 
-            // parent isn't null, something is horribly wrong
+            // parent is null, something is horribly wrong
             if (parent == null) return this.RedirectToAction<HomeController>(a => a.Index());
 
-            if (approved)
+            bool approve = reviewAction == "Approve";
+
+            if (approve == false && reviewAction != "Deny") throw new ArgumentException("Must Either Approve or Deny an Eligibility");
+
+            if (approve)
             {
                 // copy the changes
                 CopyHelper.TransferValuesTo(child, parent);
             }
-            
-            // save comment
-            parent.Comment = comments;
+
+            // save comment  //TODO: We probably don't want to save the comments
+            //parent.Comment = comments;
 
             // validate the parent
             parent.TransferValidationMessagesTo(ModelState);

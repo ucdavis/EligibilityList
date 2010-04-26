@@ -5,13 +5,18 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <script type="text/javascript">
+        $(function() {
+            $('form').validate();
+        });
+    </script>
 
     <h2>Review Eligibility</h2>
 
     <%= Html.ValidationSummary("Edit was unsuccessful. Please correct the errors and try again.") %>
 
     <% using (Html.BeginForm()) {%>
-
+        <%= Html.AntiForgeryToken() %>
         <p>
             <label for="Employee.Id">Employee Id:</label>
             <%= Html.Encode(Model.Eligibility.Employee.Id) %>
@@ -174,6 +179,19 @@
             </tr>                                                    
         </table>
 
+        <div id="review-section">
+            <br />
+            Review Action: <br /><br />
+            
+            <label>Review Comments (will be included in the confirmation email)</label><br />
+            <%= this.TextArea("comments").Rows(10).Columns(50) %>
+            
+            <%= this.RadioSet("reviewaction").Options(new[] { "Accept", "Deny" }).Selected("Accept") %>
+            
+            <input type="submit" value="Perform Review Review" />
+            
+        </div>
+        
     <% } %>
 
     <div>
