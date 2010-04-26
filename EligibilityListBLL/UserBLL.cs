@@ -59,9 +59,18 @@ namespace EligibilityListBLL
 
             var userDictionary = new Dictionary<string, string>();
 
-            foreach (var user in usersInRole)
+            foreach (var login in usersInRole)
             {
-                userDictionary.Add(user, user);
+                string userName = login;
+                
+                var user = _userRepository.Queryable.Where(x => x.Login == userName).SingleOrDefault();
+
+                if (user != null)
+                {
+                    userName = user.FullName;
+                }
+
+                userDictionary.Add(login, userName);
             }
 
             return userDictionary;
