@@ -35,6 +35,7 @@
     <property name="LastUpdated" column="LastUpdated" />
     <property name="ProposedAppointmentPercent" column="ProposedAppointmentPercent" />
     <property name="IsActive" column="IsActive" />
+    <property name="Original" column="OriginalApptID" />
     
   </class>
 

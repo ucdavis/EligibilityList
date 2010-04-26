@@ -9,6 +9,14 @@ using CAESDO.EL.Data;
 
 namespace EL.BLL
 {
+    /// <summary>
+    /// <TODO>
+    /// Fix GetChanged so that it correctly retrieves OriginalApptID and all associated records
+    /// Allows us to display Original & Current values to an Eligibility item
+    /// For now Default.aspx is set to use GetActive() but this is not correct
+    /// </TODO>
+    /// </summary>
+    
     [DataObject]
     public class EligibilityBLL : GenericBLL<Eligibility, int>
     {
@@ -16,6 +24,7 @@ namespace EL.BLL
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static List<Eligibility> GetActive()
         {
+            //return Queryable.Where(el => el.EmployeeID.StartsWith("9")).ToList();
             return Queryable.Where(el => el.IsActive == true).ToList();
             //var obj = new Eligibility();
             //obj.IsActive = true;
@@ -23,5 +32,12 @@ namespace EL.BLL
             //return EligibilityBLL.GetAll();
             //var query = 
         }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static List<Eligibility> GetChanged()
+        {
+            return Queryable.Where(el => el.IsActive == false).ToList();
+        }
+
     }
 }

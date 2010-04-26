@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
 using NHibernate;
-using NHibernate.Expression;
+//using NHibernate.Expression;
 using EL.Core.DataInterfaces;
 using System.Linq;
 using NHibernate.Linq;
+using NHibernate.Criterion;
 namespace CAESDO.EL.Data
 {
     public abstract class AbstractNHibernateDao<T, IdT> : IDao<T, IdT>

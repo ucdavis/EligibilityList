@@ -17,6 +17,8 @@ public partial class _Default : System.Web.UI.Page
     
     protected void Page_Load(object sender, EventArgs e)
     {
+        //var list = EligibilityBLL.GetActive();
+        
         //List<Eligibility> all = EligibilityBLL.GetAll();
     }
 }
