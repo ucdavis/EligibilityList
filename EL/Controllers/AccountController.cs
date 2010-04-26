@@ -15,7 +15,7 @@ namespace EL.Web.Controllers
         {
             var helper = new CASHelper();
 
-            string resultUrl = helper.CASLogin(ControllerContext.HttpContext, returnUrl); //Do the CAS Login
+            string resultUrl = helper.CASLogin(returnUrl); //Do the CAS Login
 
             if (resultUrl != null)
             {
@@ -38,11 +38,12 @@ namespace EL.Web.Controllers
         /// <summary>
         /// Login to the campus DistAuth system using CAS        
         /// </summary>
-        public string CASLogin(HttpContextBase context, string returnUrl)
+        public string CASLogin(string returnUrl)
         {
             string loginUrl = StrCasUrl;
 
             // get the context from the source
+            var context = HttpContext.Current;
 
             // try to load a valid ticket
             HttpCookie validCookie = context.Request.Cookies[FormsAuthentication.FormsCookieName];
