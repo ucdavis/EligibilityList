@@ -4,8 +4,10 @@
     Show
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>
-        Show</h2>
+
+    <%= Html.RouteLink("Show All", new { changed = false }) %> | <%= Html.RouteLink("Show Changed", new { changed = true}) %>    
+
+    <h2>Show</h2>
     <table border="0">
         <tr>
             <th>

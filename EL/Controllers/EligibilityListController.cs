@@ -17,6 +17,8 @@ namespace EL.Web.Controllers
 
             IQueryable<Eligibility> els = EligibilityBLL.GetChanged(onlyChanged);
 
+            ViewData["Changed"] = onlyChanged;
+
             return View(els);
         }
 
