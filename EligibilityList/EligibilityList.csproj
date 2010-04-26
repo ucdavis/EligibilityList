@@ -163,6 +163,7 @@
     <Content Include="Views\Eligibility\Details.aspx" />
     <Content Include="Views\Eligibility\Edit.aspx" />
     <Content Include="Views\Eligibility\EligibilityForm.ascx" />
+    <Content Include="Views\Eligibility\EligibilityList.ascx" />
     <Content Include="Views\Eligibility\FindEmployee.aspx" />
     <Content Include="Views\Eligibility\Index.aspx" />
     <Content Include="Views\Eligibility\ViewByDepartment.aspx" />
