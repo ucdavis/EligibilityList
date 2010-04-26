@@ -13,7 +13,7 @@
         });
     </script>
 
-    <%= Html.RouteLink("Show All", new { changed = false }) %> | <%= Html.RouteLink("Show Changed", new { changed = true}) %>    
+    <%= Html.ActionLink<EligibilityListController>(a => a.Show(false), "Show All") %> | <%= Html.ActionLink<EligibilityListController>(a => a.Show(true), "Show Changed") %>
 
     <h2>Show</h2>
     <table border="0">
