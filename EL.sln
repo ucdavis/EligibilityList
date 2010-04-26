@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EL.Web", "EL\EL.Web.csproj", "{85301DA1-85B6-489C-856E-6A286DA25BDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EL.Tests", "EL.Tests\EL.Tests.csproj", "{AD2EDFE7-745A-4B49-ACB5-740E4DDFD9EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EL.Data", "EL.Data\EL.Data.csproj", "{833A856A-73BB-470F-93AF-B5BD4F16841E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EL.Core", "EL.Core\EL.Core.csproj", "{C0AF49B9-C156-4E00-BE14-83AEBFD58967}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EL.BLL", "EL.BLL\EL.BLL.csproj", "{A3FD5B00-2B99-481F-9B02-BE594606919F}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://1x:8080/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = EL.BLL\\EL.BLL.csproj
+		SccProjectName1 = EL.BLL
+		SccLocalPath1 = EL.BLL
+		SccProjectUniqueName2 = EL.Core\\EL.Core.csproj
+		SccProjectName2 = EL.Core
+		SccLocalPath2 = EL.Core
+		SccProjectUniqueName3 = EL.Data\\EL.Data.csproj
+		SccProjectName3 = EL.Data
+		SccLocalPath3 = EL.Data
+		SccProjectUniqueName4 = EL.Tests\\EL.Tests.csproj
+		SccProjectName4 = EL.Tests
+		SccLocalPath4 = EL.Tests
+		SccProjectUniqueName5 = EL\\EL.Web.csproj
+		SccProjectName5 = EL
+		SccLocalPath5 = EL
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{85301DA1-85B6-489C-856E-6A286DA25BDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85301DA1-85B6-489C-856E-6A286DA25BDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85301DA1-85B6-489C-856E-6A286DA25BDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85301DA1-85B6-489C-856E-6A286DA25BDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD2EDFE7-745A-4B49-ACB5-740E4DDFD9EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD2EDFE7-745A-4B49-ACB5-740E4DDFD9EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD2EDFE7-745A-4B49-ACB5-740E4DDFD9EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD2EDFE7-745A-4B49-ACB5-740E4DDFD9EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{833A856A-73BB-470F-93AF-B5BD4F16841E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{833A856A-73BB-470F-93AF-B5BD4F16841E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{833A856A-73BB-470F-93AF-B5BD4F16841E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{833A856A-73BB-470F-93AF-B5BD4F16841E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0AF49B9-C156-4E00-BE14-83AEBFD58967}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0AF49B9-C156-4E00-BE14-83AEBFD58967}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0AF49B9-C156-4E00-BE14-83AEBFD58967}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0AF49B9-C156-4E00-BE14-83AEBFD58967}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3FD5B00-2B99-481F-9B02-BE594606919F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3FD5B00-2B99-481F-9B02-BE594606919F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3FD5B00-2B99-481F-9B02-BE594606919F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3FD5B00-2B99-481F-9B02-BE594606919F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
