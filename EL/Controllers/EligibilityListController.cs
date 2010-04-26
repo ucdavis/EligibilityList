@@ -11,9 +11,11 @@ namespace EL.Web.Controllers
     [HandleError]
     public class EligibilityListController : Controller
     {
-        public ActionResult Show(int? id)
+        public ActionResult Show(bool? changed)
         {
-            IQueryable<Eligibility> els = GenericBLL<Eligibility, int>.Queryable;
+            bool onlyChanged = changed ?? true; 
+
+            IQueryable<Eligibility> els = EligibilityBLL.GetChanged(onlyChanged);
 
             return View(els);
         }

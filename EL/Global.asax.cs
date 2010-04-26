@@ -17,6 +17,12 @@ namespace EL.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                "EligilityList",
+                "EligibilityList/{action}/Changed/{changed}",
+                new { controller = "EligibilityList", action = "Show", changed = true }
+            );
+
+            routes.MapRoute(
                 "Default",                                              // Route name
                 "{controller}/{action}/{id}",                           // URL with parameters
                 new { controller = "Home", action = "Index", id = "" }  // Parameter defaults

@@ -46,7 +46,7 @@
             </th>
             <th>Comment</th>
         </tr>
-        <% foreach (var el in Model.Take(25))
+        <% foreach (var el in Model)
            { %>
         <tr>
             <td><%= Html.Encode(el.Employee.FullName) %></td>

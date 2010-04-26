@@ -35,15 +35,15 @@ namespace EL.BLL
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static IQueryable<Eligibility> GetByStatus(bool getAll)
+        public static IQueryable<Eligibility> GetChanged(bool changed)
         {
-            if (getAll)
+            if (changed)
             {
-                return GetActive();
+                return GetChanged();
             }
             else
             {
-                return GetChanged();
+                return GetActive();
             }
         }
 
