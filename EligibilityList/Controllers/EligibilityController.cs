@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using EligibilityList.Helpers;
 using UCDArch.Web.Controller;
 using EligibilityList.Core.Domain;
 using UCDArch.Core.PersistanceSupport;
@@ -16,7 +17,7 @@ namespace EligibilityList.Controllers
     /// <summary>
     /// Eligibility list controller
     /// </summary>
-    [Authorize(Roles="Admin,User")]
+    [AnyoneWithRole]
     public class EligibilityController : SuperController
     {
         private readonly IRepository<Eligibility> _eligibilityRepository;
@@ -33,11 +34,15 @@ namespace EligibilityList.Controllers
             _userBLL = userBLL;
         }
 
+        /// <summary>
+        /// Homepage for viewing tasks which revolve around CRUD of ELs
+        /// </summary>
         public ViewResult Index()
         {
             return View();
         }
 
+        [AdminOnly]
         public ActionResult FindEmployee(string id /* Payroll Department Code */)
         {
             var viewModel = FindEmployeeViewModel.Create(Repository, _userBLL.GetUnitsByUser(CurrentUser), id);
@@ -92,6 +97,7 @@ namespace EligibilityList.Controllers
             return View(viewModel);
         }
 
+        [AdminOnly]
         public ActionResult ViewPending(string id)
         {
             var eligibilities = _eligibilityRepository.Queryable.Where(x=>x.OriginalEligibility != null /*Only get the ones which modify other ELs*/);
@@ -170,6 +176,7 @@ namespace EligibilityList.Controllers
             return View(viewModel);
         }
 
+        [AdminOnly]
         public ActionResult Add(string id, string titleCode, string department)
         {
             var employee = Repository.OfType<Employee>().Queryable.Where(x => x.Id == id).SingleOrDefault();
@@ -193,6 +200,7 @@ namespace EligibilityList.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
+        [AdminOnly]
         public ActionResult Add(int id, Eligibility eligibility)
         {
             var eligibilityToEdit = new Eligibility();
