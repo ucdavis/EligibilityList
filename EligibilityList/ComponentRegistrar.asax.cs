@@ -1,4 +1,3 @@
-using System;
 using Castle.Windsor;
 using UCDArch.Core.CommonValidator;
 using UCDArch.Core.NHibernateValidator.CommonValidatorAdapter;
@@ -25,6 +24,7 @@ namespace EligibilityList
         private static void AddBLLsTo(IWindsorContainer container)
         {
             container.AddComponent("userBLL", typeof (IUserBLL), typeof (UserBLL));
+            container.AddComponent("messageBLL", typeof (SmtpMessageBLL), typeof (IMessageBLL));
 
         }
 
