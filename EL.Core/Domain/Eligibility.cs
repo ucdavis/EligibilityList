@@ -57,10 +57,17 @@ namespace EL.Core.Domain
         {
             get
             {
-                return string.Format("{0} {1} {2}", Employee.ID, YearsAtRank, YearsAtStep);
+                return string.Format("{0} Step:{1} {2}%", TitleCode, CurrentStep, AppointmentPercent);
             }
         }
 
+        public virtual string ProposedStatus
+        {
+            get
+            {
+                return string.Format("{0} Step:{1} {2}%", ProposedTitleCode, ProposedStep, ProposedAppointmentPercent);
+            }
+        }
         [StringLengthValidator(50)]
         public virtual string CurrentBlankTitle { get; set; }
 
