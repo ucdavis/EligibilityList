@@ -9,6 +9,8 @@
     <h2>Index</h2>
 
     <%= Html.ActionLink<EligibilityController>(x=>x.ViewByDepartment(null), "View Eligibility List") %>
+    <br /><br />
+    <%= Html.ActionLink<EligibilityController>(x=>x.ViewPending(null), "View Pending") %>
 
 </asp:Content>
 

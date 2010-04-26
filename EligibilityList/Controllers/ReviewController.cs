@@ -55,15 +55,15 @@ namespace EligibilityList.Controllers
                 // copy the changes
                 parent = Copy(child, parent);
             }
+            
+            // save comment
+            parent.Comment = comments;
 
             // validate the parent
             parent.TransferValidationMessagesTo(ModelState);
 
             if (ModelState.IsValid)
             {
-                // save comment
-                parent.Comment = comments;
-
                 // delete the temp
                 Repository.OfType<Eligibility>().Remove(child);
 

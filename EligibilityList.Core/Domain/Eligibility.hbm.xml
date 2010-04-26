@@ -6,8 +6,8 @@
       <generator class="identity" />
     </id>
 
-    <property name="DeanKerb" column="DADKerb" />
-    <property name="AnalystKerb" column="AnalystKerb" />
+    <property name="DeanKerb" column="DADKerb" update="false" insert="false" />
+    <property name="AnalystKerb" column="AnalystKerb" update="false" insert="false" />
     <!--<property name="DeptCode" column="DIST_DEPT_CODE" />-->    
     <!--<property name="DeanID" column="DADAssociateDeanID" />-->
     <!--<property name="AnalystID" column="AnalystID" />-->

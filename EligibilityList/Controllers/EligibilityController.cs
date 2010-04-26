@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -6,6 +7,8 @@ using EligibilityList.Core.Domain;
 using UCDArch.Core.PersistanceSupport;
 using UCDArch.Core.Utils;
 using EligibilityListBLL;
+using UCDArch.Web.Helpers;
+using Action=EligibilityList.Core.Domain.Action;
 
 namespace EligibilityList.Controllers
 {
@@ -100,9 +103,73 @@ namespace EligibilityList.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Edit(Eligibility eligibility)
+        public ActionResult Edit(int id, Eligibility eligibility)
         {
-            return RedirectToAction("Edit"); //TODO: Implement save
+            var eligibilityToEdit = new Eligibility();
+
+            if (eligibility.OriginalEligibility != null)
+            {
+                //If there is an original, just grab this version out and we'll save over it
+                eligibilityToEdit = _eligibilityRepository.GetNullableByID(id);
+
+                Check.Require(eligibilityToEdit != null);
+            }
+            else
+            {
+                //Set the original eligibility of the new EL to this currentID
+                eligibilityToEdit.OriginalEligibility = _eligibilityRepository.GetById(id);
+            }
+
+            TransferValuesTo(eligibility, eligibilityToEdit);
+
+            eligibilityToEdit.TransferValidationMessagesTo(ModelState);
+
+            if (ModelState.IsValid)
+            {
+                eligibilityToEdit.LastUpdated = DateTime.Now;
+
+                _eligibilityRepository.EnsurePersistent(eligibilityToEdit);
+
+                Message = "Eligibility Saved Successfully";
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            var viewModel = EligibilityEditViewModel.Create(Repository);
+            viewModel.Eligibility = eligibility;
+
+            return View(viewModel);
+        }
+
+        private static void TransferValuesTo(Eligibility source, Eligibility destination)
+        {
+            destination.Employee = source.Employee;
+
+            destination.Unit = source.Unit;
+            destination.Action = source.Action;
+            destination.Committee = source.Committee;
+            destination.Dean = source.Dean;
+            destination.Analyst = source.Analyst;
+            destination.CurrentTitle = source.CurrentTitle;
+            destination.CurrentStep = source.CurrentStep;
+            destination.CurrentAppointmentPercent = source.CurrentAppointmentPercent;
+            destination.CurrentBlankTitle = source.CurrentBlankTitle;
+            destination.YearsAtRank = source.YearsAtRank;
+            destination.YearsAtStep = source.YearsAtStep;
+
+            destination.ProposedTitle = source.ProposedTitle;
+            destination.ProposedStep = source.ProposedStep;
+            destination.ProposedAppointmentPercent = source.ProposedAppointmentPercent;
+            destination.ProposedBlankTitle = source.ProposedBlankTitle;
+
+            destination.Defer = source.Defer;
+            destination.YearsAccelerated = source.YearsAccelerated;
+            destination.YearsDecelerated = source.YearsDecelerated;
+
+            destination.DateDue = source.DateDue;
+            destination.DateEffective = source.DateEffective;
+
+            destination.Comment = source.Comment;
         }
 
         /// <summary>
@@ -153,13 +220,13 @@ namespace EligibilityList.Controllers
 
     public class ViewByDepartmentViewModel
     {
-        public static ViewByDepartmentViewModel Create(IRepository repository, IEnumerable<Unit> userUnits, string FISCode)
+        public static ViewByDepartmentViewModel Create(IRepository repository, IEnumerable<Unit> userUnits, string fisCode)
         {
             var viewModel = new ViewByDepartmentViewModel
                                 {
                                     Units = userUnits,
                                     Unit =
-                                        repository.OfType<Unit>().Queryable.Where(x => x.FISCode == FISCode).
+                                        repository.OfType<Unit>().Queryable.Where(x => x.FISCode == fisCode).
                                         SingleOrDefault()
                                 };
 

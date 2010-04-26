@@ -9,4 +9,7 @@
     <p>
         <%= Html.ActionLink("View Eligibility List", "ViewByDepartment", "Eligibility")%>
     </p>
+    <p>
+        <%= Html.ActionLink<EligibilityController>(x=>x.ViewPending(null), "View Pending") %>
+    </p>
 </asp:Content>

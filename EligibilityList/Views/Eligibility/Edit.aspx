@@ -15,6 +15,8 @@
     <% using (Html.BeginForm()) {%>
         <%= Html.AntiForgeryToken() %>
         
+        <%= Html.Hidden("Employee", Model.Eligibility.Employee.Id) %>
+        
         <fieldset>
             <legend>Fields</legend>
             <p>
