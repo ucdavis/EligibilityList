@@ -24,7 +24,7 @@ namespace EligibilityList
         private static void AddBLLsTo(IWindsorContainer container)
         {
             container.AddComponent("userBLL", typeof (IUserBLL), typeof (UserBLL));
-            container.AddComponent("messageBLL", typeof (SmtpMessageBLL), typeof (IMessageBLL));
+            container.AddComponent("messageBLL", typeof (IMessageBLL), typeof (SmtpMessageBLL));
 
         }
 

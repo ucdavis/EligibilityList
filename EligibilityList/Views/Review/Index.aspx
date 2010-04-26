@@ -188,7 +188,7 @@
             
             <%= this.RadioSet("reviewaction").Options(new[] { "Accept", "Deny" }).Selected("Accept") %>
             
-            <input type="submit" value="Perform Review Review" />
+            <input type="submit" value="Perform Review" />
             
         </div>
         

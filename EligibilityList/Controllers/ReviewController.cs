@@ -8,12 +8,20 @@ using UCDArch.Core.Utils;
 using UCDArch.Web.Controller;
 using MvcContrib;
 using UCDArch.Web.Helpers;
+using EligibilityListBLL;
 
 namespace EligibilityList.Controllers
 {
     [AdminOnly]
     public class ReviewController : SuperController
     {
+        private readonly IMessageBLL _messageBLL;
+
+        public ReviewController(IMessageBLL messageBLL)
+        {
+            _messageBLL = messageBLL;
+        }
+
         /// <summary>
         /// Review of a pending eligibility request
         /// </summary>

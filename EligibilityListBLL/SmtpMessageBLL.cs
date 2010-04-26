@@ -10,8 +10,9 @@ namespace EligibilityListBLL
         /// Send a review message notifying the admins of the need to review an eligibility
         /// </summary>
         /// <param name="modifiedEligibility">Eligibility that was reviewed</param>
+        /// <param name="comments">Review Comment</param>
         /// <param name="accepted">True if accepted, false if rejected</param>
-        void SendReviewMessage(Eligibility modifiedEligibility, bool accepted);
+        void SendReviewMessage(Eligibility modifiedEligibility, string comments, bool accepted);
     }
 
     public class SmtpMessageBLL : IMessageBLL
@@ -22,8 +23,9 @@ namespace EligibilityListBLL
         /// Send a review message notifying the admins of the need to review an eligibility
         /// </summary>
         /// <param name="modifiedEligibility">Eligibility that was reviewed</param>
+        /// <param name="comments">Review Comment</param>
         /// <param name="accepted">True if accepted, false if rejected</param>
-        public void SendReviewMessage(Eligibility modifiedEligibility, bool accepted)
+        public void SendReviewMessage(Eligibility modifiedEligibility, string comments, bool accepted)
         {
             //send emails to the editor of this eligibility and the associated analyst
             //var to = modifiedEligibility.EditorEmail + "; " + modifiedEligibility.AnalystEmail;
@@ -33,6 +35,7 @@ namespace EligibilityListBLL
             
             var body = new StringBuilder();
             body.AppendLine("Test: " + (accepted ? "Accepted" : "Rejected"));
+            body.AppendLine("Test: Comment-- " + comments);
             body.AppendLine("Test: Would be sent to " + modifiedEligibility.EditorEmail + "; " +
                             modifiedEligibility.AnalystEmail);
 
