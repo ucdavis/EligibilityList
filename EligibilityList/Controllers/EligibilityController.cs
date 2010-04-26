@@ -305,7 +305,7 @@ namespace EligibilityList.Controllers
         {
             var viewModel = new ViewByDepartmentViewModel
                                 {
-                                    Units = userUnits,
+                                    Units = userUnits.ToList(),
                                     Unit =
                                         repository.OfType<Unit>().Queryable.Where(x => x.FISCode == fisCode).
                                         SingleOrDefault()
@@ -327,7 +327,7 @@ namespace EligibilityList.Controllers
         {
             var viewModel = new FindEmployeeViewModel
             {
-                Units = userUnits.Where(x=>!string.IsNullOrEmpty(x.PPSCode)),
+                Units = userUnits.Where(x=>!string.IsNullOrEmpty(x.PPSCode)).ToList(),
                 Unit =
                     repository.OfType<Unit>().Queryable.Where(x => x.PPSCode == payrollDepartmentCode).FirstOrDefault(),
                 PayrollPersons = new List<PayrollPerson>()
