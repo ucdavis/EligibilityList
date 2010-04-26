@@ -112,7 +112,9 @@ namespace EligibilityList.Controllers
             var viewModel = new EligibilityEditViewModel
                                 {
                                     Actions = repository.OfType<Action>().Queryable.Where(x => x.Inactive == false),
-                                    Committees = repository.OfType<Committee>().Queryable.Where(x => x.Inactive == false)
+                                    Committees = repository.OfType<Committee>().Queryable.Where(x => x.Inactive == false),
+                                    Units = repository.OfType<Unit>().Queryable,
+                                    Titles = repository.OfType<Title>().Queryable.ToList()
                                 };
 
             return viewModel;
@@ -120,6 +122,9 @@ namespace EligibilityList.Controllers
 
         public IEnumerable<Action> Actions { get; set; }
         public IEnumerable<Committee> Committees { get; set; }
+        public IEnumerable<Unit> Units { get; set; }
+        public IEnumerable<Title> Titles { get; set; }
+
         public Eligibility Eligibility { get; set; }
     }
 
@@ -140,6 +145,7 @@ namespace EligibilityList.Controllers
 
         public IEnumerable<Unit> Units { get; set; }
         public IEnumerable<Eligibility> Eligibilities { get; set; }
+
         public Unit Unit { get; set; }
     }
 }

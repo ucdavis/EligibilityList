@@ -63,6 +63,7 @@ namespace EligibilityList.Core.Domain
         public virtual int YearsAtStep { get; set; }
 
         [NotNull]
+        [Range(1,100)]
         public virtual decimal CurrentAppointmentPercent { get; set; }
 
         [NotNull]

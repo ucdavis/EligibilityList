@@ -58,6 +58,9 @@
             Proposed Blank in The ---: <%= Html.Encode(Model.ProposedBlankTitle) %>
         </p>
         <p>
+            Defer?: <%= Html.Encode(Model.Defer) %>
+        </p>
+        <p>
             Years at Acel: <%= Html.Encode(Model.YearsAccelerated) %>
         </p>
         <p>
