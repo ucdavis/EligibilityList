@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
 using System.Web.Mvc;
 using System;
 using System.Linq;
+using NHibernate.Cfg;
 
 namespace EL.Tests.Controllers
 {
@@ -14,6 +15,14 @@ namespace EL.Tests.Controllers
     [TestClass()]
     public class EligibilityListControllerTest
     {
+        [TestInitialize]
+        public void CreateDB()
+        {
+            Configuration config = new Configuration().Configure();
+            //Create the DB using the schema export
+            new NHibernate.Tool.hbm2ddl.SchemaExport(config).Execute(false, true, false, true, EL.Data.NHibernateSessionManager.Instance.GetSession().Connection, null);
+        }
+
         /// <summary>
         ///A test for Show to see that the show methoid completes and correctly populates the changed data variable
         ///</summary>
