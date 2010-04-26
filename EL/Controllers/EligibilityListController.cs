@@ -21,10 +21,5 @@ namespace EL.Web.Controllers
 
             return View(els);
         }
-
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
     }
 }

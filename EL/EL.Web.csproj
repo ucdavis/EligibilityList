@@ -78,8 +78,6 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Views\EligibilityList\Edit.aspx" />
-    <Content Include="Views\EligibilityList\Edit2.aspx" />
     <Content Include="Views\EligibilityList\Show.aspx" />
     <Content Include="Web.config" />
     <Content Include="Content\Site.css" />
