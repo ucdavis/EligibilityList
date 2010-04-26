@@ -57,6 +57,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\Moq.dll</HintPath>
     </Reference>
+    <Reference Include="MvcContrib.TestHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\MvcContrib.TestHelper.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\NHibernate.dll</HintPath>
@@ -68,6 +72,10 @@
     <Reference Include="NHibernate.Linq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=444cf6a87fdab271, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\NHibernate.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks, Version=3.5.0.1337, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -97,7 +105,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\EligibilityListControllerTest.cs" />
+    <Compile Include="Core\ControllerTestBase.cs" />
+    <Compile Include="Core\Fakes\FakeIdentity.cs" />
+    <Compile Include="Core\UserContextHelper.cs" />
+    <Compile Include="DatabaseTests\EligibilityListControllerTest.cs" />
     <Compile Include="DatabaseTestBase.cs" />
     <Compile Include="EntityIdSetter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
