@@ -1,4 +1,3 @@
-using System;
 using System.Web.Mvc;
 using EligibilityList.Core.Domain;
 using EligibilityList.Helpers;
@@ -9,6 +8,7 @@ using UCDArch.Web.Controller;
 using MvcContrib;
 using UCDArch.Web.Helpers;
 using EligibilityListBLL;
+using System;
 
 namespace EligibilityList.Controllers
 {
@@ -52,8 +52,6 @@ namespace EligibilityList.Controllers
         [AcceptPost]
         public ActionResult Index(int id, string reviewAction, string comments)
         {
-            //return RedirectToAction("Index"); //TODO: For testing only so there are no saves
-            
             var child = Repository.OfType<Eligibility>().GetNullableByID(id);
 
             // not valid redirect to another page
@@ -79,6 +77,8 @@ namespace EligibilityList.Controllers
 
             if (ModelState.IsValid)
             {
+                parent.LastUpdated = DateTime.Now;
+
                 // delete the temp
                 Repository.OfType<Eligibility>().Remove(child);
 

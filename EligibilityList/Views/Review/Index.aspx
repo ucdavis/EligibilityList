@@ -64,8 +64,8 @@
             </tr>
             <tr class='<%= Model.Eligibility.CurrentAppointmentPercent != Model.Eligibility.OriginalEligibility.CurrentAppointmentPercent ? "Changed" : string.Empty %>'>
                 <td class="field-name">Current Appointment %:</td>
-                <td class="field-value"><%= Html.Encode(Model.Eligibility.CurrentAppointmentPercent.ToString("P")) %></td>
-                <td class="field-value"><%= Html.Encode(Model.Eligibility.OriginalEligibility.CurrentAppointmentPercent.ToString("P")) %></td>
+                <td class="field-value"><%= Html.Encode(Model.Eligibility.CurrentAppointmentPercent) %>%</td>
+                <td class="field-value"><%= Html.Encode(Model.Eligibility.OriginalEligibility.CurrentAppointmentPercent) %>%</td>
             </tr>
             <tr class='odd <%= Model.Eligibility.Committee != Model.Eligibility.OriginalEligibility.Committee ? "Changed" : string.Empty %>'>
                 <td class="field-name">Commitee:</td>
@@ -152,21 +152,21 @@
                 <td class="field-value"><%= Html.Encode(Model.Eligibility.Comment) %></td>
                 <td class="field-value"><%= Html.Encode(Model.Eligibility.OriginalEligibility.Comment) %></td>
             </tr>            
-            <tr class='<%= Model.Eligibility.FinalAction != Model.Eligibility.OriginalEligibility.FinalAction ? "Changed" : string.Empty %>'>
+            <%--<tr class='<%= Model.Eligibility.FinalAction != Model.Eligibility.OriginalEligibility.FinalAction ? "Changed" : string.Empty %>'>
                 <td class="field-name">Final Action:</td>
                 <td class="field-value"><%= Html.Encode(Model.Eligibility.FinalAction) %></td>
                 <td class="field-value"><%= Html.Encode(Model.Eligibility.FinalAction) %></td>
-            </tr>
+            </tr>--%>
             <tr class='odd <%= Model.Eligibility.TPCCode != Model.Eligibility.OriginalEligibility.TPCCode ? "Changed" : string.Empty %>'>
                 <td class="field-name">TPCCode:</td>
                 <td class="field-value"><%= Html.Encode(Model.Eligibility.TPCCode) %></td>
                 <td class="field-value"><%= Html.Encode(Model.Eligibility.OriginalEligibility.TPCCode) %></td>
             </tr>            
-            <tr class='<%= Model.Eligibility.LastUpdated != Model.Eligibility.OriginalEligibility.LastUpdated ? "Changed" : string.Empty %>'>
+            <%--<tr class='<%= Model.Eligibility.LastUpdated != Model.Eligibility.OriginalEligibility.LastUpdated ? "Changed" : string.Empty %>'>
                 <td class="field-name">Last Updated:</td>
                 <td class="field-value"><%= Html.Encode(Model.Eligibility.LastUpdated) %></td>
                 <td class="field-value"><%= Html.Encode(Model.Eligibility.OriginalEligibility.LastUpdated) %></td>
-            </tr>
+            </tr>--%>
             <tr class='odd <%= Model.Eligibility.ProposedAppointmentPercent != Model.Eligibility.OriginalEligibility.ProposedAppointmentPercent ? "Changed" : string.Empty %>'>
                 <td class="field-name">Proposed Appointment %:</td>
                 <td class="field-value"><%= Html.Encode(Model.Eligibility.ProposedAppointmentPercent) %></td>
