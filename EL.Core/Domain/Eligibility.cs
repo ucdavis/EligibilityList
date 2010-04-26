@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
 using EL.Core.Domain;
 
-/// TODO: Fix error when all records are selected due to not having Action Type
+/// FIXED: Fix error when all records are selected due to not having Action Type due to no data in table
 
 namespace EL.Core.Domain
 {
@@ -52,6 +52,14 @@ namespace EL.Core.Domain
 
         [NotNullValidator]
         public virtual int CurrentStep { get; set; }
+
+        public virtual string CurrentStatus
+        {
+            get
+            {
+                return string.Format("{0} {1} {2}", Employee.ID, YearsAtRank, YearsAtStep);
+            }
+        }
 
         [StringLengthValidator(50)]
         public virtual string CurrentBlankTitle { get; set; }

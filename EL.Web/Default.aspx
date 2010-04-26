@@ -35,12 +35,12 @@
                         Text='<%# Eval("YearsAtStep") %>' />
                 </td>
                 <td>
-                    <asp:Label ID="AppointmentPercentLabel" runat="server" 
-                        Text='<%# Eval("AppointmentPercent") %>' />
+                    <asp:Label ID="YearsAcceleratedLabel" runat="server" 
+                        Text='<%# Eval("YearsAccelerated") %>' />
                 </td>
                 <td>
-                    <asp:Label ID="CommitteeIDLabel" runat="server" 
-                        Text='<%# Eval("CommitteeID") %>' />
+                    <asp:Label ID="YearsDeceleratedLabel" runat="server" 
+                        Text='<%# Eval("YearsDecelerated") %>' />
                 </td>
                 <td>
                     <asp:Label ID="TitleCodeLabel" runat="server" Text='<%# Eval("TitleCode") %>' />
@@ -64,15 +64,7 @@
                 <td>
                     <asp:Label ID="ProposedBlankTitleLabel" runat="server" 
                         Text='<%# Eval("ProposedBlankTitle") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="YearsAcceleratedLabel" runat="server" 
-                        Text='<%# Eval("YearsAccelerated") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="YearsDeceleratedLabel" runat="server" 
-                        Text='<%# Eval("YearsDecelerated") %>' />
-                </td>
+                </td>               
                 <td>
                     <asp:CheckBox ID="DeferCheckBox" runat="server" Checked='<%# Eval("Defer") %>' 
                         Enabled="false" />
@@ -138,10 +130,10 @@
                                     Y@R</th>
                                 <th runat="server">
                                     Y@S</th>
-                                <th runat="server">
-                                    AppointmentPercent</th>
-                                <th runat="server">
-                                    CommitteeID</th>
+                                <th id="Th1" runat="server">
+                                    YA</th>
+                                <th id="Th2" runat="server">
+                                    YD</th>
                                 <th runat="server">
                                     TitleCode</th>
                                 <th runat="server">
@@ -154,10 +146,6 @@
                                     ProposedStep</th>
                                 <th runat="server">
                                     ProposedBlankTitle</th>
-                                <th runat="server">
-                                    YearsAccelerated</th>
-                                <th runat="server">
-                                    YearsDecelerated</th>
                                 <th runat="server">
                                     Defer</th>
                                 <th runat="server">
