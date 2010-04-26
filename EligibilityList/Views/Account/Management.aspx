@@ -8,6 +8,9 @@
 
     <h2>User Management</h2>
     
+    <div id="loading">
+        Loading...
+    </div>
     <div style="width: 100%; height: 800px;" align="center">
         <iframe id="frame"  frameborder="0" 
             src='<%= ConfigurationManager.AppSettings["CatbertUserService"] %>' 
@@ -16,4 +19,13 @@
     </div>
 
 
+</asp:Content>
+<asp:Content ContentPlaceHolderID="AdditionalScripts" runat="server">
+    <script type="text/javascript">
+        $(function() {
+            $("#frame").load(function() {
+                $("#loading").hide();
+            });
+        });
+    </script>
 </asp:Content>
