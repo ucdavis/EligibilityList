@@ -224,6 +224,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppSettingsTest.config" />
+    <Content Include="favicon.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
