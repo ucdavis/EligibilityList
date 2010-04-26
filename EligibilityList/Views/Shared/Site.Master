@@ -41,6 +41,9 @@
     <div class="page">
 
         <div id="header">
+            <div id="menu">
+                <% Html.RenderPartial("Menu"); %>
+            </div>
             <div id="logindisplay">
                 <% Html.RenderPartial("LogOnUserControl"); %>
             </div> 

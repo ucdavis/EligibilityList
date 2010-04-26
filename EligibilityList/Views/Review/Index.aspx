@@ -24,8 +24,8 @@
         <table>
             <tr class='<%= Model.Eligibility != Model.Eligibility.OriginalEligibility ? "Changed" : string.Empty %>'>
                 <th></th>
-                <th>Existing</th>
                 <th>Proposed</th>
+                <th>Original</th>
             </tr>
             <tr class='<%= Model.Eligibility.Unit != Model.Eligibility.Unit ? "Changed" : string.Empty %>'>
                 <td class="field-name">Unit:</td>

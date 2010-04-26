@@ -39,7 +39,7 @@ namespace EligibilityList.Controllers
         /// </summary>
         public RedirectToRouteResult Index()
         {
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("ViewPending", "Eligibility");
         }
 
         [AdminOnly]
