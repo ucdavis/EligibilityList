@@ -79,6 +79,8 @@ namespace EligibilityList.Controllers
             {
                 parent.LastUpdated = DateTime.Now;
 
+                var editorEmail = child.EditorEmail;
+
                 // delete the temp
                 Repository.OfType<Eligibility>().Remove(child);
 
@@ -86,7 +88,7 @@ namespace EligibilityList.Controllers
                 if (approve) Repository.OfType<Eligibility>().EnsurePersistent(parent);
 
                 // send a message regardless of status
-                _messageBLL.SendReviewMessage(parent, comments, approve);
+                _messageBLL.SendReviewMessage(parent, comments, approve, editorEmail);
 
                 // redirect to page
                 return this.RedirectToAction<HomeController>(a => a.Index());

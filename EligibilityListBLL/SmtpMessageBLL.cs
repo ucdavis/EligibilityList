@@ -1,4 +1,3 @@
-using System;
 using EligibilityList.Core.Domain;
 using System.Text;
 
@@ -12,7 +11,8 @@ namespace EligibilityListBLL
         /// <param name="modifiedEligibility">Eligibility that was reviewed</param>
         /// <param name="comments">Review Comment</param>
         /// <param name="accepted">True if accepted, false if rejected</param>
-        void SendReviewMessage(Eligibility modifiedEligibility, string comments, bool accepted);
+        /// <param name="editorEmail">Email of the editor who should get a copy of the review</param>
+        void SendReviewMessage(Eligibility modifiedEligibility, string comments, bool accepted, string editorEmail);
     }
 
     public class SmtpMessageBLL : IMessageBLL
@@ -25,10 +25,11 @@ namespace EligibilityListBLL
         /// <param name="modifiedEligibility">Eligibility that was reviewed</param>
         /// <param name="comments">Review Comment</param>
         /// <param name="accepted">True if accepted, false if rejected</param>
-        public void SendReviewMessage(Eligibility modifiedEligibility, string comments, bool accepted)
+        /// <param name="editorEmail">Email of the editor who should get a copy of the review</param>
+        public void SendReviewMessage(Eligibility modifiedEligibility, string comments, bool accepted, string editorEmail)
         {
             //send emails to the editor of this eligibility and the associated analyst
-            //var to = modifiedEligibility.EditorEmail + "; " + modifiedEligibility.AnalystEmail;
+            //var to = editorEmail + "; " + modifiedEligibility.AnalystEmail;
             var to = "srkirkland@ucdavis.edu"; //TODO: remove, testing only
 
             var subject = string.Format(ReviewSubject, modifiedEligibility.Employee.FullName);
@@ -36,7 +37,7 @@ namespace EligibilityListBLL
             var body = new StringBuilder();
             body.AppendLine("Test: " + (accepted ? "Accepted" : "Rejected"));
             body.AppendLine("Test: Comment-- " + comments);
-            body.AppendLine("Test: Would be sent to " + modifiedEligibility.EditorEmail + "; " +
+            body.AppendLine("Test: Would be sent to " + editorEmail + "; " +
                             modifiedEligibility.AnalystEmail);
 
             SendMessage(to, subject, body.ToString());
