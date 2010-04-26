@@ -47,9 +47,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EligibilityListBLL", "Eligi
 EndProject
 Project("{2CFEAB61-6A3B-4EB8-B523-560B4BEEF521}") = "EligibilityList.Deployment", "EligibilityList.Deployment\EligibilityList.Deployment.wdproj", "{D2FB92C4-BFA8-46A5-A9C0-A925ADF5F35F}"
 EndProject
+Project("{4F174C21-8C12-11D0-8340-0000F80270F8}") = "EligibilityList.DB", "EligibilityList.DB\EligibilityList.DB.dbp", "{FBBDAC9A-2014-4FBE-A14C-7B1A5CEC6303}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 6
+		SccNumberOfProjects = 7
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = http://1x:8080/
 		SccLocalPath0 = .
@@ -68,6 +70,9 @@ Global
 		SccProjectUniqueName5 = EligibilityList.Deployment\\EligibilityList.Deployment.wdproj
 		SccProjectName5 = EligibilityList.Deployment
 		SccLocalPath5 = EligibilityList.Deployment
+		SccProjectUniqueName6 = EligibilityList.DB\\EligibilityList.DB.dbp
+		SccProjectName6 = EligibilityList.DB
+		SccLocalPath6 = EligibilityList.DB
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
