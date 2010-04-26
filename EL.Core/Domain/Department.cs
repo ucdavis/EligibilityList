@@ -13,5 +13,10 @@ namespace EL.Core.Domain
         {
 
         }
+
+        public Department(string homeDeptNo)
+        {
+            this.id = homeDeptNo;
+        }
     }
 }

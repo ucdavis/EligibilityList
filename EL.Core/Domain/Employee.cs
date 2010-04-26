@@ -10,10 +10,15 @@ namespace EL.Core.Domain
         public virtual string FirstName { get; set; }
         public virtual string LastName { get; set; }
         public virtual string FullName { get; set; }
-        
+
         public Employee()
         {
 
+        }
+
+        public Employee(string ID)
+        {
+            this.id = ID;
         }
     }
 }

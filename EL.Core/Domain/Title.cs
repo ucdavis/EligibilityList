@@ -13,6 +13,11 @@ namespace EL.Core.Domain
         {
 
         }
+
+        public Title(string ID)
+        {
+            this.id = ID;
+        }
     
     }
 }

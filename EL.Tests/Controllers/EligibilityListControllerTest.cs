@@ -31,6 +31,12 @@ namespace EL.Tests.Controllers
 
         public void LoadData()
         {
+            CreateActionTypes();
+            CreateELs();
+        }
+
+        public void CreateActionTypes()
+        {
             ActionType at = new ActionType();
             ActionType at2 = new ActionType();
 
@@ -43,6 +49,52 @@ namespace EL.Tests.Controllers
                 ActionTypeBLL.EnsurePersistent(ref at2);
 
                 ts.CommittTransaction();
+            }
+        }
+
+        public void CreateELs()
+        {
+            Employee emp = new Employee("999999999")
+            {
+                FirstName = "Scott",
+                LastName = "Kirkland"
+            };
+
+            Department dept = new Department("030000");
+
+            var act = new EL.Core.Domain.Action() { Name = "New Action" };
+
+            Step step = new Step() { Name = "New Step" };
+
+            var title = "7242";
+            
+            Title t = new Title(title) { AbbreviatedName = "Title" };
+            
+
+            Eligibility el = new Eligibility()
+            {
+                CurrentBlankTitle = title,
+                ProposedBlankTitle = title,
+                CurrentTitle = t,
+                TPCCode = title,
+                Comment = "Comment",
+                Action = act,
+                Employee = emp,
+                Department = dept,
+                CurrentStep = step,
+                ProposedStep = step
+            };
+
+            el.OriginalEligibility = el;
+
+            using (var ts = new TransactionScope())
+            {
+                GenericBLL<Employee, string>.EnsurePersistent(ref emp);
+                GenericBLL<Department, string>.EnsurePersistent(ref dept);
+                GenericBLL<EL.Core.Domain.Action, int>.EnsurePersistent(ref act);
+                GenericBLL<Step, int>.EnsurePersistent(ref step);
+                GenericBLL<Title, string>.EnsurePersistent(ref t);
+                EligibilityBLL.EnsurePersistent(ref el);
             }
         }
 

@@ -35,7 +35,8 @@
     <property name="ProposedAppointmentPercent" column="ProposedAppointmentPercent" />
     <property name="IsActive" column="IsActive" />
     
-    <many-to-one name="OriginalEligibility" column="OriginalApptID" class="EL.Core.Domain.Eligibility, EL.Core" not-null="true"></many-to-one>
+    <!--///TODO: Ask Adam if OrigEL needs to be not null-->
+    <many-to-one name="OriginalEligibility" column="OriginalApptID" class="EL.Core.Domain.Eligibility, EL.Core" not-null="false"></many-to-one>
     <many-to-one name="Employee" column="EmployeeID" class="EL.Core.Domain.Employee, EL.Core" not-null="true"></many-to-one>
     <many-to-one name="Department" column="DIST_DEPT_CODE" class="EL.Core.Domain.Department, EL.Core" not-null="true"></many-to-one>
     <many-to-one name="Action" column="ActionID" class="EL.Core.Domain.Action, EL.Core" not-null="true"></many-to-one>
