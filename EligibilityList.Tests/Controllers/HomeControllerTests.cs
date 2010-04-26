@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EligibilityList.Controllers;
+using MvcContrib.TestHelper;
 using UCDArch.Testing;
 
 namespace EligibilityList.Tests.Controllers
@@ -15,6 +16,12 @@ namespace EligibilityList.Tests.Controllers
         protected override void SetupController()
         {
             Controller = new HomeController();
+        }
+
+        [TestMethod]
+        public void RoutingRootGoesToViewPendingPositions()
+        {
+            "~/".ShouldMapTo<HomeController>(a => a.Index());
         }
     }
 }
