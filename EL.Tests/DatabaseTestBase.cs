@@ -104,6 +104,7 @@ namespace EL.Tests
                                       Comment = "Comment",
                                       Action = act,
                                       Employee = emp,
+                                      Dean = emp,
                                       Department = dept,
                                       CurrentStep = step,
                                       ProposedStep = step,
@@ -125,6 +126,7 @@ namespace EL.Tests
                                  Comment = "Comment",
                                  Action = act,
                                  Employee = emp,
+                                 Dean = emp,
                                  Department = dept,
                                  CurrentStep = step,
                                  ProposedStep = step
