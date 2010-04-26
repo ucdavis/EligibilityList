@@ -86,7 +86,7 @@ namespace EL.Tests.Controllers
             bool anyInactive = elData.Where(e => e.IsActive == false).Any();
 
             Assert.IsFalse(anyInactive);
-            Assert.AreEqual(1, elData.Count()); //Should be one active el
+            Assert.AreEqual(25, elData.Count()); //Should be 25 active els
 
         }
 
@@ -157,23 +157,6 @@ namespace EL.Tests.Controllers
 
             Title t = new Title(title) { AbbreviatedName = "Title" };
 
-
-            Eligibility el = new Eligibility()
-            {
-                CurrentBlankTitle = title,
-                ProposedBlankTitle = title,
-                CurrentTitle = t,
-                TPCCode = title,
-                Comment = "Comment",
-                Action = act,
-                Employee = emp,
-                Department = dept,
-                CurrentStep = step,
-                ProposedStep = step
-            };
-
-            el.OriginalEligibility = el;
-
             using (var ts = new TransactionScope())
             {
                 GenericBLL<Employee, string>.EnsurePersistent(ref emp);
@@ -182,18 +165,53 @@ namespace EL.Tests.Controllers
                 GenericBLL<Step, int>.EnsurePersistent(ref step);
                 GenericBLL<Title, string>.EnsurePersistent(ref t);
 
-                EligibilityBLL.EnsurePersistent(ref el);
+                //Create 50 els for testing, all with this el as the "OriginalEligibility"
+                for (int i = 0; i < 50; i++)
+                {
+                    Eligibility elFirst, el;
 
-                NHibernateSessionManager.Instance.GetSession().Evict(el);
-                EntityIdSetter.SetIdOf<int>(el, 0);
+                    if (i == 0) //The first one needs to be different so that every other el can reference it
+                    {
+                        elFirst = new Eligibility()
+                        {
+                            CurrentBlankTitle = title,
+                            ProposedBlankTitle = title,
+                            CurrentTitle = t,
+                            TPCCode = title,
+                            Comment = "Comment",
+                            Action = act,
+                            Employee = emp,
+                            Department = dept,
+                            CurrentStep = step,
+                            ProposedStep = step,
+                            IsActive = true
+                        };
 
-                EligibilityBLL.EnsurePersistent(ref el);
+                        elFirst.OriginalEligibility = elFirst;
 
-                NHibernateSessionManager.Instance.GetSession().Evict(el);
-                EntityIdSetter.SetIdOf<int>(el, 0);
-                el.IsActive = true; //Set this one active
+                        EligibilityBLL.EnsurePersistent(ref elFirst);
+                    }
+                    else
+                    {
+                        el = new Eligibility()
+                        {
+                            CurrentBlankTitle = title,
+                            ProposedBlankTitle = title,
+                            CurrentTitle = t,
+                            TPCCode = title,
+                            Comment = "Comment",
+                            Action = act,
+                            Employee = emp,
+                            Department = dept,
+                            CurrentStep = step,
+                            ProposedStep = step
+                        };
 
-                EligibilityBLL.EnsurePersistent(ref el);
+                        el.IsActive = i < 25; //The first 25 get active, the second fifty are inactive
+
+                        EligibilityBLL.EnsurePersistent(ref el); //Save this el
+                    }
+                }
 
                 ts.CommittTransaction();
             }
