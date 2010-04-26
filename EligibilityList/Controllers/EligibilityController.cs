@@ -39,6 +39,27 @@ namespace EligibilityList.Controllers
             return View();
         }
 
+        public ActionResult FindEmployee(string id /* Payroll Department Code */)
+        {
+            var viewModel = FindEmployeeViewModel.Create(Repository, _userBLL.GetUnitsByUser(CurrentUser), id);
+
+            if (string.IsNullOrEmpty(id))
+            {
+                Message = "You Must Select a Department";
+            }
+            else
+            {
+                Message = string.Empty;
+
+                var employees =
+                    Repository.OfType<PayrollPerson>().Queryable.Where(x => x.Department == id).OrderBy(x => x.Name);
+
+                viewModel.PayrollPersons = employees.ToList();
+            }
+
+            return View(viewModel);
+        }
+
         public ActionResult Details(int id)
         {
             var el = _eligibilityRepository.GetNullableByID(id);
@@ -248,6 +269,28 @@ namespace EligibilityList.Controllers
 
         public IEnumerable<Unit> Units { get; set; }
         public IEnumerable<Eligibility> Eligibilities { get; set; }
+
+        public Unit Unit { get; set; }
+    }
+
+
+    public class FindEmployeeViewModel
+    {
+        public static FindEmployeeViewModel Create(IRepository repository, IEnumerable<Unit> userUnits, string payrollDepartmentCode)
+        {
+            var viewModel = new FindEmployeeViewModel
+            {
+                Units = userUnits.Where(x=>!string.IsNullOrEmpty(x.PPSCode)),
+                Unit =
+                    repository.OfType<Unit>().Queryable.Where(x => x.PPSCode == payrollDepartmentCode).FirstOrDefault(),
+                PayrollPersons = new List<PayrollPerson>()
+            };
+
+            return viewModel;
+        }
+
+        public IEnumerable<Unit> Units { get; set; }
+        public IEnumerable<PayrollPerson> PayrollPersons { get; set; }
 
         public Unit Unit { get; set; }
     }

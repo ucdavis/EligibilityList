@@ -7,6 +7,11 @@
     <id name="Id" column="ID" unsaved-value="0">
       <generator class="assigned" />
     </id>
-    
+
+      <property name="Name" column="FullName" />
+      <property name="TitleCode" />
+      <property name="EmployeeID" />
+      <property name="Department" />
+      
   </class>
 </hibernate-mapping>
