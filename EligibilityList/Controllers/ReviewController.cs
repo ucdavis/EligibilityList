@@ -1,5 +1,6 @@
 using System.Web.Mvc;
 using EligibilityList.Core.Domain;
+using EligibilityList.Helpers;
 using MvcContrib.Attributes;
 using UCDArch.Core.PersistanceSupport;
 using UCDArch.Core.Utils;
@@ -9,6 +10,7 @@ using UCDArch.Web.Helpers;
 
 namespace EligibilityList.Controllers
 {
+    [AdminOnly]
     public class ReviewController : SuperController
     {
         /// <summary>
@@ -98,7 +100,7 @@ namespace EligibilityList.Controllers
         {
             Check.Require(repository != null, "Repository is required.");
 
-            var viewModel = new ElibiilityReviewViewModel() {};
+            var viewModel = new ElibiilityReviewViewModel();
 
             return viewModel;
         }

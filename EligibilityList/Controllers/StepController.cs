@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using EligibilityList.Core.Domain;
+using EligibilityList.Helpers;
 using UCDArch.Core.PersistanceSupport;
 using UCDArch.Web.Controller;
 using UCDArch.Web.Helpers;
@@ -11,6 +12,7 @@ namespace EligibilityList.Controllers
     /// <summary>
     /// CRUD for Step
     /// </summary>
+    [AdminOnly]
     public class StepController : SuperController
     {
         private readonly IRepository<Step> _stepRepository;

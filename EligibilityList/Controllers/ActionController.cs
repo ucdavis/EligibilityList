@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Web.Mvc;
+using EligibilityList.Helpers;
 using UCDArch.Web.Controller;
 using UCDArch.Web.Helpers;
 using Action=EligibilityList.Core.Domain.Action;
@@ -8,6 +9,7 @@ using UCDArch.Core.PersistanceSupport;
 
 namespace EligibilityList.Controllers
 {
+    [AdminOnly]
     public class ActionController : SuperController
     {
         private readonly IRepository<Action> _actionRepository;
