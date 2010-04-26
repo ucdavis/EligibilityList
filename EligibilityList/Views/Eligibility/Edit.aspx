@@ -16,6 +16,7 @@
         <%= Html.AntiForgeryToken() %>
         
         <%= Html.Hidden("Employee", Model.Eligibility.Employee.Id) %>
+        <%= Html.Hidden("HasOriginalEligibility", Model.Eligibility.OriginalEligibility != null) %>
         
         <fieldset>
             <legend>Fields</legend>

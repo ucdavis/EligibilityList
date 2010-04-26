@@ -103,20 +103,19 @@ namespace EligibilityList.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Edit(int id, Eligibility eligibility)
+        public ActionResult Edit(int id, Eligibility eligibility, bool hasOriginalEligibility)
         {
             var eligibilityToEdit = new Eligibility();
 
-            if (eligibility.OriginalEligibility != null)
+            if (hasOriginalEligibility)
             {
                 //If there is an original, just grab this version out and we'll save over it
                 eligibilityToEdit = _eligibilityRepository.GetNullableByID(id);
-
                 Check.Require(eligibilityToEdit != null);
             }
             else
             {
-                //Set the original eligibility of the new EL to this currentID
+                //We don't have an original eligibility, need to create one for this id
                 eligibilityToEdit.OriginalEligibility = _eligibilityRepository.GetById(id);
             }
 
