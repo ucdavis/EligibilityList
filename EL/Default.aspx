@@ -14,15 +14,9 @@
                     <asp:Label ID="NameLabel" runat="server" 
                         Text='<%# Eval("Employee.FullName") %>' />
                 </td>
-                <%--<td>
-                    <asp:Label ID="DeptLabel" runat="server" Text='<%# Eval("DeptCode") %>' />
-                </td>--%>
                 <td>
                     <asp:Label ID="DeptLabel" runat="server" Text='<%# Eval("Department.Abbreviation") %>' />
                 </td>
-                <%--<td>
-                    <asp:Label ID="ActionIDLabel" runat="server" Text='<%# Eval("ActionID") %>' />
-                </td>--%>
                 <td>
                     <asp:Label ID="ActionIDLabel" runat="server" Text='<%# Eval("Action.Name") %>' />
                 </td>
