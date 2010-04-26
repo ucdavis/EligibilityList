@@ -52,7 +52,7 @@ namespace EligibilityList.Controllers
         [AcceptPost]
         public ActionResult Index(int id, string reviewAction, string comments)
         {
-            return RedirectToAction("Index"); //TODO: For testing only so there are no saves
+            //return RedirectToAction("Index"); //TODO: For testing only so there are no saves
             
             var child = Repository.OfType<Eligibility>().GetNullableByID(id);
 
@@ -66,16 +66,13 @@ namespace EligibilityList.Controllers
 
             bool approve = reviewAction == "Approve";
 
-            if (approve == false && reviewAction != "Deny") throw new ArgumentException("Must Either Approve or Deny an Eligibility");
+            if (approve == false && reviewAction != "Deny") ModelState.AddModelError("ReviewAction", "Must Either Approve or Deny an Eligibility");
 
             if (approve)
             {
                 // copy the changes
                 CopyHelper.TransferValuesTo(child, parent);
             }
-
-            // save comment  //TODO: We probably don't want to save the comments
-            //parent.Comment = comments;
 
             // validate the parent
             parent.TransferValidationMessagesTo(ModelState);
@@ -85,8 +82,11 @@ namespace EligibilityList.Controllers
                 // delete the temp
                 Repository.OfType<Eligibility>().Remove(child);
 
-                // save the parent
-                Repository.OfType<Eligibility>().EnsurePersistent(parent);
+                // save the parent, only if approved, otherwise toss
+                if (approve) Repository.OfType<Eligibility>().EnsurePersistent(parent);
+
+                // send a message regardless of status
+                _messageBLL.SendReviewMessage(parent, comments, approve);
 
                 // redirect to page
                 return this.RedirectToAction<HomeController>(a => a.Index());
@@ -98,11 +98,6 @@ namespace EligibilityList.Controllers
             viewModel.Comment = comments;
 
             return View(viewModel);
-        }
-
-        private Eligibility Copy(Eligibility source, Eligibility dest)
-        {
-            return dest;
         }
     }
 

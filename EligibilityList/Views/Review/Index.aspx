@@ -186,7 +186,7 @@
             <label>Review Comments (will be included in the confirmation email)</label><br />
             <%= this.TextArea("comments").Rows(10).Columns(50) %>
             
-            <%= this.RadioSet("reviewaction").Options(new[] { "Accept", "Deny" }).Selected("Accept") %>
+            <%= this.RadioSet("reviewAction").Options(new[] { "Approve", "Deny" }) %>
             
             <input type="submit" value="Perform Review" />
             
