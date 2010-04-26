@@ -1,5 +1,6 @@
 using System.Web.Mvc;
 using UCDArch.Web.Authentication;
+using System.Web.Security;
 
 namespace EligibilityList.Controllers
 {
@@ -17,6 +18,13 @@ namespace EligibilityList.Controllers
             TempData["URL"] = returnUrl;
 
             return View();
+        }
+
+        public RedirectToRouteResult LogOff()
+        {
+            FormsAuthentication.SignOut();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -12,7 +12,7 @@ namespace EligibilityList.Controllers
     /// <summary>
     /// Eligibility list controller
     /// </summary>
-    [Authorize]
+    [Authorize(Roles="Admin,User")]
     public class EligibilityController : SuperController
     {
         private readonly IRepository<Eligibility> _eligibilityRepository;
