@@ -82,6 +82,7 @@
     <Compile Include="Domain\Unit.cs" />
     <Compile Include="Domain\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\EligibilityListQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Domain\Action.hbm.xml" />
@@ -97,6 +98,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Domain\PayrollPerson.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Queries\EligibilityListQuery.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

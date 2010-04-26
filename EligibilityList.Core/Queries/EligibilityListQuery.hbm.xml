@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <class name="EligibilityList.Core.Queries.EligibilityListQuery, EligibilityList.Core" table="vEligibilityListQuery" mutable="false">
+    <id name="Id" column="AppointmentID" unsaved-value="0">
+      <generator class="identity" />
+    </id>
+
+      <property name="Name" />
+      <property name="ActionType" />
+      <property name="YearsAtRank" />
+      <property name="YearsAtStep" />
+      <property name="YearsAccelerated" />
+      <property name="YearsDecelerated" />
+      <property name="Committee" />
+      <property name="DateDue" />
+      <property name="Defer" />
+      <property name="HasOriginalEligibility" />
+      <property name="CurrentAppointmentPercent" />
+      <property name="CurrentTitle" />
+      <property name="CurrentStep" />
+      <property name="ProposedAppointmentPercent" />
+      <property name="ProposedTitle" />
+      <property name="ProposedStep" />
+      
+  </class>
+
+</hibernate-mapping>
