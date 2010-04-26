@@ -1,7 +1,7 @@
-using CAESDO.EL.Core.Domain;
+using EL.Core.Domain;
 using System.Collections.Generic;
 
-namespace CAESDO.EL.Core.DataInterfaces
+namespace EL.Core.DataInterfaces
 {
     /// <summary>
     /// Provides an interface for retrieving DAO objects

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Practices.EnterpriseLibrary.Validation;
 
-namespace CAESDO.EL.Core.Domain
+namespace EL.Core.Domain
 {
     public static class ValidateBO<T>
     {

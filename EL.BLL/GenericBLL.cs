@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
-using CAESDO.EL.Core.DataInterfaces;
-using CAESDO.EL.Core.Domain;
+using EL.Core.DataInterfaces;
+using EL.Core.Domain;
 using CAESDO.EL.Data;
 
 namespace CAESDO.EL.BLL

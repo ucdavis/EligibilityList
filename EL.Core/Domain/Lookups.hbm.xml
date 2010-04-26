@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <!-- One class definition for each lookup-->
+  <class name="EL.Core.Domain.ActionType, EL.Core" table="ActionTypes">
+    <id name="id" access="field" column="ActionTypeID" unsaved-value="0">
+      <generator class="identity" />      
+    </id>
+
+    <property name="Name" column="Name" />
+    <property name="IsActive" column="IsActive" />    
+    
+  </class>
+  
+</hibernate-mapping>

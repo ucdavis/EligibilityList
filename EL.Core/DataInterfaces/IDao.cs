@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace CAESDO.EL.Core.DataInterfaces
+namespace EL.Core.DataInterfaces
 {
     public interface IDao<T, IdT>
     {

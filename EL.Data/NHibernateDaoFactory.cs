@@ -1,5 +1,5 @@
-using CAESDO.EL.Core.DataInterfaces;
-using CAESDO.EL.Core.Domain;
+using EL.Core.DataInterfaces;
+using EL.Core.Domain;
 using System.Collections.Generic;
 using NHibernate;
 using NHibernate.Expression;

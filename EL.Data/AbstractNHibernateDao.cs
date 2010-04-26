@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using NHibernate;
 using NHibernate.Expression;
-using CAESDO.EL.Core.DataInterfaces;
+using EL.Core.DataInterfaces;
 
 namespace CAESDO.EL.Data
 {
