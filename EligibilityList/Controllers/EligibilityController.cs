@@ -10,7 +10,6 @@ using EligibilityListBLL;
 using UCDArch.Web.Helpers;
 using Action=EligibilityList.Core.Domain.Action;
 using MvcContrib;
-using System.Collections.Specialized;
 
 namespace EligibilityList.Controllers
 {
@@ -189,6 +188,32 @@ namespace EligibilityList.Controllers
             viewModel.Eligibility = new Eligibility
                                         {Employee = employee, CurrentTitle = title, ProposedTitle = title, Unit = dept };
 
+
+            return View(viewModel);
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Add(int id, Eligibility eligibility)
+        {
+            var eligibilityToEdit = new Eligibility();
+            
+            TransferValuesTo(eligibility, eligibilityToEdit);
+
+            eligibilityToEdit.TransferValidationMessagesTo(ModelState);
+
+            if (ModelState.IsValid)
+            {
+                eligibilityToEdit.LastUpdated = DateTime.Now;
+
+                _eligibilityRepository.EnsurePersistent(eligibilityToEdit);
+
+                Message = "Eligibility Saved Successfully";
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            var viewModel = EligibilityModifyViewModel.Create(Repository, _userBLL);
+            viewModel.Eligibility = eligibility;
 
             return View(viewModel);
         }
