@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Globalization;
 using System.IO;
 using System.Net;
-using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -22,8 +20,6 @@ namespace EL.Web.Controllers
             if (resultUrl != null)
             {
                 return Redirect(resultUrl);
-
-                //result.ExecuteResult(ControllerContext);
             }
             
             ViewData["URL"] = returnUrl;
@@ -38,7 +34,6 @@ namespace EL.Web.Controllers
 
         private const string StrCasUrl = "https://cas.ucdavis.edu:8443/cas/";
         private const string StrTicket = "ticket";
-        private const string StrReturnUrl = "ReturnURL";
 
         /// <summary>
         /// Login to the campus DistAuth system using CAS        
@@ -113,18 +108,6 @@ namespace EL.Web.Controllers
                         {
                             return FormsAuthentication.DefaultUrl;
                         }
-
-                        /*
-                        // redirect to original url
-                        string returnURL = context.Request.QueryString[StrReturnUrl];
-
-                        if (returnURL == null)
-                            returnURL = FormsAuthentication.DefaultUrl;
-
-                        context.Response.Redirect(returnURL);
-
-                        return;
-                         */
                     }
                 }
 
