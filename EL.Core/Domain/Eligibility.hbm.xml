@@ -7,7 +7,7 @@
     </id>
     
     <!--<property name="DeptCode" column="DIST_DEPT_CODE" />-->    
-    <property name="DeanID" column="DADAssociateDeanID" />
+    <!--<property name="DeanID" column="DADAssociateDeanID" />-->
     <property name="AnalystID" column="AnalystID" />
     <!--<property name="ActionID" column="ActionID" />-->
     <property name="YearsAtRank" column="YearsAtRank" />

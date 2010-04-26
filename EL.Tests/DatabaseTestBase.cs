@@ -15,7 +15,7 @@ namespace EL.Tests
         {
             Configuration config = new Configuration().Configure();
             //Create the DB using the schema export
-            new NHibernate.Tool.hbm2ddl.SchemaExport(config).Execute(false, true, false, true,
+            new NHibernate.Tool.hbm2ddl.SchemaExport(config).Execute(false, true, false,
                                                                      CAESArch.Data.NHibernate.NHibernateSessionManager.
                                                                          Instance.GetSession().Connection, null);
 
