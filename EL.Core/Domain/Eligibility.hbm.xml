@@ -1,12 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
 
-  <class name="EL.Core.Eligibility, EL.Core" table="EligibilityList">
-    <id name="id" access="field" column="EligibilityID" unsaved-value="0">
+  <class name="EL.Core.Domain.Eligibility, EL.Core" table="EligibilityList">
+    <id name="id" access="field" column="AppointmentID" unsaved-value="0">
       <generator class="identity" />
     </id>
     
-    <property name="AppointmentID" column="AppointmentID" />
     <property name="EmployeeID" column="EmployeeID" />
     <property name="DeptCode" column="DIST_DEPT_CODE" />
     <property name="DeanID" column="DADAssociateDeanID" />

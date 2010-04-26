@@ -13,9 +13,6 @@ namespace EL.Core.Domain
         public Eligibility(){}
 
         [NotNullValidator]
-        public virtual int AppointmentID { get; set; }
-
-        [NotNullValidator]
         [StringLengthValidator(9)]
         public virtual string EmployeeID { get; set; }
 
@@ -57,36 +54,36 @@ namespace EL.Core.Domain
         [StringLengthValidator(4)]
         public virtual string ProposedTitleCode { get; set; }
 
-        public virtual int ProposedStep { get; set; }
+        public virtual int? ProposedStep { get; set; }
 
         [StringLengthValidator(50)]
         public virtual string ProposedBlankTitle { get; set; }
 
-        public virtual int YearsAccelerated { get; set; }
+        public virtual int? YearsAccelerated { get; set; }
 
-        public virtual int YearsDecelerated { get; set; }
+        public virtual int? YearsDecelerated { get; set; }
 
-        public virtual bool Defer { get; set; }
+        public virtual bool? Defer { get; set; }
 
-        public virtual DateTime DateDue { get; set; }
+        public virtual DateTime? DateDue { get; set; }
 
-        public virtual DateTime DateToCommittee { get; set; }
+        public virtual DateTime? DateToCommittee { get; set; }
 
-        public virtual DateTime DateCommitteeReceived { get; set; }
+        public virtual DateTime? DateCommitteeReceived { get; set; }
 
-        public virtual DateTime DateEffective { get; set; }
+        public virtual DateTime? DateEffective { get; set; }
 
         [StringLengthValidator(2048)]
         public virtual string Comment { get; set; }
 
-        public virtual bool FinalAction { get; set; }
+        public virtual bool? FinalAction { get; set; }
 
         [StringLengthValidator(4)]
         public virtual string TPCCode { get; set; }
 
-        public virtual int AppNum { get; set; }
+        public virtual int? AppNum { get; set; }
 
-        public virtual DateTime LastUpdated { get; set; }
+        public virtual DateTime? LastUpdated { get; set; }
 
         [NotNullValidator]
         public virtual decimal ProposedAppointmentPercent { get; set; }

@@ -4,11 +4,16 @@ using NHibernate;
 using NHibernate.Expression;
 using EL.Core.DataInterfaces;
 using System.Linq;
-
+using NHibernate.Linq;
 namespace CAESDO.EL.Data
 {
     public abstract class AbstractNHibernateDao<T, IdT> : IDao<T, IdT>
     {
+        public IQueryable<T> GetQueryable()
+        {
+            return (IQueryable<T>)NHibernateSession.Linq<T>();
+        }
+        
         /// <summary>
         /// Loads an instance of type T from the DB based on its ID.
         /// </summary>

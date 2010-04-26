@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text;
 using EL.BLL;
+using EL.Core.Domain;
 
 public partial class _Default : System.Web.UI.Page
 {
@@ -16,9 +17,6 @@ public partial class _Default : System.Web.UI.Page
     
     protected void Page_Load(object sender, EventArgs e)
     {
-        //StringBuilder s = new StringBuilder("Hello, ");
-        //string t = ActionTypeBLL.GetAll().ToString();
-        //s.Append(t);
-        //Response.Write(s);
+        //List<Eligibility> all = EligibilityBLL.GetAll();
     }
 }

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using EL.Core.DataInterfaces;
 using EL.Core.Domain;
 using CAESDO.EL.Data;
+using System.Linq;
 
 namespace CAESDO.EL.BLL
 {
@@ -16,6 +17,14 @@ namespace CAESDO.EL.BLL
             get
             {
                 return new CAESDO.EL.Data.NHibernateDaoFactory();
+            }
+        }
+
+        public static IQueryable<T> Queryable
+        {
+            get
+            {
+                return daoFactory.GetGenericDao<T, IdT>().GetQueryable();
             }
         }
 
