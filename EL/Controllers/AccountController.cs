@@ -17,16 +17,18 @@ namespace EL.Web.Controllers
         {
             var helper = new CASHelper();
 
-            helper.CASLogin(ControllerContext.HttpContext); //Do the CAS Login
+            string resultUrl = helper.CASLogin(ControllerContext.HttpContext, returnUrl); //Do the CAS Login
 
-            if (!String.IsNullOrEmpty(returnUrl))
+            if (resultUrl != null)
             {
-                return Redirect(returnUrl);
+                return Redirect(resultUrl);
+
+                //result.ExecuteResult(ControllerContext);
             }
-            else
-            {
-                return RedirectToAction("Index", "Home");
-            }
+            
+            ViewData["URL"] = returnUrl;
+
+            return View();
         }
     }
 
@@ -41,7 +43,7 @@ namespace EL.Web.Controllers
         /// <summary>
         /// Login to the campus DistAuth system using CAS        
         /// </summary>
-        public void CASLogin(HttpContextBase context)
+        public string CASLogin(HttpContextBase context, string returnUrl)
         {
             string loginUrl = StrCasUrl;
 
@@ -103,6 +105,15 @@ namespace EL.Web.Controllers
                         // set forms authentication ticket
                         FormsAuthentication.SetAuthCookie(kerberos, false);
 
+                        if (!String.IsNullOrEmpty(returnUrl))
+                        {
+                            return returnUrl;
+                        }
+                        else
+                        {
+                            return FormsAuthentication.DefaultUrl;
+                        }
+
                         /*
                         // redirect to original url
                         string returnURL = context.Request.QueryString[StrReturnUrl];
@@ -114,14 +125,14 @@ namespace EL.Web.Controllers
 
                         return;
                          */
-
-                        return; //Finished with the signIn
                     }
                 }
 
                 // ticket doesn't exist or is invalid so redirect user to CAS login
                 context.Response.Redirect(loginUrl + "login?service=" + service);
             }
+
+            return null;
         }
         #endregion
     }

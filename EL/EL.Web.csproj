@@ -92,7 +92,6 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Views\Account\CASLogOn.aspx" />
     <Content Include="Views\EligibilityList\Edit.aspx" />
     <Content Include="Views\EligibilityList\Show.aspx" />
     <Content Include="Web.config" />
@@ -125,6 +124,10 @@
       <Project>{833A856A-73BB-470F-93AF-B5BD4F16841E}</Project>
       <Name>EL.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\CASLogOn.aspx" />
+    <Content Include="Views\Account\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
