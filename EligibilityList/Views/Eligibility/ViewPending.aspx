@@ -19,14 +19,19 @@
         });
     </script>
 
-    <h2>Viewing Eligibilities for <%= Model.Unit == null ? "All units" : Model.Unit.FullName %></h2>
-    
-    <%= this.Select("Units")
-            .Options(Model.Units, x=>x.FISCode, x=>x.ShortName)
-            .Selected(Model.Unit == null ? string.Empty : Model.Unit.FISCode)
-            .FirstOption("--Select A Unit--")
-            .Label("Select Unit: ")
-    %>
+    <h2>Viewing Pending Eligibilities for <%= Model.Unit == null ? "All units" : Model.Unit.FullName %></h2>
+
+    <p>
+        <%= Html.ActionLink("Click here to view all Eligibilities", "ViewByDepartment") %>
+    </p>
+    <p>
+        <%= this.Select("Units")
+                .Options(Model.Units, x=>x.FISCode, x=>x.ShortName)
+                .Selected(Model.Unit == null ? string.Empty : Model.Unit.FISCode)
+                .FirstOption("-- All Units --")
+                .Label("Select Unit: ")
+        %>
+    </p>
 
     <%Html.Grid(Model.Eligibilities)
               .Transactional()
