@@ -19,9 +19,12 @@
       <property name="CurrentAppointmentPercent" />
       <property name="CurrentTitle" />
       <property name="CurrentStep" />
+      <property name="CurrentStatus" />
       <property name="ProposedAppointmentPercent" />
       <property name="ProposedTitle" />
       <property name="ProposedStep" />
+      <property name="ProposedStatus" />
+      <property name="FisCode" />
       
   </class>
 

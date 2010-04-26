@@ -11,6 +11,7 @@ using EligibilityListBLL;
 using UCDArch.Web.Helpers;
 using Action=EligibilityList.Core.Domain.Action;
 using MvcContrib;
+using EligibilityList.Core.Queries;
 
 namespace EligibilityList.Controllers
 {
@@ -76,6 +77,17 @@ namespace EligibilityList.Controllers
 
             return View(el);
         }
+
+        public ActionResult Testing()
+        {
+            var els = Repository.OfType<EligibilityListQuery>().Queryable;
+
+            els = els.Where(x=>x.HasOriginalEligibility && x.FisCode == "AENT");
+
+            els.ToList();
+
+            return Content("Testing");
+        }
         
         /// <summary>
         /// Return a list of all eligible faculty appointments
@@ -86,16 +98,16 @@ namespace EligibilityList.Controllers
             var userUnits = _userBLL.GetUnitsByUser(CurrentUser).ToList();
             var unitFisCodes = userUnits.Select(x => x.FISCode).ToList();
             
-            var eligibilities = _eligibilityRepository.Queryable;
+            var eligibilities = Repository.OfType<EligibilityListQuery>().Queryable;
 
             //If an FIS id was passed and the user has that FISCode in their units list
             if (!string.IsNullOrEmpty(id) && unitFisCodes.Contains(id))
             {
-                eligibilities = eligibilities.Where(x=>x.Unit.FISCode == id);
+                eligibilities = eligibilities.Where(x=>x.FisCode == id);
             }
             else //else just get all ELs that are assoc. with their unit list
             {
-                eligibilities = eligibilities.Where(x => unitFisCodes.Contains(x.Unit.FISCode));
+                eligibilities = eligibilities.Where(x => unitFisCodes.Contains(x.FisCode));
             }
 
             var viewModel = ViewByDepartmentViewModel.Create(Repository, userUnits, id);
@@ -109,17 +121,17 @@ namespace EligibilityList.Controllers
         {
             var userUnits = _userBLL.GetUnitsByUser(CurrentUser).ToList();
             var unitFisCodes = userUnits.Select(x => x.FISCode).ToList();
-            
-            var eligibilities = _eligibilityRepository.Queryable.Where(x=>x.OriginalEligibility != null /*Only get the ones which modify other ELs*/);
+
+            var eligibilities = Repository.OfType<EligibilityListQuery>().Queryable.Where(x => x.HasOriginalEligibility /*Only get the ones which modify other ELs*/);
 
             //If an FIS id was passed and the user has that FISCode in their units list
             if (!string.IsNullOrEmpty(id) && unitFisCodes.Contains(id))
             {
-                eligibilities = eligibilities.Where(x => x.Unit.FISCode == id);
+                eligibilities = eligibilities.Where(x => x.FisCode == id);
             }
             else //else just get all ELs that are assoc. with their unit list
             {
-                eligibilities = eligibilities.Where(x => unitFisCodes.Contains(x.Unit.FISCode));
+                eligibilities = eligibilities.Where(x => unitFisCodes.Contains(x.FisCode));
             }
 
             var viewModel = ViewByDepartmentViewModel.Create(Repository, userUnits, id);
@@ -337,7 +349,7 @@ namespace EligibilityList.Controllers
         }
 
         public IEnumerable<Unit> Units { get; set; }
-        public IEnumerable<Eligibility> Eligibilities { get; set; }
+        public IEnumerable<EligibilityListQuery> Eligibilities { get; set; }
 
         public Unit Unit { get; set; }
     }

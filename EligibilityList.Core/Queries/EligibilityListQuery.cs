@@ -9,6 +9,8 @@ namespace EligibilityList.Core.Queries
 
         public virtual string ActionType { get; set; }
 
+        public virtual string FisCode { get; set; }
+
         public virtual int YearsAtRank { get; set; }
         public virtual int YearsAtStep { get; set; }
         public virtual int? YearsAccelerated { get; set; }
@@ -24,28 +26,11 @@ namespace EligibilityList.Core.Queries
         public virtual decimal CurrentAppointmentPercent { get; set; }
         public virtual string CurrentTitle { get; set; }
         public virtual string CurrentStep { get; set; }
+        public virtual string CurrentStatus { get; set; }
 
         public virtual decimal ProposedAppointmentPercent { get; set; }
         public virtual string ProposedTitle { get; set; }
         public virtual string ProposedStep { get; set; }
-
-        public virtual string CurrentStatus
-        {
-            get
-            {
-                return string.Format("{0} Step:{1} {2}%", CurrentTitle, CurrentStep, CurrentAppointmentPercent);
-            }
-        }
-
-        public virtual string ProposedStatus
-        {
-            get
-            {
-                if (ProposedTitle == null)
-                    return "No Title";
-                else
-                    return string.Format("{0} Step:{1} {2}%", ProposedTitle, ProposedStep, ProposedAppointmentPercent);
-            }
-        }
+        public virtual string ProposedStatus { get; set; }
     }
 }
