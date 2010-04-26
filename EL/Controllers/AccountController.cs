@@ -13,9 +13,7 @@ namespace EL.Web.Controllers
     {
         public ActionResult CASLogOn(string returnUrl)
         {
-            var helper = new CASHelper();
-
-            string resultUrl = helper.CASLogin(returnUrl); //Do the CAS Login
+            string resultUrl = CASHelper.Login(); //Do the CAS Login
 
             if (resultUrl != null)
             {
@@ -28,7 +26,7 @@ namespace EL.Web.Controllers
         }
     }
 
-    public class CASHelper
+    public static class CASHelper
     {
         #region CAS
 
@@ -36,15 +34,26 @@ namespace EL.Web.Controllers
         private const string StrTicket = "ticket";
         private const string StrReturnUrl = "ReturnURL";
 
-        public string GetReturnUrl()
+        public static string GetReturnUrl()
         {
             return HttpContext.Current.Request.QueryString[StrReturnUrl];
         }
 
         /// <summary>
+        /// Performs the CAS Login and automatically redirects to the desired page, if possible.
+        /// Will do nothing if the user is already authenticated
+        /// </summary>
+        public static void LoginAndRedirect()
+        {
+            string returnUrl = Login();
+
+            if (returnUrl != null) HttpContext.Current.Response.Redirect(returnUrl);
+        }
+
+        /// <summary>
         /// Login to the campus DistAuth system using CAS        
         /// </summary>
-        public string CASLogin(string returnUrl)
+        public static string Login()
         {
             string loginUrl = StrCasUrl;
 
@@ -106,6 +115,8 @@ namespace EL.Web.Controllers
 
                         // set forms authentication ticket
                         FormsAuthentication.SetAuthCookie(kerberos, false);
+
+                        string returnUrl = GetReturnUrl();
 
                         if (!String.IsNullOrEmpty(returnUrl))
                         {
