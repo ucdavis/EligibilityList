@@ -14,7 +14,7 @@ namespace EligibilityList.Tests.Controllers
 
         protected override void SetupController()
         {
-            Controller = new EligibilityController(null, null);
+            Controller = new EligibilityController(null, null, null);
         }
     }
 }

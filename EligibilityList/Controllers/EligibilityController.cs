@@ -22,16 +22,19 @@ namespace EligibilityList.Controllers
     public class EligibilityController : SuperController
     {
         private readonly IRepository<Eligibility> _eligibilityRepository;
+        private readonly IRepository<EligibilityListQuery> _eligibilityListQueryRepository;
         private readonly IUserBLL _userBLL;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="eligibilityRepository"></param>
+        /// <param name="eligibilityListQueryRepository"></param>
         /// <param name="userBLL"></param>
-        public EligibilityController(IRepository<Eligibility> eligibilityRepository, IUserBLL userBLL)
+        public EligibilityController(IRepository<Eligibility> eligibilityRepository, IRepository<EligibilityListQuery> eligibilityListQueryRepository, IUserBLL userBLL)
         {
             _eligibilityRepository = eligibilityRepository;
+            _eligibilityListQueryRepository = eligibilityListQueryRepository;
             _userBLL = userBLL;
         }
 
@@ -98,7 +101,7 @@ namespace EligibilityList.Controllers
             var userUnits = _userBLL.GetUnitsByUser(CurrentUser).ToList();
             var unitFisCodes = userUnits.Select(x => x.FISCode).ToList();
             
-            var eligibilities = Repository.OfType<EligibilityListQuery>().Queryable;
+            var eligibilities = _eligibilityListQueryRepository.Queryable;
 
             //If an FIS id was passed and the user has that FISCode in their units list
             if (!string.IsNullOrEmpty(id) && unitFisCodes.Contains(id))
@@ -122,7 +125,7 @@ namespace EligibilityList.Controllers
             var userUnits = _userBLL.GetUnitsByUser(CurrentUser).ToList();
             var unitFisCodes = userUnits.Select(x => x.FISCode).ToList();
 
-            var eligibilities = Repository.OfType<EligibilityListQuery>().Queryable.Where(x => x.HasOriginalEligibility /*Only get the ones which modify other ELs*/);
+            var eligibilities = _eligibilityListQueryRepository.Queryable.Where(x => x.HasOriginalEligibility /*Only get the ones which modify other ELs*/);
 
             //If an FIS id was passed and the user has that FISCode in their units list
             if (!string.IsNullOrEmpty(id) && unitFisCodes.Contains(id))
