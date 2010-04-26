@@ -37,7 +37,7 @@
   <ItemGroup>
     <Reference Include="CAESArch.BLL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=667f3cb07abadf4b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\EL\bin\CAESArch.BLL.dll</HintPath>
+      <HintPath>..\Bin\CAESArch.BLL.dll</HintPath>
     </Reference>
     <Reference Include="CAESArch.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=667f3cb07abadf4b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
