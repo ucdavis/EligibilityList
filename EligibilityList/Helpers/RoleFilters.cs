@@ -37,5 +37,6 @@ namespace EligibilityList.Helpers
         public static readonly string Admin = "Admin"; //Adminstrator /Analyst
         public static readonly string User = "User"; //Departmental User
         public static readonly string Dean = "Dean"; //Dean
+        public static readonly string ManageAllUsers = "ManageAll"; //Manage All Users
     }
 }

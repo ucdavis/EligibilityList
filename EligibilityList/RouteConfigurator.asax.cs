@@ -9,8 +9,7 @@ namespace EligibilityList
         public virtual void RegisterRoutes()
         {
             RouteCollection routes = RouteTable.Routes;
-            routes.Clear();
-
+            
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });
 

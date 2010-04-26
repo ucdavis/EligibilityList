@@ -5,8 +5,10 @@
 <% if (HttpContext.Current.User.IsInRole(RoleNames.Admin)) { %>
 
 | <%= Html.ActionLink<EligibilityController>(x=>x.FindEmployee(null), "Add") %>
-| <%= Html.ActionLink<AccountController>(a => a.Management(), "User Management") %>
 | <%= Html.ActionLink<ActionController>(a=>a.Index(), "Action Types") %>
 | <%= Html.ActionLink<StepController>(a=>a.Index(), "Steps") %>
 
+<% } %>
+<% if (HttpContext.Current.User.IsInRole(RoleNames.ManageAllUsers)) {%>
+| <%= Html.ActionLink<AccountController>(a => a.Management(), "User Management") %>
 <% } %>

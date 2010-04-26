@@ -11,6 +11,11 @@ namespace EligibilityList.Controllers
             return RedirectToAction("ViewPending", "Eligibility");
         }
 
+        public ViewResult Error()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             return View();
