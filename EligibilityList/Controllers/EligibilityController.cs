@@ -83,7 +83,7 @@ namespace EligibilityList.Controllers
         /// <returns></returns>
         public ActionResult ViewByDepartment(string id /*FIS*/)
         {
-            var userUnits = _userBLL.GetUnitsByUser(CurrentUser);
+            var userUnits = _userBLL.GetUnitsByUser(CurrentUser).ToList();
             var unitFisCodes = userUnits.Select(x => x.FISCode).ToList();
             
             var eligibilities = _eligibilityRepository.Queryable;
@@ -107,7 +107,7 @@ namespace EligibilityList.Controllers
 
         public ActionResult ViewPending(string id)
         {
-            var userUnits = _userBLL.GetUnitsByUser(CurrentUser);
+            var userUnits = _userBLL.GetUnitsByUser(CurrentUser).ToList();
             var unitFisCodes = userUnits.Select(x => x.FISCode).ToList();
             
             var eligibilities = _eligibilityRepository.Queryable.Where(x=>x.OriginalEligibility != null /*Only get the ones which modify other ELs*/);
