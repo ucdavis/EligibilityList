@@ -65,6 +65,19 @@ namespace EligibilityList.Core.Domain
             }
         }
 
+        public virtual string AnalystEmail
+        {
+            get
+            {
+                if (Analyst != null)
+                {
+                    return Analyst.Email;
+                }
+
+                return string.Empty;
+            }
+        }
+
         [NotNull]
         public virtual Action Action { get; set; }
 
