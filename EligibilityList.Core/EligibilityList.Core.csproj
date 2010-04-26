@@ -66,6 +66,7 @@
     <Compile Include="Domain\Eligibility.cs" />
     <Compile Include="Domain\Employee.cs" />
     <Compile Include="Domain\Lookups.cs" />
+    <Compile Include="Domain\PayrollPerson.cs" />
     <Compile Include="Domain\Step.cs" />
     <Compile Include="Domain\Title.cs" />
     <Compile Include="Domain\Unit.cs" />
@@ -83,6 +84,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Domain\Committee.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\PayrollPerson.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
