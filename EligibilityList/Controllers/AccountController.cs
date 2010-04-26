@@ -28,7 +28,7 @@ namespace EligibilityList.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        [AdminOnly]
+        [UserManagerOnly]
         public ViewResult Management()
         {
             return View();

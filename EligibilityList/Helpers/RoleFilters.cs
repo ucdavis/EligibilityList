@@ -13,6 +13,15 @@ namespace EligibilityList.Helpers
     }
 
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+    public class UserManagerOnly : AuthorizeAttribute
+    {
+        public UserManagerOnly()
+        {
+            Roles = RoleNames.ManageAllUsers;
+        }
+    }
+
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     public class UserOnlyAttribute : AuthorizeAttribute
     {
         public UserOnlyAttribute()
