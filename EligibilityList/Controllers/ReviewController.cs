@@ -97,7 +97,7 @@ namespace EligibilityList.Controllers
             // failed, ready the display back out to the user
             var viewModel = ElibiilityReviewViewModel.Create(Repository);
             viewModel.Eligibility = child;
-            viewModel.Comment = comments;
+            viewModel.Comments = comments;
 
             return View(viewModel);
         }
@@ -106,7 +106,7 @@ namespace EligibilityList.Controllers
     public class ElibiilityReviewViewModel
     {
         public Eligibility Eligibility{ get; set; }
-        public string Comment { get; set; }
+        public string Comments { get; set; }
 
         public static ElibiilityReviewViewModel Create(IRepository repository)
         {
