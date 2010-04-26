@@ -75,7 +75,7 @@ namespace EligibilityList.Controllers
  
         public ActionResult Edit(int id)
         {
-            var step = _stepRepository.GetNullableByID(id);
+            var step = _stepRepository.GetNullableById(id);
 
             Check.Require(step != null, "Step Not Found");
 
@@ -88,7 +88,7 @@ namespace EligibilityList.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Edit(int id, Step step)
         {
-            var stepToEdit = _stepRepository.GetNullableByID(id);
+            var stepToEdit = _stepRepository.GetNullableById(id);
 
             Check.Require(stepToEdit != null);
             
@@ -113,7 +113,7 @@ namespace EligibilityList.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Remove(int id)
         {
-            var step = _stepRepository.GetNullableByID(id);
+            var step = _stepRepository.GetNullableById(id);
 
             Check.Require(step != null);
 

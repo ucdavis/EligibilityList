@@ -75,7 +75,7 @@ namespace EligibilityList.Controllers
  
         public ActionResult Edit(int id)
         {
-            var committee = _committeeRepository.GetNullableByID(id);
+            var committee = _committeeRepository.GetNullableById(id);
 
             Check.Require(committee != null, "Committee Not Found");
 
@@ -88,7 +88,7 @@ namespace EligibilityList.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Edit(int id, Committee committee)
         {
-            var committeeToEdit = _committeeRepository.GetNullableByID(id);
+            var committeeToEdit = _committeeRepository.GetNullableById(id);
 
             Check.Require(committeeToEdit != null);
 
@@ -113,7 +113,7 @@ namespace EligibilityList.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Remove(int id)
         {
-            var committee = _committeeRepository.GetNullableByID(id);
+            var committee = _committeeRepository.GetNullableById(id);
 
             Check.Require(committee != null);
 

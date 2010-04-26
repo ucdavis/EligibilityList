@@ -31,7 +31,7 @@ namespace EligibilityList.Controllers
         {
             var viewModel = ElibiilityReviewViewModel.Create(Repository);
 
-            viewModel.Eligibility = Repository.OfType<Eligibility>().GetNullableByID(id);
+            viewModel.Eligibility = Repository.OfType<Eligibility>().GetNullableById(id);
 
             // not valid redirect to another page
             if (viewModel.Eligibility == null) return this.RedirectToAction<HomeController>(a => a.Index());
@@ -52,7 +52,7 @@ namespace EligibilityList.Controllers
         [AcceptPost]
         public ActionResult Index(int id, string reviewAction, string comments)
         {
-            var child = Repository.OfType<Eligibility>().GetNullableByID(id);
+            var child = Repository.OfType<Eligibility>().GetNullableById(id);
 
             // not valid redirect to another page
             if (child == null) return this.RedirectToAction<HomeController>(a => a.Index());

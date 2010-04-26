@@ -67,7 +67,7 @@ namespace EligibilityList.Controllers
  
         public ActionResult Edit(int id)
         {
-            var action = _actionRepository.GetNullableByID(id);
+            var action = _actionRepository.GetNullableById(id);
 
             Check.Require(action != null, "Action not found");
             
@@ -80,7 +80,7 @@ namespace EligibilityList.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Edit(int id, Action actionType)
         {
-            var action = _actionRepository.GetNullableByID(id);
+            var action = _actionRepository.GetNullableById(id);
 
             Check.Require(action != null, "Action not found");
 
@@ -105,7 +105,7 @@ namespace EligibilityList.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Remove(int id)
         {
-            var action = _actionRepository.GetNullableByID(id);
+            var action = _actionRepository.GetNullableById(id);
 
             Check.Require(action != null, "Action not found");
 

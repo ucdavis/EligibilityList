@@ -66,7 +66,7 @@ namespace EligibilityList.Controllers
 
         public ActionResult Details(int id)
         {
-            var el = _eligibilityRepository.GetNullableByID(id);
+            var el = _eligibilityRepository.GetNullableById(id);
 
             if (el == null)
             {
@@ -131,7 +131,7 @@ namespace EligibilityList.Controllers
         
         public ActionResult Edit(int id)
         {
-            var el = _eligibilityRepository.GetNullableByID(id);
+            var el = _eligibilityRepository.GetNullableById(id);
 
             if (el == null)
             {
@@ -161,7 +161,7 @@ namespace EligibilityList.Controllers
             if (hasOriginalEligibility || CurrentUser.IsInRole("Admin"))
             {
                 //If the user is an admin or this is an adjustment eligibility, just overwrite this given eligibility
-                eligibilityToEdit = _eligibilityRepository.GetNullableByID(id);
+                eligibilityToEdit = _eligibilityRepository.GetNullableById(id);
                 Check.Require(eligibilityToEdit != null);
             }
             else
