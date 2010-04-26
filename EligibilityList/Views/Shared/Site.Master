@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
-    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="<%= Url.Content("~/Content/Site.css") %>" rel="stylesheet" type="text/css" />
     <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-lightness/jquery-ui.css" rel="Stylesheet" type="text/css" media="screen" />
     
     <script src="http://www.google.com/jsapi"></script>
@@ -28,13 +28,14 @@
 <body>
     <div id="branding">
     <span class="logos">
-    <span class="ucdavis"><a href="http://www.ucdavis.edu"><img src="../../Images/logo-ucdavis.jpg" alt="UC Davis" /></a></span>
-    <span class="caes"><a href="http://caes.ucdavis.edu"><img src="../../Images/logo-caes.jpg" alt="College of Agricultural &amp; Environmental Sciences" /></a></span>
+    
+    <span class="ucdavis"><a href="http://www.ucdavis.edu"><img src="<%= Url.Content("~/Images/logo-ucdavis.jpg") %>" alt="UC Davis" /></a></span>
+    <span class="caes"><a href="http://caes.ucdavis.edu"><img src="<%= Url.Content("~/Images/logo-caes.jpg") %>" alt="College of Agricultural &amp; Environmental Sciences" /></a></span>
     </span>
     
-            <div id="title">
-                <img src="../../Images/logo-el.jpg" alt="Eligibility List" />
-            </div>
+    <div id="title">
+        <img src="<%= Url.Content("~/Images/logo-el.jpg") %>" alt="Eligibility List" />
+    </div>
             
     </div>
     <div class="page">

@@ -18,4 +18,11 @@
     <p>
         <%= Html.ActionLink<ReviewController>(a => a.Index(1130), "Review") %>
     </p>
+    <p>
+        <%= Html.ActionLink<AccountController>(a => a.Management(), "User Management") %>
+    </p>
+    <p>
+        <%= Html.ActionLink<ActionController>(a=>a.Index(), "Manage Action Types") %><br />
+        <%= Html.ActionLink<StepController>(a=>a.Index(), "Manage Steps") %>
+    </p>
 </asp:Content>

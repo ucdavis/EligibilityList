@@ -35,11 +35,11 @@ namespace EligibilityList.Controllers
         }
 
         /// <summary>
-        /// Homepage for viewing tasks which revolve around CRUD of ELs
+        /// Should just redirect back to the main homepage
         /// </summary>
-        public ViewResult Index()
+        public RedirectToRouteResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         [AdminOnly]
