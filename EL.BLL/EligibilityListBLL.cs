@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Security.Principal;
-using System.Text;
-using EL.BLL;
 using System.ComponentModel;
 using EL.Core.Domain;
-using EL.Data;
 
 namespace EL.BLL
 {
@@ -48,5 +43,23 @@ namespace EL.BLL
             }
         }
 
+    }
+
+    public class EligibilityBLL2 : GenericBLL2<Eligibility,int>
+    {
+        public IQueryable<Eligibility> GetActive(IPrincipal principal)
+        {
+            return Repository.Queryable.Where(el => el.IsActive);
+        }
+
+        public IQueryable<Eligibility> GetChanged(IPrincipal principal)
+        {
+            return Repository.Queryable.Where(el => el.OriginalEligibility != null);
+        }
+
+        public IQueryable<Eligibility> GetChanged(bool changed, IPrincipal userContext)
+        {
+            return changed ? GetChanged(userContext) : GetActive(userContext);
+        }
     }
 }

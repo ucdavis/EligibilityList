@@ -6,4 +6,6 @@ namespace EL.BLL
     {
         
     }
+
+    public class GenericBLL2<T, IdT> : AbstractGenericBLLBase<T, IdT>{}
 }
