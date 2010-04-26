@@ -1,20 +1,13 @@
-﻿using System.Security.Principal;
-using System.Web;
-using CAESArch.BLL;
-using EL.Web.Controllers;
+﻿using EL.Web.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
 using System.Web.Mvc;
 using System;
 using System.Linq;
 using Moq;
-using NHibernate.Cfg;
 using EL.Core.Domain;
-using EL.Data;
-using EL.BLL;
 using System.Collections.Generic;
 
-namespace EL.Tests.Controllers
+namespace EL.Tests.DatabaseTests
 {
     /// <summary>
     ///This is a test class for EligibilityListControllerTest and is intended
@@ -42,7 +35,7 @@ namespace EL.Tests.Controllers
             return principal;
         }
 
-            /// <summary>
+        /// <summary>
         ///A test for Show to see that the show methoid completes and correctly populates the changed data variable
         ///</summary>
         [TestMethod]
