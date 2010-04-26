@@ -31,17 +31,19 @@
         %>
     </li>
     <li>
-        <label>Dean: TODO</label>
-        <%= this.Select("Dean")
+        <%= this.Select("DeanKerb")
                         .Options(Model.Deans)
+                        .FirstOption("No Dean")
                         .Selected(Model.Eligibility.Dean == null ? string.Empty : Model.Eligibility.Dean.Login)
+                        .Label("Dean: ")
         %>
     </li>
     <li>
-        <label>Analyst: TODO</label>
-        <%= this.Select("Analyst")
+        <%= this.Select("AnalystKerb")
                         .Options(Model.Analysts)
+                        .FirstOption("No Analyst")
                         .Selected(Model.Eligibility.Analyst == null ? string.Empty : Model.Eligibility.Analyst.Login)
+                        .Label("Analyst: ")
         %>
     </li>
     <li>

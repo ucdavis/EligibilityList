@@ -33,7 +33,10 @@ namespace EligibilityList.Core.Domain
 
         public virtual User Dean { get; set; }
 
-        protected virtual string DeanKerb { get; set; }
+        /// <summary>
+        /// Read only kerb
+        /// </summary>
+        public virtual string DeanKerb { get; set; }
 
         public virtual string DeanSafeName
         {
@@ -49,8 +52,11 @@ namespace EligibilityList.Core.Domain
         }
 
         public virtual User Analyst { get; set; }
-
-        protected virtual string AnalystKerb { get; set; }
+        
+        /// <summary>
+        /// Read only kerb
+        /// </summary>
+        public virtual string AnalystKerb { get; set; }
 
         public virtual string AnalystSafeName
         {

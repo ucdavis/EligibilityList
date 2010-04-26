@@ -13,6 +13,13 @@ namespace EligibilityListBLL
         User GetCurrentUser(IPrincipal principal);
         IEnumerable<Unit> GetUnitsByUser(IPrincipal principal);
         IDictionary<string, string> GetUsersInRole(string role);
+
+        /// <summary>
+        /// Return the user represented by the given login
+        /// </summary>
+        /// <param name="login">Kerberos login ID</param>
+        /// <returns>User or null if no user found</returns>
+        User GetByLogin(string login);
     }
 
     /// <summary>

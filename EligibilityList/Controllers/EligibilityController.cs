@@ -157,6 +157,10 @@ namespace EligibilityList.Controllers
 
             CopyHelper.TransferValuesTo(eligibility, eligibilityToEdit);
 
+            //Transfer the analyst and dean manually based on the kerberos choice
+            eligibilityToEdit.Analyst = _userBLL.GetByLogin(eligibility.AnalystKerb);
+            eligibilityToEdit.Dean = _userBLL.GetByLogin(eligibility.DeanKerb);
+
             eligibilityToEdit.TransferValidationMessagesTo(ModelState);
 
             if (ModelState.IsValid)
