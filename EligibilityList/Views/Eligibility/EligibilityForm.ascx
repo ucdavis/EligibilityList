@@ -119,7 +119,10 @@
     </div>
     
         <input type="submit" value="Save" />
-    
+        
+        <% if (HttpContext.Current.User.IsInRole("Admin")) { %>
+            <%= this.CheckBox("updateAllAppointments").Label("Update All Appointments for " + Model.Eligibility.Employee.FullName) %>
+        <% } %>
 </fieldset>
 <% } %>
 
@@ -130,6 +133,11 @@
 <script type="text/javascript">
     $(function() {
         $(".pickable-date").datepicker();
+        $("#updateAllAppointments").click(function() {
+            if (confirm("This will update all appointments for the current employee when you click save.  Fields changed for every appointment: Current years @ rank, Current years @ step, proposed step, and comment.") == false) {
+                this.checked = false;
+            }
+        });
     });
 </script>
 

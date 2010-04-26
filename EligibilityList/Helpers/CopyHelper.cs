@@ -4,6 +4,14 @@ namespace EligibilityList.Helpers
 {
     public class CopyHelper
     {
+        public static void TransferAppointmentValuesTo(Eligibility source, Eligibility destination)
+        {
+            destination.YearsAtRank = source.YearsAtRank;
+            destination.YearsAtStep = source.YearsAtStep;
+            destination.ProposedStep = source.ProposedStep;
+            destination.Comment = source.Comment;
+        }
+
         public static void TransferValuesTo(Eligibility source, Eligibility destination)
         {
             destination.Employee = source.Employee;

@@ -2,7 +2,7 @@
 <%@ Import Namespace="EligibilityList.Core.Domain"%>
 
     
-    <%Html.Grid(Model)
+    <%Html.Grid(Model.OrderBy(x=>x.Employee.FullName))
               .DisplayAlternateMessageWhen(Model.Count() == 0, "No Eligibilities Found")
               .Transactional()
               .Name("EligibilityList")

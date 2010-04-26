@@ -154,11 +154,13 @@ namespace EligibilityList.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Edit(int id, Eligibility eligibility, bool hasOriginalEligibility)
+        public ActionResult Edit(int id, Eligibility eligibility, bool hasOriginalEligibility, bool updateAllAppointments)
         {
+            var userIsAdmin = CurrentUser.IsInRole(RoleNames.Admin);
+
             var eligibilityToEdit = new Eligibility();
 
-            if (hasOriginalEligibility || CurrentUser.IsInRole("Admin"))
+            if (hasOriginalEligibility || userIsAdmin)
             {
                 //If the user is an admin or this is an adjustment eligibility, just overwrite this given eligibility
                 eligibilityToEdit = _eligibilityRepository.GetNullableById(id);
@@ -185,6 +187,12 @@ namespace EligibilityList.Controllers
 
                 _eligibilityRepository.EnsurePersistent(eligibilityToEdit);
 
+                if (updateAllAppointments && userIsAdmin)
+                {
+                    //Update all of the original appointments for this employee
+                    UpdateAllAppointments(eligibilityToEdit);
+                }
+
                 Message = "Eligibility Saved Successfully";
 
                 return RedirectToAction("Index", "Home");
@@ -194,6 +202,23 @@ namespace EligibilityList.Controllers
             viewModel.Eligibility = eligibility;
 
             return View(viewModel);
+        }
+
+        private void UpdateAllAppointments(Eligibility eligibility)
+        {
+            //Get all original appointments for this employee
+            var els = _eligibilityRepository.Queryable.Where(x => x.OriginalEligibility == null && x.Employee.Id == eligibility.Employee.Id);
+
+            foreach (var el in els)
+            {
+                //copy of the values to be changed, then update
+                if (el.Id != eligibility.Id)
+                {
+                    CopyHelper.TransferAppointmentValuesTo(eligibility, el);
+
+                    _eligibilityRepository.EnsurePersistent(el);
+                }
+            }
         }
 
         [AdminOnly]
