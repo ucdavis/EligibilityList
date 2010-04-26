@@ -39,6 +39,7 @@
     <Reference Include="CAESArch.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=667f3cb07abadf4b, processorArchitecture=MSIL" />
     <Reference Include="CAESArch.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=667f3cb07abadf4b, processorArchitecture=MSIL" />
     <Reference Include="CAESArch.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=667f3cb07abadf4b, processorArchitecture=MSIL" />
+    <Reference Include="CAESArch.Web.Providers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Elmah, Version=1.0.11211.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\Elmah.dll</HintPath>
@@ -91,6 +92,7 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Views\Account\CASLogOn.aspx" />
     <Content Include="Views\EligibilityList\Edit.aspx" />
     <Content Include="Views\EligibilityList\Show.aspx" />
     <Content Include="Web.config" />
