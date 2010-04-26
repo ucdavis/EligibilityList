@@ -10,6 +10,9 @@
                            {
                                c.Add(x =>
                                          {%>
+                                            <% if (HttpContext.Current.User.IsInRole(RoleNames.Admin) && x.OriginalEligibility != null) { %>
+                                                <%= Html.ActionLink("Review", "Index", "Review", new {id = x.Id}, null) %> |
+                                            <% } %>
                                             <%= Html.ActionLink("Edit", "Edit", new {id = x.Id}) %> 
                                          <%});
                                c.Add(x => x.Employee.FullName).Title("Name");
