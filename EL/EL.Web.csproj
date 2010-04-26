@@ -127,7 +127,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Account\CASLogOn.aspx" />
-    <Content Include="Views\Account\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
