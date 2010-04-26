@@ -53,7 +53,11 @@
                     %>
             </p>
             <p>
-                Current Step
+                <%= this.Select("CurrentStep") 
+                        .Options(Model.Steps, x=>x.Id, x=>x.Name)
+                        .Selected(Model.Eligibility.CurrentStep.Id)
+                        .Label("Current Step: ")
+                    %>
             </p>
             <p>
                 <%= this.TextBox("CurrentAppointmentPercent")
@@ -77,7 +81,38 @@
                         //.FirstOption("--No Title--")
                         .Label("Proposed Title: ")
                     %>
-            </p>        
+            </p>
+            <p>
+                <%= this.Select("ProposedStep")
+                        .Options(Model.Steps, x=>x.Id, x=>x.Name)
+                        .Selected(Model.Eligibility.ProposedStep == null ? 0 : Model.Eligibility.ProposedStep.Id)
+                        .Label("Propsed Step: ")
+                    %>
+            </p>
+            <p>
+                <%= this.TextBox("ProposedAppointmentPercent").Value(Model.Eligibility.ProposedAppointmentPercent).Label("Proposed Appt %: ")%>
+            </p>
+            <p>
+                <%= this.TextBox("ProposedBlankTitle").Value(Model.Eligibility.ProposedBlankTitle).Label("Proposed Blank In the ---: ")%>
+            </p>
+            <p>
+                <%= this.CheckBox("Defer").Checked(Model.Eligibility.Defer).Label("Defer?: ") %>
+            </p>
+            <p>
+                <%= this.TextBox("YearsAccelerated").Value(Model.Eligibility.YearsAccelerated).Label("Years at Acel: ")%>
+            </p>
+            <p>
+                <%= this.TextBox("YearsDecelerated").Value(Model.Eligibility.YearsDecelerated).Label("Years at Decel: ")%>
+            </p>
+            <p>
+                <%= this.TextBox("DateDue").Value(Model.Eligibility.DateDue).Label("Date Due: ")%>
+            </p>
+            <p>
+                <%= this.TextBox("DateEffective").Value(Model.Eligibility.DateEffective).Label("Date Effective: ") %>
+            </p>
+            <p>
+                <%= this.TextArea("Comment").Value(Model.Eligibility.Comment).Label("Comment: ")%>
+            </p>
             <p>
                 <input type="submit" value="Save" />
             </p>

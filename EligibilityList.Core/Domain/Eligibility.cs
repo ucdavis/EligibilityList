@@ -111,7 +111,7 @@ namespace EligibilityList.Core.Domain
 
         public virtual int? YearsDecelerated { get; set; }
 
-        public virtual bool? Defer { get; set; }
+        public virtual bool Defer { get; set; }
 
         public virtual DateTime? DateDue { get; set; }
 
@@ -134,6 +134,7 @@ namespace EligibilityList.Core.Domain
         public virtual DateTime? LastUpdated { get; set; }
 
         [NotNull]
+        [Range(1, 100)]
         public virtual decimal ProposedAppointmentPercent { get; set; }
 
         [NotNull]
