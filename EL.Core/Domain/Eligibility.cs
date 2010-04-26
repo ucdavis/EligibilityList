@@ -26,7 +26,7 @@ namespace EL.Core.Domain
         public virtual Department Department { get; set; }
 
         [NotNullValidator]
-        public virtual int DeanID { get; set; }
+        public virtual Employee Dean { get; set; }
 
         [NotNullValidator]
         public virtual int AnalystID { get; set; }
