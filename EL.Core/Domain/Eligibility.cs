@@ -46,18 +46,20 @@ namespace EL.Core.Domain
         [NotNullValidator]
         public virtual int CommitteeID { get; set; }
 
-        [NotNullValidator]
-        [StringLengthValidator(4)]
-        public virtual string TitleCode { get; set; }
+        //[NotNullValidator]
+        //[StringLengthValidator(4)]
+        //public virtual string TitleCode { get; set; }
+        public virtual Title CurrentTitle { get; set; }
 
-        [NotNullValidator]
-        public virtual int CurrentStep { get; set; }
+        //[NotNullValidator]
+        //public virtual int CurrentStep { get; set; }
+        public virtual Step CurrentStep { get; set; }
 
         public virtual string CurrentStatus
         {
             get
             {
-                return string.Format("{0} Step:{1} {2}%", TitleCode, CurrentStep, AppointmentPercent);
+                return string.Format("{0} Step:{1} {2}%", CurrentTitle.AbbreviatedName, CurrentStep.Name, AppointmentPercent);
             }
         }
 
@@ -65,16 +67,19 @@ namespace EL.Core.Domain
         {
             get
             {
-                return string.Format("{0} Step:{1} {2}%", ProposedTitleCode, ProposedStep, ProposedAppointmentPercent);
+                string title = ProposedTitle.AbbreviatedName ?? "No Title";
+                return string.Format("{0} Step:{1} {2}%", title, ProposedStep.Name, ProposedAppointmentPercent);
             }
         }
         [StringLengthValidator(50)]
         public virtual string CurrentBlankTitle { get; set; }
 
-        [StringLengthValidator(4)]
-        public virtual string ProposedTitleCode { get; set; }
+        //[StringLengthValidator(4)]
+        //public virtual string ProposedTitleCode { get; set; }
+        public virtual Title ProposedTitle { get; set; }
 
-        public virtual int? ProposedStep { get; set; }
+        //public virtual int? ProposedStep { get; set; }
+        public virtual Step ProposedStep { get; set; }
 
         [StringLengthValidator(50)]
         public virtual string ProposedBlankTitle { get; set; }
