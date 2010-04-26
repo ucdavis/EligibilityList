@@ -15,10 +15,7 @@ namespace EL.Web.Controllers
         {
             IQueryable<Eligibility> els = GenericBLL<Eligibility, int>.Queryable;
 
-            ViewData["EligibilityList"] = els;
-            ViewData["id"] = id;
-
-            return View();
+            return View(els);
         }
 
         public ActionResult Edit(int id)

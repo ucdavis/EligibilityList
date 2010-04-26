@@ -67,11 +67,10 @@ namespace EL.Core.Domain
         {
             get
             {
-                if (ProposedTitle.ID == "0000")
+                if (ProposedTitle == null)
                     return "No Title";
-
-                string title = ProposedTitle.AbbreviatedName ?? "No Title";
-                return string.Format("{0} Step:{1} {2}%", title, ProposedStep.Name, ProposedAppointmentPercent);
+                else
+                    return string.Format("{0} Step:{1} {2}%", ProposedTitle.AbbreviatedName, ProposedStep.Name, ProposedAppointmentPercent);
             }
         }
         [StringLengthValidator(50)]
@@ -79,6 +78,7 @@ namespace EL.Core.Domain
 
         //[StringLengthValidator(4)]
         //public virtual string ProposedTitleCode { get; set; }
+        [IgnoreNulls]
         public virtual Title ProposedTitle { get; set; }
 
         //public virtual int? ProposedStep { get; set; }
