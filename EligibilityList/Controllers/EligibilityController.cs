@@ -46,7 +46,7 @@ namespace EligibilityList.Controllers
 
             return View(el);
         }
-
+        
         /// <summary>
         /// Return a list of all eligible faculty appointments
         /// </summary>
@@ -67,6 +67,23 @@ namespace EligibilityList.Controllers
             return View(viewModel);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var el = _eligibilityRepository.GetNullableByID(id);
+
+            if (el == null)
+            {
+                Message = "Eligibility Not Found";
+                return RedirectToAction("Index");
+            }
+
+            var viewModel = EligibilityEditViewModel.Create(Repository);
+            viewModel.Eligibility = el;
+
+            return View(viewModel);
+        }
+
+
         /// <summary>
         /// Returns current user
         /// </summary>
@@ -86,6 +103,24 @@ namespace EligibilityList.Controllers
 
             return user;
         }
+    }
+
+    public class EligibilityEditViewModel
+    {
+        public static EligibilityEditViewModel Create(IRepository repository)
+        {
+            var viewModel = new EligibilityEditViewModel
+                                {
+                                    Actions = repository.OfType<Action>().Queryable.Where(x => x.Inactive == false),
+                                    Committees = repository.OfType<Committee>().Queryable.Where(x => x.Inactive == false)
+                                };
+
+            return viewModel;
+        }
+
+        public IEnumerable<Action> Actions { get; set; }
+        public IEnumerable<Committee> Committees { get; set; }
+        public Eligibility Eligibility { get; set; }
     }
 
     public class ViewByDepartmentViewModel
