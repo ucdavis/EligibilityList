@@ -151,6 +151,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\xVal.jquery.validate.js" />
+    <Content Include="Views\Account\LogOn.aspx" />
     <Content Include="Views\Action\ActionForm.ascx" />
     <Content Include="Views\Action\Create.aspx" />
     <Content Include="Views\Action\Edit.aspx" />
