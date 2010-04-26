@@ -27,16 +27,16 @@
 
 <body>
     <div id="branding">
-    <span class="logos">
-    
-    <span class="ucdavis"><a href="http://www.ucdavis.edu"><img src="<%= Url.Content("~/Images/logo-ucdavis.jpg") %>" alt="UC Davis" /></a></span>
-    <span class="caes"><a href="http://caes.ucdavis.edu"><img src="<%= Url.Content("~/Images/logo-caes.jpg") %>" alt="College of Agricultural &amp; Environmental Sciences" /></a></span>
-    </span>
     
     <div id="title">
         <%= Html.ImageLink("logo-el.jpg", "Eligibility List", "Index", "Eligibility") %>
     </div>
             
+    <span class="logos">
+    
+    <span class="ucdavis"><a href="http://www.ucdavis.edu"><img src="<%= Url.Content("~/Images/logo-ucdavis.jpg") %>" alt="UC Davis" /></a></span>
+    <span class="caes"><a href="http://caes.ucdavis.edu"><img src="<%= Url.Content("~/Images/logo-caes.jpg") %>" alt="College of Agricultural &amp; Environmental Sciences" /></a></span>
+    </span>
     </div>
     <div class="page">
 

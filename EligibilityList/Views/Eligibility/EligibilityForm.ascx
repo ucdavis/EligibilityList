@@ -115,14 +115,16 @@
     </li>
     <li>
         <%= this.TextArea("Comment").Value(Model.Eligibility.Comment).Label("Comment: ")%>
-    </li></ul>
-    </div>
-    
-        <input type="submit" value="Save" />
-        
+    </li>
+    <li>
         <% if (HttpContext.Current.User.IsInRole(RoleNames.Admin)) { %>
             <%= this.CheckBox("updateAllAppointments").Label("Update All Appointments for " + Model.Eligibility.Employee.FullName) %>
         <% } %>
+    </li>
+    <li>
+        <input type="submit" value="Save" class="save" /></li>
+    </ul>
+    </div>
 </fieldset>
 <% } %>
 

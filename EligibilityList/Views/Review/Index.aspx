@@ -17,16 +17,14 @@
 
     <% using (Html.BeginForm()) {%>
         <%= Html.AntiForgeryToken() %>
-        <p>
-            <label for="Employee.Id">Employee Id:</label>
-            <%= Html.Encode(Model.Eligibility.Employee.Id) %>
-        </p>
-        <p>
-            <label for="Employee.Fullname">Name:</label>
-            <%= Html.Encode(Model.Eligibility.Employee.FullName) %>
-        </p>
-    
-        <table>
+        <span class="review-left">
+        <label for="Employee.Id">Employee Id:</label>
+        <p class="h2"><%= Html.Encode(Model.Eligibility.Employee.Id) %></p></span>
+        <span class="review-right">
+        <label for="Employee.Fullname">Name:</label>
+        <p class="h2"><%= Html.Encode(Model.Eligibility.Employee.FullName) %></p>
+        </span>
+        <table class="clear">
             <tr class='<%= Model.Eligibility != Model.Eligibility.OriginalEligibility ? "Changed" : string.Empty %>'>
                 <th></th>
                 <th>Proposed</th>
@@ -180,8 +178,7 @@
         </table>
 
         <div id="review-section">
-            <br />
-            Review Action: <br /><br />
+            <h2>Review Action:</h2>
             
             <label>Review Comments (will be included in the confirmation email)</label><br />
             <%= this.TextArea("comments").Rows(10).Columns(50) %>

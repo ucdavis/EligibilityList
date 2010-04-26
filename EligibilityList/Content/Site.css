@@ -56,28 +56,11 @@ h1, h2, h3, h4, h5, h6
     font-weight: bold;
 }
 
-h1
-{
-    font-size: 2em;
-    padding-bottom: 0;
-    margin-bottom: 0;
-}
-h2
-{
-    padding: 0 0 10px 0;
-}
-h3
-{
-    font-size: 1.2em;
-}
-h4
-{
-    font-size: 1.1em;
-}
-h5, h6
-{
-    font-size: 1em;
-}
+h1, .h1 {font-size: 2em; padding-bottom: 0; margin-bottom: 0;}
+h2, .h2 {font-size: 1.5em; padding: 0 0 10px 0;}
+h3, .h3 {font-size: 1.2em;}
+h4, .h4 {font-size: 1.1em;}
+h5, h6, .h5, .h6 {font-size: 1em;}
 
 /* this rule styles <h2> tags that are the 
 first child of the left and right table columns */
@@ -90,9 +73,9 @@ first child of the left and right table columns */
 ----------------------------------------------------------*/
 
 #branding {background: url(../Images/branding.jpg) repeat-x top center; height: 65px; margin: 0 auto; padding: 0 10%; min-width: 900px;}
-#branding span.logos {padding: 22px 0px 0px 0px; width: 600px; float: left; margin: 0px auto; display: block;}
+#branding span.logos {padding: 22px 0px 0px 0px; width: 600px; float: right; margin: 0px auto; display: block; text-align: right;}
 #branding span.ucdavis {margin-right: 5px;}
-#title {padding: 24px 0px 0px 0px; width: 300px; float: right; text-align: right;}
+#title {padding: 24px 0px 0px 0px; width: 300px; float: left; text-align: left;}
 
 /* you can specify a greater or lesser percentage for the 
 page width. Or, you can specify an exact pixel width. */
@@ -196,6 +179,10 @@ fieldset li span , fieldset li label
     width: 180px; color: #002266;
 }
 
+textarea#Comment {height: 8em; width: 350px;}
+
+input.save {margin: 2em 0;}
+
 
 /* TABLE
 ----------------------------------------------------------*/
@@ -234,15 +221,9 @@ table tr:hover {background: #fff; background: rgba(255,255,255,.9);
 
 /* MISC  
 ----------------------------------------------------------*/
-.clear
-{
-    clear: both;
-}
-
-.error
-{
-    color:Red;
-}
+.clear {clear: both;}
+.error {color:Red;}
+.Changed {background-color: #f3df00 !important;}
 
 #menucontainer
 {
@@ -253,12 +234,14 @@ div#title
 {
 }
 
+#menu {margin-top: -4px;}
+
 #logindisplay
 {
     font-size:1em;
     float: right;
     text-align:right;
-    margin: -14px 10px 0px;
+    margin: -27px 10px 0px;
     padding: 10px 20px 10px;
     color:#002266;
     -moz-border-radius-bottomleft: 18px; 
@@ -322,3 +305,11 @@ div#title
 .t-status-text {clear: both; text-align: right;}
 
 .col {width: 40%; margin: 0 10% 0 0; float: left;}
+
+.review-left, .review-right {width: 40%; float: left;}
+.review-left .h2, .review-right .h2 {font-weight: bold; color: #003666; margin-top: -.25em;}
+
+#review-section {border: 5px solid #aaa; padding: 2em; margin: 0 0 2em 0;}
+#review-section label {font-weight: bold; font-size: 1.15em; color: #003666;}
+#review-section input {margin: 0.5em .25em;}
+#review-section #reviewAction_Approve_Label {margin-right: 2em;}
