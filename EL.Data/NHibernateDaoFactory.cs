@@ -1,11 +1,5 @@
+using CAESArch.Data.NHibernate;
 using EL.Core.DataInterfaces;
-using EL.Core.Domain;
-using System.Collections.Generic;
-using NHibernate;
-//using NHibernate.Expression;
-using System.ComponentModel;
-using System.Web;
-using System.Linq;
 
 namespace EL.Data
 {

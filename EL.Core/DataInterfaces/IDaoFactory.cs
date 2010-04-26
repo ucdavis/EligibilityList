@@ -1,6 +1,3 @@
-using EL.Core.Domain;
-using System.Collections.Generic;
-
 namespace EL.Core.DataInterfaces
 {
     /// <summary>
@@ -15,7 +12,7 @@ namespace EL.Core.DataInterfaces
     // But you're certainly welcome to put each declaration into its own file.
     #region Inline interface declarations
 
-    public interface IGenericDao<T, IdT> : IDao<T, IdT> { }
+    public interface IGenericDao<T, IdT> : CAESArch.Core.DataInterfaces.IGenericDao<T, IdT>{}
 
     #endregion
 }

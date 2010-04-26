@@ -1,4 +1,5 @@
-﻿using EL.Web.Controllers;
+﻿using CAESArch.BLL;
+using EL.Web.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
 using System.Web.Mvc;
@@ -24,7 +25,7 @@ namespace EL.Tests.Controllers
         {
             Configuration config = new Configuration().Configure();
             //Create the DB using the schema export
-            new NHibernate.Tool.hbm2ddl.SchemaExport(config).Execute(false, true, false, true, EL.Data.NHibernateSessionManager.Instance.GetSession().Connection, null);
+            new NHibernate.Tool.hbm2ddl.SchemaExport(config).Execute(false, true, false, true, CAESArch.Data.NHibernate.NHibernateSessionManager.Instance.GetSession().Connection, null);
 
             LoadData();
         }
@@ -132,10 +133,10 @@ namespace EL.Tests.Controllers
 
             using (var ts = new TransactionScope())
             {
-                ActionTypeBLL.EnsurePersistent(ref at);
-                ActionTypeBLL.EnsurePersistent(ref at2);
+                ActionTypeBLL.EnsurePersistent(at);
+                ActionTypeBLL.EnsurePersistent(at2);
 
-                ts.CommittTransaction();
+                ts.CommitTransaction();
             }
         }
 
@@ -159,11 +160,11 @@ namespace EL.Tests.Controllers
 
             using (var ts = new TransactionScope())
             {
-                GenericBLL<Employee, string>.EnsurePersistent(ref emp);
-                GenericBLL<Department, string>.EnsurePersistent(ref dept);
-                GenericBLL<EL.Core.Domain.Action, int>.EnsurePersistent(ref act);
-                GenericBLL<Step, int>.EnsurePersistent(ref step);
-                GenericBLL<Title, string>.EnsurePersistent(ref t);
+                GenericBLL<Employee, string>.EnsurePersistent(emp);
+                GenericBLL<Department, string>.EnsurePersistent(dept);
+                GenericBLL<EL.Core.Domain.Action, int>.EnsurePersistent(act);
+                GenericBLL<Step, int>.EnsurePersistent(step);
+                GenericBLL<Title, string>.EnsurePersistent(t);
 
                 //Create 50 els for testing, all with this el as the "OriginalEligibility"
                 for (int i = 0; i < 50; i++)
@@ -189,7 +190,7 @@ namespace EL.Tests.Controllers
 
                         elFirst.OriginalEligibility = elFirst;
 
-                        EligibilityBLL.EnsurePersistent(ref elFirst);
+                        EligibilityBLL.EnsurePersistent(elFirst);
                     }
                     else
                     {
@@ -209,11 +210,11 @@ namespace EL.Tests.Controllers
 
                         el.IsActive = i < 25; //The first 25 get active, the second fifty are inactive
 
-                        EligibilityBLL.EnsurePersistent(ref el); //Save this el
+                        EligibilityBLL.EnsurePersistent(el); //Save this el
                     }
                 }
 
-                ts.CommittTransaction();
+                ts.CommitTransaction();
             }
         }
     }

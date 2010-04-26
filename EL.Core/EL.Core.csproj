@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CAESArch.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=667f3cb07abadf4b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\EL\bin\CAESArch.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=667f3cb07abadf4b, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -50,18 +54,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataInterfaces\IDao.cs" />
     <Compile Include="DataInterfaces\IDaoFactory.cs" />
     <Compile Include="Domain\Action.cs" />
     <Compile Include="Domain\Department.cs" />
-    <Compile Include="Domain\DomainObject.cs" />
     <Compile Include="Domain\Eligibility.cs" />
     <Compile Include="Domain\Employee.cs" />
     <Compile Include="Domain\ITrackable.cs" />
     <Compile Include="Domain\Lookups.cs" />
     <Compile Include="Domain\Step.cs" />
     <Compile Include="Domain\Title.cs" />
-    <Compile Include="Domain\ValidateBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

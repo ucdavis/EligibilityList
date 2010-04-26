@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using EL.BLL;
-using EL.Core.Domain;
 using System.Text;
 
 namespace EL.Web.Controllers
@@ -21,7 +16,7 @@ namespace EL.Web.Controllers
 
         public ActionResult Test()
         {
-            var tests = GenericBLL<EL.Core.Domain.Action, int>.GetAll();
+            var tests = ActionTypeBLL.GetAll();
 
             StringBuilder allActions = new StringBuilder();
 
