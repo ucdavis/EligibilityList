@@ -67,6 +67,22 @@ namespace EligibilityList.Controllers
             return View(viewModel);
         }
 
+        public ActionResult ViewPending(string id)
+        {
+            var eligibilities = _eligibilityRepository.Queryable.Where(x=>x.OriginalEligibility != null /*Only get the ones which modify other ELs*/);
+
+            if (!string.IsNullOrEmpty(id))
+            {
+                eligibilities = eligibilities.Where(x => x.Unit.FISCode == id);
+            }
+
+            var viewModel = ViewByDepartmentViewModel.Create(Repository, _userBLL.GetUnitsByUser(CurrentUser), id);
+
+            viewModel.Eligibilities = eligibilities;
+
+            return View(viewModel);
+        }
+        
         public ActionResult Edit(int id)
         {
             var el = _eligibilityRepository.GetNullableByID(id);
