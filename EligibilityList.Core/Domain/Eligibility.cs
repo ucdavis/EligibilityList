@@ -16,9 +16,7 @@ namespace EligibilityList.Core.Domain
         //public virtual string EmployeeID { get; set; }
         public virtual Employee Employee { get; set; }
 
-        //[NotNullValidator]
-        //[StringLengthValidator(6)]
-        //public virtual string DeptCode { get; set; }
+        [NotNull]
         public virtual Unit Unit { get; set; }
 
         public virtual User Dean { get; set; }
@@ -55,8 +53,7 @@ namespace EligibilityList.Core.Domain
             }
         }
 
-        //[NotNullValidator]
-        //public virtual int ActionID { get; set; }
+        [NotNull]
         public virtual Action Action { get; set; }
 
         [NotNull]
@@ -66,25 +63,22 @@ namespace EligibilityList.Core.Domain
         public virtual int YearsAtStep { get; set; }
 
         [NotNull]
-        public virtual decimal AppointmentPercent { get; set; }
+        public virtual decimal CurrentAppointmentPercent { get; set; }
 
         [NotNull]
         public virtual Committee Committee { get; set; }
 
-        //[NotNullValidator]
-        //[StringLengthValidator(4)]
-        //public virtual string TitleCode { get; set; }
+        [NotNull]
         public virtual Title CurrentTitle { get; set; }
 
-        //[NotNullValidator]
-        //public virtual int CurrentStep { get; set; }
+        [NotNull]
         public virtual Step CurrentStep { get; set; }
 
         public virtual string CurrentStatus
         {
             get
             {
-                return string.Format("{0} Step:{1} {2}%", CurrentTitle.AbbreviatedName, CurrentStep.Name, AppointmentPercent);
+                return string.Format("{0} Step:{1} {2}%", CurrentTitle.AbbreviatedName, CurrentStep.Name, CurrentAppointmentPercent);
             }
         }
 
@@ -98,11 +92,10 @@ namespace EligibilityList.Core.Domain
                     return string.Format("{0} Step:{1} {2}%", ProposedTitle.AbbreviatedName, ProposedStep.Name, ProposedAppointmentPercent);
             }
         }
+
         [Length(50)]
         public virtual string CurrentBlankTitle { get; set; }
 
-        //[StringLengthValidator(4)]
-        //public virtual string ProposedTitleCode { get; set; }
         public virtual Title ProposedTitle { get; set; }
 
         //public virtual int? ProposedStep { get; set; }

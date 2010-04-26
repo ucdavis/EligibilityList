@@ -14,7 +14,7 @@
     <!--<property name="ActionID" column="ActionID" />-->
     <property name="YearsAtRank" column="YearsAtRank" />
     <property name="YearsAtStep" column="YearsAtStep" />
-    <property name="AppointmentPercent" column="AppointmentPercent" />
+    <property name="CurrentAppointmentPercent" column="AppointmentPercent" />
     <!--<property name="CommitteeID" column="CommitteeID" />-->
     <!--<property name="TitleCode" column="TITLE_CODE" />-->
     <!--<property name="CurrentStep" column="CurrentStep" />-->

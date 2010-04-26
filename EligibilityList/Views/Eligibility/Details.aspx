@@ -6,16 +6,59 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Details</h2>
+    <h2>Appointment Details for <%= Html.Encode(Model.Employee.FullName) %></h2>
 
     <fieldset>
         <legend>Fields</legend>
         <p>
-            Analyst: <%= Html.Encode(Model.AnalystSafeName) %>
+            Apt Department:
+            <%= Html.Encode(Model.Unit.FullName) %>
+        </p>
+        <p>
+            Action Type:
+            <%= Html.Encode(Model.Action.Name) %>
+        </p>
+        <p>
+            Committee: <%= Html.Encode(Model.Committee.Name) %>
         </p>
         <p>
             Dean: <%= Html.Encode(Model.DeanSafeName) %>
         </p>
+        <p>
+            Analyst: <%= Html.Encode(Model.AnalystSafeName) %>
+        </p>
+        <p>
+            Current Title: <%= Html.Encode(Model.CurrentTitle.AbbreviatedName) %>
+        </p>
+        <p>
+            Current Step: <%= Html.Encode(Model.CurrentStep.Name) %>
+        </p>
+        <p>
+            Current Appt %: <%= Html.Encode(Model.CurrentAppointmentPercent) %>
+        </p>
+        <p>
+            Current Blank In the ---: <%= Html.Encode(Model.CurrentBlankTitle) %>
+        </p>
+        <p>
+            Current Years @ Rank: <%= Html.Encode(Model.YearsAtRank) %>
+        </p>
+        <p>
+            Current Years @ Step: <%= Html.Encode(Model.YearsAtStep) %>
+        </p>
+        <p>
+            Proposed Title: <%= Html.Encode(Model.ProposedTitle == null ? "None" : Model.ProposedTitle.AbbreviatedName) %>
+        </p>
+        <p>
+            Proposed Step: <%= Html.Encode(Model.ProposedStep == null ? "None" : Model.ProposedStep.Name) %>
+        </p>
+        <p>
+            Proposed Appt %: <%= Html.Encode(Model.ProposedAppointmentPercent) %>
+        </p>
+        <p>
+            Proposed Blank in The ---: <%= Html.Encode(Model.ProposedBlankTitle) %>
+        </p>
+        
+        
         <p>
             YearsAtRank:
             <%= Html.Encode(Model.YearsAtRank) %>
@@ -26,7 +69,7 @@
         </p>
         <p>
             AppointmentPercent:
-            <%= Html.Encode(String.Format("{0:F}", Model.AppointmentPercent)) %>
+            <%= Html.Encode(String.Format("{0:F}", Model.CurrentAppointmentPercent)) %>
         </p>
         <p>
             CurrentStatus:
@@ -99,9 +142,6 @@
         <p>
             Inactive:
             <%= Html.Encode(Model.Inactive) %>
-        </p>
-        <p>
-            Committee: <%= Html.Encode(Model.Committee.Name) %>
         </p>
         <p>
             Id:
