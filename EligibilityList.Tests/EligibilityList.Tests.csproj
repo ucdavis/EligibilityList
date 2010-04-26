@@ -88,9 +88,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\EligibilityControllerTests.cs" />
     <Compile Include="Core\ContinuousIntegrationDeploymentHacks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="Controllers\HomeControllerTests.cs" />
     <Compile Include="Repositories\CommitteeTests.cs" />
     <Compile Include="Repositories\StepTests.cs" />
   </ItemGroup>
