@@ -13,90 +13,25 @@ namespace EL.Tests.Controllers
     [TestClass()]
     public class EligibilityListControllerTest
     {
-        private TestContext testContextInstance;
-
         /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
+        ///A test for Show to see that the show methoid completes and correctly populates the changed data variable
         ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
-
-        #region Additional test attributes
-        // 
-        //You can use the following additional attributes as you write your tests:
-        //
-        //Use ClassInitialize to run code before running the first test in the class
-        //[ClassInitialize()]
-        //public static void MyClassInitialize(TestContext testContext)
-        //{
-        //}
-        //
-        //Use ClassCleanup to run code after all tests in a class have run
-        //[ClassCleanup()]
-        //public static void MyClassCleanup()
-        //{
-        //}
-        //
-        //Use TestInitialize to run code before running each test
-        //[TestInitialize()]
-        //public void MyTestInitialize()
-        //{
-        //}
-        //
-        //Use TestCleanup to run code after each test has run
-        //[TestCleanup()]
-        //public void MyTestCleanup()
-        //{
-        //}
-        //
-        #endregion
-
-
-        /// <summary>
-        ///A test for Show
-        ///</summary>
-        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
-        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
-        // whether you are testing a page, web service, or a WCF service.
-        [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("C:\\Projects\\EL\\EL", "/")]
-        [UrlToTest("http://localhost:1865/")]
+        [TestMethod]
         public void ShowTest()
         {
             EligibilityListController target = new EligibilityListController(); // TODO: Initialize to an appropriate value
-            Nullable<bool> changed = new Nullable<bool>(); // TODO: Initialize to an appropriate value
-            ActionResult expected = null; // TODO: Initialize to an appropriate value
-            ActionResult actual;
-            actual = target.Show(changed);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
+            Nullable<bool> changed = new Nullable<bool>();
+            changed = true; //Try change = true
 
-        /// <summary>
-        ///A test for EligibilityListController Constructor
-        ///</summary>
-        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
-        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
-        // whether you are testing a page, web service, or a WCF service.
-        [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("C:\\Projects\\EL\\EL", "/")]
-        [UrlToTest("http://localhost:1865/")]
-        public void EligibilityListControllerConstructorTest()
-        {
-            EligibilityListController target = new EligibilityListController();
-            Assert.Inconclusive("TODO: Implement code to verify target");
+            var actual = target.Show(changed) as ViewResult;
+
+            Assert.AreEqual(changed.Value, actual.ViewData["Changed"]); //Make sure we call the correct view
+
+            changed = false; //Now try with change = false
+
+            actual = target.Show(changed) as ViewResult;
+
+            Assert.AreEqual(changed.Value, actual.ViewData["Changed"]); //Make sure we call the correct view
         }
     }
 }
