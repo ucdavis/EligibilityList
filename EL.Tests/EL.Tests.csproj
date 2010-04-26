@@ -37,15 +37,15 @@
   <ItemGroup>
     <Reference Include="CAESArch.BLL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=667f3cb07abadf4b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\EL\Bin\CAESArch.BLL.dll</HintPath>
+      <HintPath>..\Bin\CAESArch.BLL.dll</HintPath>
     </Reference>
     <Reference Include="CAESArch.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=667f3cb07abadf4b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\EL\Bin\CAESArch.Core.dll</HintPath>
+      <HintPath>..\Bin\CAESArch.Core.dll</HintPath>
     </Reference>
     <Reference Include="CAESArch.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=667f3cb07abadf4b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\EL\bin\CAESArch.Data.dll</HintPath>
+      <HintPath>..\Bin\CAESArch.Data.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
