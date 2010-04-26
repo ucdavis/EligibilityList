@@ -3,6 +3,7 @@
 
     
     <%Html.Grid(Model)
+              .DisplayAlternateMessageWhen(Model.Count() == 0, "No Eligibilities Found")
               .Transactional()
               .Name("EligibilityList")
               .PrefixUrlParameters(false)
