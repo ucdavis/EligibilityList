@@ -45,9 +45,17 @@
             </p>
             <p>
                 Dean: TODO
+                <%= this.Select("Dean")
+                        .Options(Model.Deans)
+                        .Selected(Model.Eligibility.Dean == null ? string.Empty : Model.Eligibility.Dean.Login)
+                    %>
             </p>          
             <p>
                 Analyst: TODO
+                <%= this.Select("Analyst")
+                        .Options(Model.Analysts)
+                        .Selected(Model.Eligibility.Analyst == null ? string.Empty : Model.Eligibility.Analyst.Login)
+                    %>
             </p>  
             <p>
                 <%= this.Select("CurrentTitle") 

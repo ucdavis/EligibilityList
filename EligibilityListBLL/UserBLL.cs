@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Web.Security;
 using EligibilityList.Core.Domain;
 using System.Security.Principal;
 using UCDArch.Core.PersistanceSupport;
@@ -11,6 +12,7 @@ namespace EligibilityListBLL
     {
         User GetCurrentUser(IPrincipal principal);
         IEnumerable<Unit> GetUnitsByUser(IPrincipal principal);
+        IDictionary<string, string> GetUsersInRole(string role);
     }
 
     /// <summary>
@@ -48,6 +50,21 @@ namespace EligibilityListBLL
             var user = _userRepository.Queryable.Where(x => x.Login == login).SingleOrDefault();
 
             return user;
+        }
+
+        public IDictionary<string, string> GetUsersInRole(string role)
+        {
+            //Return a list of users in the role given
+            var usersInRole = Roles.GetUsersInRole(role);
+
+            var userDictionary = new Dictionary<string, string>();
+
+            foreach (var user in usersInRole)
+            {
+                userDictionary.Add(user, user);
+            }
+
+            return userDictionary;
         }
 
         public IEnumerable<Unit> GetUnitsByUser(IPrincipal principal)

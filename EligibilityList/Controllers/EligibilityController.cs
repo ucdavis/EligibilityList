@@ -10,6 +10,7 @@ using EligibilityListBLL;
 using UCDArch.Web.Helpers;
 using Action=EligibilityList.Core.Domain.Action;
 using MvcContrib;
+using System.Collections.Specialized;
 
 namespace EligibilityList.Controllers
 {
@@ -105,7 +106,7 @@ namespace EligibilityList.Controllers
                 return this.RedirectToAction(a => a.Edit(editingEligibilityList.Id));
             }
 
-            var viewModel = EligibilityEditViewModel.Create(Repository);
+            var viewModel = EligibilityEditViewModel.Create(Repository, _userBLL);
             viewModel.Eligibility = el;
 
             return View(viewModel);
@@ -143,7 +144,7 @@ namespace EligibilityList.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            var viewModel = EligibilityEditViewModel.Create(Repository);
+            var viewModel = EligibilityEditViewModel.Create(Repository, _userBLL);
             viewModel.Eligibility = eligibility;
 
             return View(viewModel);
@@ -203,7 +204,7 @@ namespace EligibilityList.Controllers
 
     public class EligibilityEditViewModel
     {
-        public static EligibilityEditViewModel Create(IRepository repository)
+        public static EligibilityEditViewModel Create(IRepository repository, IUserBLL userBLL)
         {
             var viewModel = new EligibilityEditViewModel
                                 {
@@ -211,7 +212,9 @@ namespace EligibilityList.Controllers
                                     Committees = repository.OfType<Committee>().Queryable.Where(x => x.Inactive == false).ToList(),
                                     Units = repository.OfType<Unit>().Queryable.ToList(),
                                     Titles = repository.OfType<Title>().Queryable.ToList(),
-                                    Steps = repository.OfType<Step>().Queryable.Where(x=>x.Inactive == false).ToList()
+                                    Steps = repository.OfType<Step>().Queryable.Where(x=>x.Inactive == false).ToList(),
+                                    Deans = userBLL.GetUsersInRole("Deans"),
+                                    Analysts = userBLL.GetUsersInRole("Admin")
                                 };
 
             return viewModel;
@@ -222,6 +225,8 @@ namespace EligibilityList.Controllers
         public IEnumerable<Unit> Units { get; set; }
         public IEnumerable<Title> Titles { get; set; }
         public IEnumerable<Step> Steps { get; set; }
+        public IDictionary<string, string> Deans { get; set; }
+        public IDictionary<string, string> Analysts { get; set; }
 
         public Eligibility Eligibility { get; set; }
     }
