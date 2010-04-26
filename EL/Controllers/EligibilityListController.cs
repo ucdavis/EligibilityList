@@ -10,7 +10,9 @@ namespace EL.Web.Controllers
     {
         public ActionResult Show(bool? changed)
         {
-            bool onlyChanged = changed ?? true; 
+            bool onlyChanged = changed ?? true;
+
+            var user = ControllerContext.HttpContext.User.Identity.Name;
 
             IQueryable<Eligibility> els = EligibilityBLL.GetChanged(onlyChanged, ControllerContext.HttpContext.User);
 

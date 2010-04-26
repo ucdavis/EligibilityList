@@ -63,6 +63,8 @@
     <Compile Include="Domain\Lookups.cs" />
     <Compile Include="Domain\Step.cs" />
     <Compile Include="Domain\Title.cs" />
+    <Compile Include="Domain\Unit.cs" />
+    <Compile Include="Domain\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +87,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Domain\Title.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\User.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\Unit.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CAESArch.BLL;
 using EL.BLL;
 using EL.Core.Domain;
@@ -27,9 +28,28 @@ namespace EL.Tests
             {
                 CreateActionTypes();
                 CreateELs();
-   
+                CreateUsers();
+
                 ts.CommitTransaction();
             }
+        }
+
+        private void CreateUsers()
+        {
+            var u = new Unit("AANS");
+            var u2 = new Unit("ADNO");
+            var u3 = new Unit("AARE");
+
+            GenericBLLBase<Unit, string>.EnsurePersistent(u, true);
+            GenericBLLBase<Unit, string>.EnsurePersistent(u2, true);
+            GenericBLLBase<Unit, string>.EnsurePersistent(u3, true);
+
+            User user = new User {Login = "tester", FirstName = "First", LastName = "Last"};
+            
+            user.Units = new List<Unit> {u, u2};
+
+            GenericBLLBase<User, int>.EnsurePersistent(user, true);
+            
         }
 
         public void CreateActionTypes()

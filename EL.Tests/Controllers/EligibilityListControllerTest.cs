@@ -1,10 +1,13 @@
-﻿using CAESArch.BLL;
+﻿using System.Security.Principal;
+using System.Web;
+using CAESArch.BLL;
 using EL.Web.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
 using System.Web.Mvc;
 using System;
 using System.Linq;
+using Moq;
 using NHibernate.Cfg;
 using EL.Core.Domain;
 using EL.Data;
@@ -20,7 +23,26 @@ namespace EL.Tests.Controllers
     [TestClass()]
     public class EligibilityListControllerTest : DatabaseTestBase
     {
-        /// <summary>
+        public Mock<ControllerContext> GetSecurityPrincipal(string userName, bool? isAdmin, bool? isUser)
+        {
+            var principal = new Mock<ControllerContext>();
+
+            principal.Setup(p => p.HttpContext.User.Identity.Name).Returns(userName);
+
+            if (isAdmin.HasValue)
+            {
+                principal.Setup(p => p.HttpContext.User.IsInRole("Admin")).Returns(isAdmin.Value);
+            }
+
+            if (isUser.HasValue)
+            {
+                principal.Setup(p => p.HttpContext.User.IsInRole("User")).Returns(isUser.Value);
+            }
+
+            return principal;
+        }
+
+            /// <summary>
         ///A test for Show to see that the show methoid completes and correctly populates the changed data variable
         ///</summary>
         [TestMethod]
@@ -45,6 +67,8 @@ namespace EL.Tests.Controllers
         public void ShowChangedGivesOnlyWithOriginalEl()
         {
             EligibilityListController controller = new EligibilityListController();
+            controller.ControllerContext = GetSecurityPrincipal("tester", null, null).Object;
+            
             bool? changed = true;
 
             var result = controller.Show(changed) as ViewResult;
