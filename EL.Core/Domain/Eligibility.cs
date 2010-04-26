@@ -91,6 +91,7 @@ namespace EL.Core.Domain
         [NotNullValidator]
         public virtual bool IsActive { get; set; }
 
-        public virtual int? Original { get; set; }
+        [IgnoreNulls]
+        public virtual Eligibility OriginalEligibility { get; set; }
     }   
 }

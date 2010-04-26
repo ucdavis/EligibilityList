@@ -36,7 +36,8 @@ namespace EL.BLL
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static List<Eligibility> GetChanged()
         {
-            return Queryable.Where(el => el.IsActive == false).ToList();
+            return Queryable.Where(el => el.OriginalEligibility != null).ToList();
+            //return Queryable.Where(el => el.IsActive == false).ToList();
         }
 
     }

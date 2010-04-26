@@ -35,7 +35,7 @@
     <property name="LastUpdated" column="LastUpdated" />
     <property name="ProposedAppointmentPercent" column="ProposedAppointmentPercent" />
     <property name="IsActive" column="IsActive" />
-    <property name="Original" column="OriginalApptID" />
+    <many-to-one name="OriginalEligibility" column="OriginalApptID" class="EL.Core.Domain.Eligibility, EL.Core" not-null="true"></many-to-one>
     
   </class>
 
