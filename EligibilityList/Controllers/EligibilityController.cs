@@ -9,6 +9,7 @@ using UCDArch.Core.Utils;
 using EligibilityListBLL;
 using UCDArch.Web.Helpers;
 using Action=EligibilityList.Core.Domain.Action;
+using MvcContrib;
 
 namespace EligibilityList.Controllers
 {
@@ -94,6 +95,14 @@ namespace EligibilityList.Controllers
             {
                 Message = "Eligibility Not Found";
                 return RedirectToAction("Index");
+            }
+
+            //If this eligibility is being modified somewhere, you should be editing that instead
+            var editingEligibilityList = _eligibilityRepository.Queryable.Where(x => x.OriginalEligibility.Id == id).SingleOrDefault();
+
+            if (editingEligibilityList != null)
+            {
+                return this.RedirectToAction(a => a.Edit(editingEligibilityList.Id));
             }
 
             var viewModel = EligibilityEditViewModel.Create(Repository);
