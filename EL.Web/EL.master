@@ -12,11 +12,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <asp:ScriptManager ID="ScriptManager2" runat="server">
-        <Scripts>
-            <asp:ScriptReference Path="~/js/jquery-1.2.6-vsdoc.js" ScriptMode="Debug" />
-        </Scripts>
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
+    <script src='<%= ResolveUrl("~/js/jquery-1.3.1.min.js") %>' type="text/javascript"></script>
+    
+    <% if (false) { %>
+    <script src='<%= ResolveUrl("~/js/jquery-1.3.1-vsdoc.js") %>' type="text/javascript"></script>
+    <% } %>
     
     <div>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">

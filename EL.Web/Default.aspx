@@ -3,7 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:CheckBox ID="cbGetAll" runat="server" AutoPostBack="True" 
         Text="All Records" />
-&nbsp;<asp:ListView ID="ListView1" runat="server" DataSourceID="ObjectDataSource1">
+    <br />
+    <center>
+        <asp:ListView ID="lvEL" runat="server" DataSourceID="ObjectDataSource1">
         <ItemTemplate>
             <tr style="">
                 <td>
@@ -695,7 +697,9 @@
             </tr>
         </SelectedItemTemplate>
     </asp:ListView>
-    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
+    <asp:Literal ID="litAction" runat="server" Text="Pending Actions" />   
+    </center>
+&nbsp;<asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetByStatus" 
         TypeName="EL.BLL.EligibilityBLL">
         <SelectParameters>
