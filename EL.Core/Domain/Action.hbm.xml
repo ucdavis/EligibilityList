@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+    <class name="EL.Core.Domain.Action, EL.Core" table="ActionTypes" mutable="false">
+        <id name="ID" access="nosetter.lowercase" column="ActionTypeID" unsaved-value="0">
+            <generator class="assigned" />
+        </id>
+
+        <property name="Name" column="Name" />
+
+    </class>
+
+</hibernate-mapping> 

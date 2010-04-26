@@ -57,8 +57,11 @@
   <ItemGroup>
     <Compile Include="DataInterfaces\IDao.cs" />
     <Compile Include="DataInterfaces\IDaoFactory.cs" />
+    <Compile Include="Domain\Action.cs" />
+    <Compile Include="Domain\Department.cs" />
     <Compile Include="Domain\DomainObject.cs" />
     <Compile Include="Domain\Eligibility.cs" />
+    <Compile Include="Domain\Employee.cs" />
     <Compile Include="Domain\ITrackable.cs" />
     <Compile Include="Domain\Lookups.cs" />
     <Compile Include="Domain\ValidateBO.cs" />
@@ -70,6 +73,15 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Domain\Eligibility.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\Employee.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\Department.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\Action.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

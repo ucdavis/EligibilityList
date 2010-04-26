@@ -5,20 +5,24 @@ using System.Text;
 using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
 using EL.Core.Domain;
 
+/// TODO: Fix error when all records are selected due to not having Action Type
+
 namespace EL.Core.Domain
 {
     // Instance class
     public class Eligibility : DomainObject<Eligibility, int>
     {
         public Eligibility(){}
+                
+        //[NotNullValidator]
+        //[StringLengthValidator(9)]
+        //public virtual string EmployeeID { get; set; }
+        public virtual Employee Employee { get; set; }
 
-        [NotNullValidator]
-        [StringLengthValidator(9)]
-        public virtual string EmployeeID { get; set; }
-
-        [NotNullValidator]
-        [StringLengthValidator(6)]
-        public virtual string DeptCode { get; set; }
+        //[NotNullValidator]
+        //[StringLengthValidator(6)]
+        //public virtual string DeptCode { get; set; }
+        public virtual Department Department { get; set; }
 
         [NotNullValidator]
         public virtual int DeanID { get; set; }
@@ -26,8 +30,9 @@ namespace EL.Core.Domain
         [NotNullValidator]
         public virtual int AnalystID { get; set; }
 
-        [NotNullValidator]
-        public virtual int ActionID { get; set; }
+        //[NotNullValidator]
+        //public virtual int ActionID { get; set; }
+        public virtual Action Action { get; set; }
 
         [NotNullValidator]
         public virtual int YearsAtRank { get; set; }
