@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<EligibilityEditViewModel>" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<EligibilityModifyViewModel>" %>
 <%@ Import Namespace="EligibilityList.Core.Domain"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">

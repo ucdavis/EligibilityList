@@ -127,7 +127,7 @@ namespace EligibilityList.Controllers
                 return this.RedirectToAction(a => a.Edit(editingEligibilityList.Id));
             }
 
-            var viewModel = EligibilityEditViewModel.Create(Repository, _userBLL);
+            var viewModel = EligibilityModifyViewModel.Create(Repository, _userBLL);
             viewModel.Eligibility = el;
 
             return View(viewModel);
@@ -165,7 +165,7 @@ namespace EligibilityList.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            var viewModel = EligibilityEditViewModel.Create(Repository, _userBLL);
+            var viewModel = EligibilityModifyViewModel.Create(Repository, _userBLL);
             viewModel.Eligibility = eligibility;
 
             return View(viewModel);
@@ -184,7 +184,7 @@ namespace EligibilityList.Controllers
                 return this.RedirectToAction<HomeController>(x => x.Index());
             }
 
-            var viewModel = EligibilityEditViewModel.Create(Repository, _userBLL);
+            var viewModel = EligibilityModifyViewModel.Create(Repository, _userBLL);
 
             viewModel.Eligibility = new Eligibility
                                         {Employee = employee, CurrentTitle = title, ProposedTitle = title, Unit = dept };
@@ -245,11 +245,11 @@ namespace EligibilityList.Controllers
         }
     }
 
-    public class EligibilityEditViewModel
+    public class EligibilityModifyViewModel
     {
-        public static EligibilityEditViewModel Create(IRepository repository, IUserBLL userBLL)
+        public static EligibilityModifyViewModel Create(IRepository repository, IUserBLL userBLL)
         {
-            var viewModel = new EligibilityEditViewModel
+            var viewModel = new EligibilityModifyViewModel
                                 {
                                     Actions = repository.OfType<Action>().Queryable.Where(x => x.Inactive == false).ToList(),
                                     Committees = repository.OfType<Committee>().Queryable.Where(x => x.Inactive == false).ToList(),
