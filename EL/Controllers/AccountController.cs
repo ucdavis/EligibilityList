@@ -34,6 +34,12 @@ namespace EL.Web.Controllers
 
         private const string StrCasUrl = "https://cas.ucdavis.edu:8443/cas/";
         private const string StrTicket = "ticket";
+        private const string StrReturnUrl = "ReturnURL";
+
+        public string GetReturnUrl()
+        {
+            return HttpContext.Current.Request.QueryString[StrReturnUrl];
+        }
 
         /// <summary>
         /// Login to the campus DistAuth system using CAS        
