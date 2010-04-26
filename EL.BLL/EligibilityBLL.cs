@@ -40,5 +40,18 @@ namespace EL.BLL
             //return Queryable.Where(el => el.IsActive == false).ToList();
         }
 
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static List<Eligibility> GetByStatus(bool getAll)
+        {
+            if (getAll)
+            {
+                return GetActive();
+            }
+            else
+            {
+                return GetChanged();
+            }
+        }
+
     }
 }
