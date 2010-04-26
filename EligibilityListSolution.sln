@@ -45,9 +45,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EligibilityList.Core", "Eli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EligibilityListBLL", "EligibilityListBLL\EligibilityListBLL.csproj", "{7178DA25-3A21-45B3-B15A-3BAE1C7E85B9}"
 EndProject
+Project("{2CFEAB61-6A3B-4EB8-B523-560B4BEEF521}") = "EligibilityList.Deployment", "EligibilityList.Deployment\EligibilityList.Deployment.wdproj", "{D2FB92C4-BFA8-46A5-A9C0-A925ADF5F35F}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 5
+		SccNumberOfProjects = 6
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = http://1x:8080/
 		SccLocalPath0 = .
@@ -63,6 +65,9 @@ Global
 		SccProjectUniqueName4 = EligibilityListBLL\\EligibilityListBLL.csproj
 		SccProjectName4 = EligibilityListBLL
 		SccLocalPath4 = EligibilityListBLL
+		SccProjectUniqueName5 = EligibilityList.Deployment\\EligibilityList.Deployment.wdproj
+		SccProjectName5 = EligibilityList.Deployment
+		SccLocalPath5 = EligibilityList.Deployment
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +90,9 @@ Global
 		{7178DA25-3A21-45B3-B15A-3BAE1C7E85B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7178DA25-3A21-45B3-B15A-3BAE1C7E85B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7178DA25-3A21-45B3-B15A-3BAE1C7E85B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2FB92C4-BFA8-46A5-A9C0-A925ADF5F35F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2FB92C4-BFA8-46A5-A9C0-A925ADF5F35F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2FB92C4-BFA8-46A5-A9C0-A925ADF5F35F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
