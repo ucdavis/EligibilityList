@@ -162,6 +162,7 @@ namespace EligibilityList.Controllers
             if (ModelState.IsValid)
             {
                 eligibilityToEdit.LastUpdated = DateTime.Now;
+                eligibilityToEdit.Editor = _userBLL.GetCurrentUser(CurrentUser);
 
                 _eligibilityRepository.EnsurePersistent(eligibilityToEdit);
 

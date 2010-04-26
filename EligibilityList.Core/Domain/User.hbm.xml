@@ -8,6 +8,7 @@
         </id>
 
         <property name="Login" column="LoginID" />
+        <property name="Email" column="Email" />
         <property name="FirstName" column="FirstName" />
         <property name="LastName" column="LastName" />
         <property name="EmployeeID" column="EmployeeID" />

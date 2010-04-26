@@ -8,6 +8,7 @@
 
     <property name="DeanKerb" column="DADKerb" update="false" insert="false" />
     <property name="AnalystKerb" column="AnalystKerb" update="false" insert="false" />
+    <property name="EditorKerb" column="EditorKerb" update="false" insert="false" />
     <!--<property name="DeptCode" column="DIST_DEPT_CODE" />-->    
     <!--<property name="DeanID" column="DADAssociateDeanID" />-->
     <!--<property name="AnalystID" column="AnalystID" />-->
@@ -43,6 +44,7 @@
     <many-to-one name="Committee" column="CommitteeID" class="EligibilityList.Core.Domain.Committee, EligibilityList.Core" not-null="true"></many-to-one>
     <many-to-one name="Dean" property-ref="Login" column="DADKerb" class="EligibilityList.Core.Domain.User, EligibilityList.Core"></many-to-one>
     <many-to-one name="Analyst" property-ref="Login" column="AnalystKerb" class="EligibilityList.Core.Domain.User, EligibilityList.Core"></many-to-one>
+    <many-to-one name="Editor" property-ref="Login" column="EditorKerb" class="EligibilityList.Core.Domain.User, EligibilityList.Core"></many-to-one>
     <many-to-one name="Unit" property-ref="FISCode" column="FISCode" class="EligibilityList.Core.Domain.Unit, EligibilityList.Core" not-null="true"></many-to-one>
     <many-to-one name="Action" column="ActionID" class="EligibilityList.Core.Domain.Action, EligibilityList.Core" not-null="true"></many-to-one>
     <many-to-one name="CurrentStep" column="CurrentStep" class="EligibilityList.Core.Domain.Step, EligibilityList.Core" not-null="true"></many-to-one>

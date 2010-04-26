@@ -153,5 +153,36 @@ namespace EligibilityList.Core.Domain
         public virtual bool Inactive { get; set; }
 
         public virtual Eligibility OriginalEligibility { get; set; }
+
+        [Length(50)]
+        public virtual string EditorKerb { get; set; }
+
+        public virtual User Editor { get; set; }
+
+        public virtual string EditorSafeName
+        {
+            get
+            {
+                if (Editor != null)
+                {
+                    return Editor.FullName;
+                }
+
+                return EditorKerb ?? "Editor Not Found";
+            }
+        }
+
+        public virtual string EditorEmail
+        {
+            get
+            {
+                if (Editor != null)
+                {
+                    return Editor.Email;
+                }
+
+                return string.Empty;
+            }
+        }
     }   
 }
