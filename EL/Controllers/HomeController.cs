@@ -30,6 +30,11 @@ namespace EL.Web.Controllers
             return View("Index");
         }
 
+        public ActionResult Error(string message)
+        {
+            return View(message);
+        }
+
         public ActionResult About()
         {
             return View();

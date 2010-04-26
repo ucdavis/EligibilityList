@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using EL.Core.Domain;
 using EL.BLL;
@@ -20,6 +17,21 @@ namespace EL.Web.Controllers
             ViewData["Changed"] = onlyChanged;
 
             return View(els);
+        }
+
+        public ActionResult Edit(int? id)
+        {
+            Eligibility el = null;
+
+            if (id.HasValue)
+            {
+                el = EligibilityBLL.GetNullableByID(id.Value);
+            }
+
+            if (el == null) return RedirectToAction("Error", "Home");
+            //Check.Require(el != null, "Bad value for El ID");
+
+            return View(el);
         }
 
         public JsonResult GetActions()

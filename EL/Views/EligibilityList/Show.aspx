@@ -19,6 +19,9 @@
     <table border="0">
         <tr>
             <th>
+                Action
+            </th>
+             <th>
                 Name
             </th>
             <th>
@@ -59,6 +62,7 @@
         <% foreach (var el in Model)
            { %>
         <tr>
+            <td><%= Html.ActionLink("Edit", "Edit", new {el.ID})%></td>
             <td><%= Html.Encode(el.Employee.FullName) %></td>
             <td><%= Html.Encode(el.Department.Abbreviation) %></td>
             <td><%= Html.Encode(el.Action.Name) %></td>

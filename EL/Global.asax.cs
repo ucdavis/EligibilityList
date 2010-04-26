@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace EL.Web
@@ -16,10 +12,17 @@ namespace EL.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+
             routes.MapRoute(
-                "EligilityList",
-                "EligibilityList/{action}/Changed/{changed}",
+                "EligilityListChanged",
+                "EligibilityList/Show/Changed",
                 new { controller = "EligibilityList", action = "Show", changed = true }
+            );
+
+            routes.MapRoute(
+                "EligilityListAll",
+                "EligibilityList/Show/All",
+                new { controller = "EligibilityList", action = "Show", changed = false }
             );
 
             routes.MapRoute(
