@@ -5,6 +5,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function() {
+            $.getJSON("/EligibilityList/GetActions", null, function(data) {
+                console.dir(data);
+            });
+        });
+    </script>
+
     <%= Html.RouteLink("Show All", new { changed = false }) %> | <%= Html.RouteLink("Show Changed", new { changed = true}) %>    
 
     <h2>Show</h2>

@@ -21,5 +21,12 @@ namespace EL.Web.Controllers
 
             return View(els);
         }
+
+        public JsonResult GetActions()
+        {
+            var actions = ActionTypeBLL.GetAll();
+
+            return Json(actions);
+        }
     }
 }
