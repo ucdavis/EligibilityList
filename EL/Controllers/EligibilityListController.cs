@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using EL.Core.Domain;
 using EL.BLL;
 
@@ -8,13 +7,19 @@ namespace EL.Web.Controllers
     [HandleError]
     public class EligibilityListController : Controller
     {
+        public EligibilityBLL2 EligibilityBLL2 { get; set; }
+        
+        public EligibilityListController()
+        {
+            EligibilityBLL2 = new EligibilityBLL2();
+        }
+
+        [Transaction]
         public ActionResult Show(bool? changed)
         {
             bool onlyChanged = changed ?? true;
 
-            var user = ControllerContext.HttpContext.User.Identity.Name;
-
-            IQueryable<Eligibility> els = EligibilityBLL.GetChanged(onlyChanged, ControllerContext.HttpContext.User);
+            var els = EligibilityBLL2.GetChanged(onlyChanged, ControllerContext.HttpContext.User);
 
             ViewData["Changed"] = onlyChanged;
 
