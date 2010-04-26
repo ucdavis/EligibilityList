@@ -22,26 +22,20 @@ namespace EL.BLL
     {
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<Eligibility> GetActive()
+        public static IQueryable<Eligibility> GetActive()
         {
-            //return Queryable.Where(el => el.EmployeeID.StartsWith("9")).ToList();
-            return Queryable.Where(el => el.IsActive == true).ToList();
-            //var obj = new Eligibility();
-            //obj.IsActive = true;
-            //return EligibilityBLL.GetByInclusionExample(obj, "EmployeeID", true, "IsActive");
-            //return EligibilityBLL.GetAll();
-            //var query = 
+            return Queryable.Where(el => el.IsActive == true);
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<Eligibility> GetChanged()
+        public static IQueryable<Eligibility> GetChanged()
         {
-            return Queryable.Where(el => el.OriginalEligibility != null).ToList();
+            return Queryable.Where(el => el.OriginalEligibility != null);
             //return Queryable.Where(el => el.IsActive == false).ToList();
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<Eligibility> GetByStatus(bool getAll)
+        public static IQueryable<Eligibility> GetByStatus(bool getAll)
         {
             if (getAll)
             {
