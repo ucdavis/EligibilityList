@@ -13,6 +13,11 @@ Begin DataProject = "EligibilityList.DB"
       Script = "InsertLookups.sql"
    End
    Begin DBRefFolder = "Database References"
+      Begin DBRefNode = "terry.EL.dbo"
+         ConnectStr = "Data Source=terry;Initial Catalog=EL;Integrated Security=True"
+         Provider = "{91510608-8809-4020-8897-FBA057E22D54}"
+         Colorizer = 6
+      End
       Begin DBRefNode = "vogel.EL.dbo"
          ConnectStr = "Data Source=vogel;Initial Catalog=EL;Integrated Security=True"
          Provider = "{91510608-8809-4020-8897-FBA057E22D54}"
