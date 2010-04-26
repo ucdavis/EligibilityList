@@ -5,6 +5,10 @@ using System.Web.Mvc;
 using System;
 using System.Linq;
 using NHibernate.Cfg;
+using EL.Core.Domain;
+using EL.Data;
+using EL.BLL;
+using System.Collections.Generic;
 
 namespace EL.Tests.Controllers
 {
@@ -21,6 +25,25 @@ namespace EL.Tests.Controllers
             Configuration config = new Configuration().Configure();
             //Create the DB using the schema export
             new NHibernate.Tool.hbm2ddl.SchemaExport(config).Execute(false, true, false, true, EL.Data.NHibernateSessionManager.Instance.GetSession().Connection, null);
+
+            LoadData();
+        }
+
+        public void LoadData()
+        {
+            ActionType at = new ActionType();
+            ActionType at2 = new ActionType();
+
+            at.Name = "My Type";
+            at2.Name = "Another Type";
+
+            using (var ts = new TransactionScope())
+            {
+                ActionTypeBLL.EnsurePersistent(ref at);
+                ActionTypeBLL.EnsurePersistent(ref at2);
+
+                ts.CommittTransaction();
+            }
         }
 
         /// <summary>
@@ -59,6 +82,21 @@ namespace EL.Tests.Controllers
             var listOfModel = model.ToList();
 
             Assert.IsNotNull(listOfModel);
+        }
+
+        [TestMethod]
+        public void CanGetActions()
+        {
+            EligibilityListController controller = new EligibilityListController();
+
+            var result = controller.GetActions();
+
+            Assert.IsNotNull(result);
+
+            var data = result.Data as List<ActionType>;
+
+            Assert.IsNotNull(data);
+            Assert.AreEqual(2, data.Count);
         }
     }
 }
