@@ -20,17 +20,29 @@
     
     <% if (Model.PayrollPersons.Count() > 0) { %>
     <p>
-       <%= Html.Grid(Model.PayrollPersons) 
+       <% Html.Grid(Model.PayrollPersons) 
                 .Name("PayrollPersons")
                 .PrefixUrlParameters(false)
                 .Columns(col =>
                              {
+                                 col.Add(c =>
+                                             {%>
+                                        <%=Html.ActionLink("Add Eligibility", "Add",
+                                                                                   new
+                                                                                       {
+                                                                                           id = c.EmployeeID,
+                                                                                           titleCode = c.TitleCode,
+                                                                                           department = c.Department
+                                                                                       })%>
+                                        <%
+                                             });
                                  col.Add(x => x.Name);
                                  col.Add(x => x.EmployeeID);
                                  col.Add(x => x.TitleCode);
                                  col.Add(x => x.Department).Title("Department Code");
                              })
                 .Sortable()
+                .Render(); 
            %> 
     </p>
     <% } %>

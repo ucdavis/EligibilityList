@@ -171,6 +171,28 @@ namespace EligibilityList.Controllers
             return View(viewModel);
         }
 
+        public ActionResult Add(string id, string titleCode, string department)
+        {
+            var employee = Repository.OfType<Employee>().Queryable.Where(x => x.Id == id).SingleOrDefault();
+            var title = Repository.OfType<Title>().Queryable.Where(x => x.Id == titleCode).FirstOrDefault() ?? new Title();
+            var dept = Repository.OfType<Unit>().Queryable.Where(x => x.PPSCode == department).FirstOrDefault() ?? new Unit();
+            
+            if (employee == null)
+            {
+                Message = string.Format("Employee with Id {0} not found", id);
+
+                return this.RedirectToAction<HomeController>(x => x.Index());
+            }
+
+            var viewModel = EligibilityEditViewModel.Create(Repository, _userBLL);
+
+            viewModel.Eligibility = new Eligibility
+                                        {Employee = employee, CurrentTitle = title, ProposedTitle = title, Unit = dept };
+
+
+            return View(viewModel);
+        }
+
         private static void TransferValuesTo(Eligibility source, Eligibility destination)
         {
             destination.Employee = source.Employee;

@@ -9,7 +9,19 @@ namespace EligibilityList.Core.Domain
     // Instance class
     public class Eligibility : DomainObject
     {
-        public Eligibility(){}
+        public Eligibility()
+        {
+            Employee = new Employee();
+            Unit = new Unit();
+            Dean = new User();
+            Analyst = new User();
+            Action = new Action();
+            Committee = new Committee();
+            CurrentTitle = new Title();
+            CurrentStep = new Step();
+            ProposedTitle = new Title();
+            ProposedStep = new Step();
+        }
                 
         //[NotNullValidator]
         //[StringLengthValidator(9)]

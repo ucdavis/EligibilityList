@@ -159,8 +159,10 @@
     <Content Include="Views\Committee\Create.aspx" />
     <Content Include="Views\Committee\Edit.aspx" />
     <Content Include="Views\Committee\Index.aspx" />
+    <Content Include="Views\Eligibility\Add.aspx" />
     <Content Include="Views\Eligibility\Details.aspx" />
     <Content Include="Views\Eligibility\Edit.aspx" />
+    <Content Include="Views\Eligibility\EligibilityForm.ascx" />
     <Content Include="Views\Eligibility\FindEmployee.aspx" />
     <Content Include="Views\Eligibility\Index.aspx" />
     <Content Include="Views\Eligibility\ViewByDepartment.aspx" />
