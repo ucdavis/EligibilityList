@@ -87,7 +87,7 @@
         <%= this.Select("ProposedStep")
                         .Options(Model.Steps, x=>x.Id, x=>x.Name)
                         .Selected(Model.Eligibility.ProposedStep == null ? 0 : Model.Eligibility.ProposedStep.Id)
-                        .Label("Propsed Step: ")
+                        .Label("Proposed Step: ")
         %>
     </li>
     <li>
