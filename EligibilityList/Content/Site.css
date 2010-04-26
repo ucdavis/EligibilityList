@@ -1,50 +1,59 @@
 ﻿/*----------------------------------------------------------
-The base color for this template is #5c87b2. If you'd like
+The base color for this template is #f2f5f5. If you'd like
 to use a different color start by replacing all instances of
-#5c87b2 with your new color.
+#f2f5f5 with your new color.
 ----------------------------------------------------------*/
 body
 {
-    background-color: #5c87b2;
-    font-size: .75em;
-    font-family: Verdana, Helvetica, Sans-Serif;
+    background-color: #f2f5f5;
+    font-size: 62.5%;
+    font-family: Verdana, Helvetica, Arial, Trebuchet MS, Tahoma, Sans-Serif;
     margin: 0;
     padding: 0;
-    color: #696969;
+    color: #353535;
+    line-height: 1.6em;
 }
 
 a:link
 {
-    color: #034af3;
-    text-decoration: underline;
+    color: #003366;
+    text-decoration: none;
+    outline: none;
 }
 a:visited
 {
-    color: #505abc;
+    color: #003366;
+    text-decoration: none;
 }
 a:hover
 {
-    color: #1d60ff;
+    color: #b39235;
     text-decoration: none;
 }
 a:active
 {
-    color: #12eb87;
+    color: #b39235;
+    text-decoration: none;
 }
+a img {border: none; outline: none;}
 
-p, ul
+p, ul, li
 {
     margin-bottom: 20px;
     line-height: 1.6em;
 }
+
+ul {margin: 0 0 20px; padding: 0px;}
+
+li {list-style: none;}
 
 /* HEADINGS   
 ----------------------------------------------------------*/
 h1, h2, h3, h4, h5, h6
 {
     font-size: 1.5em;
-    color: #000;
-    font-family: Arial, Helvetica, sans-serif;
+    color: #A1251B;
+    font-weight: bold;
 }
 
 h1
@@ -80,13 +89,19 @@ first child of the left and right table columns */
 /* PRIMARY LAYOUT ELEMENTS   
 ----------------------------------------------------------*/
 
+#branding {background: url(../Images/branding.jpg) repeat-x top center; height: 65px; margin: 0 auto; padding: 0 10%; min-width: 900px;}
+#branding span.logos {padding: 22px 0px 0px 0px; width: 600px; float: left; margin: 0px auto; display: block;}
+#branding span.ucdavis {margin-right: 5px;}
+#title {padding: 24px 0px 0px 0px; width: 300px; float: right; text-align: right;}
+
 /* you can specify a greater or lesser percentage for the 
 page width. Or, you can specify an exact pixel width. */
 .page
 {
-    width: 90%;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
+    font-size: 1.1em;
 }
 
 #header
@@ -102,17 +117,16 @@ page width. Or, you can specify an exact pixel width. */
     font-weight: bold;
     padding: 5px 0;
     margin: 0;
-    color: #fff;
+    color: #f2f5f5;
     border: none;
-    line-height: 2em;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 32px !important;
+    font-size: 3.2em;
+    text-shadow: 3px 2px 8px #AAAAAA;
+    float: right;
 }
 
 #main
 {
-    padding: 30px 30px 15px 30px;
-    background-color: #fff;
+    padding: 30px 0px 15px 0px;
     margin-bottom: 30px;
     _height: 1px; /* only IE6 applies CSS properties starting with an underscrore */
 }
@@ -125,60 +139,6 @@ page width. Or, you can specify an exact pixel width. */
     line-height: normal;
     margin: 0;
     font-size: .9em;
-}
-
-/* TAB MENU   
-----------------------------------------------------------*/
-ul#menu
-{
-    border-bottom: 1px #5C87B2 solid;
-    padding: 0 0 2px;
-    position: relative;
-    margin: 0;
-    text-align: right;
-}
-
-ul#menu li
-{
-    display: inline;
-    list-style: none;
-}
-
-ul#menu li#greeting
-{
-    padding: 10px 20px;
-    font-weight: bold;
-    text-decoration: none;
-    line-height: 2.8em;
-    color: #fff;
-}
-
-ul#menu li a
-{
-    padding: 10px 20px;
-    font-weight: bold;
-    text-decoration: none;
-    line-height: 2.8em;
-    background-color: #e8eef4;
-    color: #034af3;
-}
-
-ul#menu li a:hover
-{
-    background-color: #fff;
-    text-decoration: none;
-}
-
-ul#menu li a:active
-{
-    background-color: #a6e2a6;
-    text-decoration: none;
-}
-
-ul#menu li.selected a
-{
-    background-color: #fff;
-    color: #000;
 }
 
 /* FORM LAYOUT ELEMENTS   
@@ -225,28 +185,52 @@ input[type="password"]
     border: 1px solid #CCC;
 }
 
+fieldset li {font-size: 1.2em;}
+fieldset li:hover {background: #fff; background: rgba(255,255,255,.7);}
+
+fieldset li span , fieldset li label
+{
+    font-weight: bold; text-transform: uppercase; 
+    font-size: .65em; letter-spacing: 1px; 
+    display: inline-block; padding: .25em 1em .25 0; 
+    width: 180px; color: #002266;
+}
+
+
 /* TABLE
 ----------------------------------------------------------*/
 
 table 
 {
-  border: solid 1px #e8eef4;
   border-collapse: collapse;
+    -moz-border-radius-topleft: 18px; 
+    -webkit-border-top-left-radius: 18px;
+    -moz-border-radius-topright: 18px; 
+    -webkit-border-top-right-radius: 18px;
+    -moz-box-shadow: 0px 0px 18px #dedede;
 }
 
 table td 
 {
-  padding: 5px;   
+  padding: 12px 1em 5px;   
   border: solid 1px #e8eef4;
 }
 
+table thead {border-bottom: double 5px #002266;}
+
 table th
 {
-  padding: 6px 5px;
+  padding: 26px 5px 10px;
   text-align: left;
-  background-color: #e8eef4; 
-  border: solid 1px #e8eef4;   
+  background-color: #fff; 
+  vertical-align: bottom;
+  border-bottom: double 5px #002266;
 }
+
+table .t-alt {background: #fff; background: rgba(255,255,255,.5);}
+
+table tr:hover {background: #fff; background: rgba(255,255,255,.9);
+    -moz-box-shadow: 0px 0px 18px #dedede;}
 
 /* MISC  
 ----------------------------------------------------------*/
@@ -267,35 +251,42 @@ table th
 
 div#title
 {
-    display:block;
-    float:left;
-    text-align:left;
 }
 
 #logindisplay
 {
-    font-size:1.1em;
-    display:block;
+    font-size:1em;
+    float: right;
     text-align:right;
-    margin:10px;
-    color:White;
+    margin: -14px 10px 0px;
+    padding: 10px 20px 10px;
+    color:#002266;
+    -moz-border-radius-bottomleft: 18px; 
+    -webkit-border-bottom-left-radius: 18px;
+    -moz-border-radius-bottomright: 18px; 
+    -webkit-border-bottom-right-radius: 18px;
+    -moz-box-shadow: 2px 2px 8px #dedede;
+    background: #fff;
+    background: rgba(255, 255, 255, .7);
 }
+
+#logindisplay:hover {background: rgba(255, 255, 255, 1); -moz-box-shadow: 2px 2px 5px #dedede;}
 
 #logindisplay a:link
 {
-    color: white;
-    text-decoration: underline;
+    color: #002266;
+    text-decoration: none;
 }
 
 #logindisplay a:visited
 {
-    color: white;
-    text-decoration: underline;
+    color: #002266;
+    text-decoration: none;
 }
 
 #logindisplay a:hover
 {
-    color: white;
+    color: #002266;
     text-decoration: none;
 }
 
@@ -315,3 +306,19 @@ div#title
     font-weight: bold;
     color: #ff0000;
 }
+
+
+/* SPECIFIC  
+----------------------------------------------------------*/
+
+.switch-view, .switch-units {width: 50%; float: left; padding: 0 0 1em;}
+.switch-units {text-align: right;}
+
+#EligibilityList {clear: both;}
+
+.t-footer .t-link, .t-footer .t-state-active {float: left; font-weight: bold; font-size: .9em; padding: 5px 1em;}
+.t-footer .t-state-active {color: #aaa;}
+.t-footer .t-pager {width: 50%; float: left;}
+.t-status-text {clear: both; text-align: right;}
+
+.col {width: 40%; margin: 0 10% 0 0; float: left;}

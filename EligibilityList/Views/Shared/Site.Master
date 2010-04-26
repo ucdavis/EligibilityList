@@ -26,29 +26,27 @@
 </head>
 
 <body>
+    <div id="branding">
+    <span class="logos">
+    <span class="ucdavis"><a href="http://www.ucdavis.edu"><img src="../../Images/logo-ucdavis.jpg" alt="UC Davis" /></a></span>
+    <span class="caes"><a href="http://caes.ucdavis.edu"><img src="../../Images/logo-caes.jpg" alt="College of Agricultural &amp; Environmental Sciences" /></a></span>
+    </span>
+    
+            <div id="title">
+                <img src="../../Images/logo-el.jpg" alt="Eligibility List" />
+            </div>
+            
+    </div>
     <div class="page">
 
         <div id="header">
-            <div id="title">
-                <h1>My MVC Application</h1>
-            </div>
-              
             <div id="logindisplay">
                 <% Html.RenderPartial("LogOnUserControl"); %>
             </div> 
-            
-            <div id="menucontainer">
-            
-                <ul id="menu">              
-                    <li><%= Html.ActionLink("Home", "Index", "Home")%></li>
-                    <li><%= Html.ActionLink("About", "About", "Home")%></li>
-                </ul>
-            
-            </div>
         </div>
 
         <div id="main">
-            <h3><span style="color:Blue;"><%= Html.Encode(TempData["Message"]) %></span></h3>            
+            <%--<h3><span style="color:Blue;"><%= Html.Encode(TempData["Message"]) %></span></h3>    --%>        
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />
 
             <div id="footer">

@@ -10,79 +10,87 @@
 
     <fieldset>
         <legend>Fields</legend>
-        <p>
-            Apt Department:
+        <div class="col left">
+        <ul>
+        <li>
+            <span>Apt Department:</span>
             <%= Html.Encode(Model.Unit.FullName) %>
-        </p>
-        <p>
-            Action Type:
+        </li>
+        <li>
+            <span>Action Type:</span>
             <%= Html.Encode(Model.Action.Name) %>
-        </p>
-        <p>
-            Committee: <%= Html.Encode(Model.Committee.Name) %>
-        </p>
-        <p>
-            Dean: <%= Html.Encode(Model.DeanSafeName) %>
-        </p>
-        <p>
-            Analyst: <%= Html.Encode(Model.AnalystSafeName) %>
-        </p>
-        <p>
-            Current Title: <%= Html.Encode(Model.CurrentTitle.AbbreviatedName) %>
-        </p>
-        <p>
-            Current Step: <%= Html.Encode(Model.CurrentStep.Name) %>
-        </p>
-        <p>
-            Current Appt %: <%= Html.Encode(Model.CurrentAppointmentPercent) %>
-        </p>
-        <p>
-            Current Blank In the ---: <%= Html.Encode(Model.CurrentBlankTitle) %>
-        </p>
-        <p>
-            Current Years @ Rank: <%= Html.Encode(Model.YearsAtRank) %>
-        </p>
-        <p>
-            Current Years @ Step: <%= Html.Encode(Model.YearsAtStep) %>
-        </p>
-        <p>
-            Proposed Title: <%= Html.Encode(Model.ProposedTitle == null ? "None" : Model.ProposedTitle.AbbreviatedName) %>
-        </p>
-        <p>
-            Proposed Step: <%= Html.Encode(Model.ProposedStep == null ? "None" : Model.ProposedStep.Name) %>
-        </p>
-        <p>
-            Proposed Appt %: <%= Html.Encode(Model.ProposedAppointmentPercent) %>
-        </p>
-        <p>
-            Proposed Blank in The ---: <%= Html.Encode(Model.ProposedBlankTitle) %>
-        </p>
-        <p>
-            Defer?: <%= Html.Encode(Model.Defer) %>
-        </p>
-        <p>
-            Years at Acel: <%= Html.Encode(Model.YearsAccelerated) %>
-        </p>
-        <p>
-            Years at Decel: <%= Html.Encode(Model.YearsDecelerated) %>
-        </p>
-        <p>
-            DateDue:
+        </li>
+        <li>
+            <span>Committee:</span> <%= Html.Encode(Model.Committee.Name) %>
+        </li>
+        <li>
+            <span>Dean:</span> <%= Html.Encode(Model.DeanSafeName) %>
+        </li>
+        <li>
+            <span>Analyst:</span> <%= Html.Encode(Model.AnalystSafeName) %>
+        </li>
+        <li>
+            <span>Current Title:</span> <%= Html.Encode(Model.CurrentTitle.AbbreviatedName) %>
+        </li>
+        <li>
+            <span>Current Step:</span> <%= Html.Encode(Model.CurrentStep.Name) %>
+        </li>
+        <li>
+            <span>Current Appt %:</span> <%= Html.Encode(Model.CurrentAppointmentPercent) %>
+        </li>
+        <li>
+            <span>Current Blank In the ---:</span> <%= Html.Encode(Model.CurrentBlankTitle) %>
+        </li>
+        <li>
+            <span>Current Years @ Rank:</span> <%= Html.Encode(Model.YearsAtRank) %>
+        </li>
+        <li>
+            <span>Current Years @ Step:</span> <%= Html.Encode(Model.YearsAtStep) %>
+        </li>
+        </ul>
+        </div>
+        <div class="col right">
+        <ul>
+        <li>
+            <span>Proposed Title:</span> <%= Html.Encode(Model.ProposedTitle == null ? "None" : Model.ProposedTitle.AbbreviatedName) %>
+        </li>
+        <li>
+            <span>Proposed Step:</span> <%= Html.Encode(Model.ProposedStep == null ? "None" : Model.ProposedStep.Name) %>
+        </li>
+        <li>
+            <span>Proposed Appt %:</span> <%= Html.Encode(Model.ProposedAppointmentPercent) %>
+        </li>
+        <li>
+            <span>Proposed Blank in The ---:</span> <%= Html.Encode(Model.ProposedBlankTitle) %>
+        </li>
+        <li>
+            <span>Defer?:</span> <%= Html.Encode(Model.Defer) %>
+        </li>
+        <li>
+            <span>Years at Acel:</span> <%= Html.Encode(Model.YearsAccelerated) %>
+        </li>
+        <li>
+            <span>Years at Decel:</span> <%= Html.Encode(Model.YearsDecelerated) %>
+        </li>
+        <li>
+            <span>Date Due:</span>
             <%= Html.Encode(String.Format("{0:d}", Model.DateDue)) %>
-        </p>
-        <p>
-            DateEffective:
+        </li>
+        <li>
+            <span>Date Effective:</span>
             <%= Html.Encode(String.Format("{0:d}", Model.DateEffective)) %>
-        </p>
-        <p>
-            Comment:
+        </li>
+        <li>
+            <span>Comment:</span>
             <%= Html.Encode(Model.Comment) %>
-        </p>
+        </li>
+        </ul>
+        </div>
     </fieldset>
-    <p>
+    <li>
         <%=Html.ActionLink("Edit", "Edit", new { id = Model.Id }) %> |
-        <%=Html.ActionLink("Back to List", "ViewByDepartment") %>
-    </p>
+        <%=Html.ActionLink("Back to List", "ViewByDepartment")%>
+    </li>
 
 </asp:Content>
 
