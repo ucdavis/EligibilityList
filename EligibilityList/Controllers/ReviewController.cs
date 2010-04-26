@@ -56,7 +56,7 @@ namespace EligibilityList.Controllers
             if (approved)
             {
                 // copy the changes
-                parent = Copy(child, parent);
+                CopyHelper.TransferValuesTo(child, parent);
             }
             
             // save comment

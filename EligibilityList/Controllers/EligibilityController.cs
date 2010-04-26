@@ -155,7 +155,7 @@ namespace EligibilityList.Controllers
                 eligibilityToEdit.OriginalEligibility = _eligibilityRepository.GetById(id);
             }   
 
-            TransferValuesTo(eligibility, eligibilityToEdit);
+            CopyHelper.TransferValuesTo(eligibility, eligibilityToEdit);
 
             eligibilityToEdit.TransferValidationMessagesTo(ModelState);
 
@@ -205,7 +205,7 @@ namespace EligibilityList.Controllers
         {
             var eligibilityToEdit = new Eligibility();
             
-            TransferValuesTo(eligibility, eligibilityToEdit);
+            CopyHelper.TransferValuesTo(eligibility, eligibilityToEdit);
 
             eligibilityToEdit.TransferValidationMessagesTo(ModelState);
 
@@ -224,37 +224,6 @@ namespace EligibilityList.Controllers
             viewModel.Eligibility = eligibility;
 
             return View(viewModel);
-        }
-
-        private static void TransferValuesTo(Eligibility source, Eligibility destination)
-        {
-            destination.Employee = source.Employee;
-
-            destination.Unit = source.Unit;
-            destination.Action = source.Action;
-            destination.Committee = source.Committee;
-            destination.Dean = source.Dean;
-            destination.Analyst = source.Analyst;
-            destination.CurrentTitle = source.CurrentTitle;
-            destination.CurrentStep = source.CurrentStep;
-            destination.CurrentAppointmentPercent = source.CurrentAppointmentPercent;
-            destination.CurrentBlankTitle = source.CurrentBlankTitle;
-            destination.YearsAtRank = source.YearsAtRank;
-            destination.YearsAtStep = source.YearsAtStep;
-
-            destination.ProposedTitle = source.ProposedTitle;
-            destination.ProposedStep = source.ProposedStep;
-            destination.ProposedAppointmentPercent = source.ProposedAppointmentPercent;
-            destination.ProposedBlankTitle = source.ProposedBlankTitle;
-
-            destination.Defer = source.Defer;
-            destination.YearsAccelerated = source.YearsAccelerated;
-            destination.YearsDecelerated = source.YearsDecelerated;
-
-            destination.DateDue = source.DateDue;
-            destination.DateEffective = source.DateEffective;
-
-            destination.Comment = source.Comment;
         }
 
         /// <summary>

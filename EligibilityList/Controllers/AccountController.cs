@@ -1,6 +1,7 @@
 using System.Web.Mvc;
 using UCDArch.Web.Authentication;
 using System.Web.Security;
+using EligibilityList.Helpers;
 
 namespace EligibilityList.Controllers
 {
@@ -25,6 +26,12 @@ namespace EligibilityList.Controllers
             FormsAuthentication.SignOut();
 
             return RedirectToAction("Index", "Home");
+        }
+
+        [AdminOnly]
+        public ViewResult Management()
+        {
+            return View();
         }
     }
 }
