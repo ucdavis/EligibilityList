@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
 using System.Web.Mvc;
 using System;
+using System.Linq;
 
 namespace EL.Tests.Controllers
 {
@@ -19,7 +20,7 @@ namespace EL.Tests.Controllers
         [TestMethod]
         public void ShowTest()
         {
-            EligibilityListController target = new EligibilityListController(); // TODO: Initialize to an appropriate value
+            EligibilityListController target = new EligibilityListController();
             Nullable<bool> changed = new Nullable<bool>();
             changed = true; //Try change = true
 
@@ -32,6 +33,23 @@ namespace EL.Tests.Controllers
             actual = target.Show(changed) as ViewResult;
 
             Assert.AreEqual(changed.Value, actual.ViewData["Changed"]); //Make sure we call the correct view
+        }
+
+        [TestMethod]
+        public void ShowMustContainListOfCorrectType()
+        {
+            EligibilityListController controller = new EligibilityListController();
+            bool? changed = true; //just grab the changed ones
+
+            var result = controller.Show(changed) as ViewResult;
+
+            var model = result.ViewData.Model as IQueryable<EL.Core.Domain.Eligibility>;
+
+            Assert.IsNotNull(model);
+
+            var listOfModel = model.ToList();
+
+            Assert.IsNotNull(listOfModel);
         }
     }
 }
