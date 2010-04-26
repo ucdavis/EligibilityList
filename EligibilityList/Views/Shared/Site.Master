@@ -34,7 +34,7 @@
     </span>
     
     <div id="title">
-        <img src="<%= Url.Content("~/Images/logo-el.jpg") %>" alt="Eligibility List" />
+        <%= Html.ImageLink("logo-el.jpg", "Eligibility List", "Index", "Eligibility") %>
     </div>
             
     </div>
