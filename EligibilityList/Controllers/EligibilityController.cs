@@ -137,9 +137,9 @@ namespace EligibilityList.Controllers
         {
             var eligibilityToEdit = new Eligibility();
 
-            if (hasOriginalEligibility)
+            if (hasOriginalEligibility || CurrentUser.IsInRole("Admin"))
             {
-                //If there is an original, just grab this version out and we'll save over it
+                //If the user is an admin or this is an adjustment eligibility, just overwrite this given eligibility
                 eligibilityToEdit = _eligibilityRepository.GetNullableByID(id);
                 Check.Require(eligibilityToEdit != null);
             }
@@ -147,7 +147,7 @@ namespace EligibilityList.Controllers
             {
                 //We don't have an original eligibility, need to create one for this id
                 eligibilityToEdit.OriginalEligibility = _eligibilityRepository.GetById(id);
-            }
+            }   
 
             TransferValuesTo(eligibility, eligibilityToEdit);
 
