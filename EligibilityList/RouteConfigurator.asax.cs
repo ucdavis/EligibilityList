@@ -15,7 +15,7 @@ namespace EligibilityList
             routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });
 
             MvcRoute.MappUrl("{controller}/{action}/{id}")
-                .WithDefaults(new { controller = "Eligibility", action = "ViewPending", id = "" })
+                .WithDefaults(new { controller = "Home", action = "Index", id = "" })
                 .AddWithName("Default", routes);
         }
     }
