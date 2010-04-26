@@ -1,7 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/EL.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <asp:ListView ID="ListView1" runat="server" DataSourceID="ObjectDataSource1">
+    <div>
+        <div align="center">
+        <asp:Button ID="btnReview" runat="server" Text="Review Pending Changes" />
+        </div>
+            <asp:Panel ID="pnlModalPopup" runat="server" CssClass="modalPopup" style="display:none;">
+                    <asp:ListView ID="ListView1" runat="server" DataSourceID="ObjectDataSource1">
     <LayoutTemplate>
             <table cellpadding="2" border="1" id="tbl1" runat="server">
                 
@@ -57,6 +62,15 @@
         </tr>
     </ItemTemplate>
     </asp:ListView>
+                    <div align="center">
+                        <asp:Button ID="btnClose" runat="server" Text="Close" />
+                    </div>
+             </asp:Panel>
+             
+        <AjaxControlToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server" TargetControlID="btnReview" PopupControlID="pnlModalPopup" BackgroundCssClass="modalBackground" DropShadow="true" CancelControlID="btnClose" /> 
+    </div>
+
+    
     <asp:GridView runat="server" AllowPaging="True" AutoGenerateColumns="False" 
         CellPadding="4" DataSourceID="ObjectDataSource2" ForeColor="#333333" 
         GridLines="None">
@@ -139,6 +153,5 @@
     <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" 
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetActive" 
         TypeName="EL.BLL.EligibilityBLL"></asp:ObjectDataSource>
-    <script type="text/javascript"></script>
 </asp:Content>
 
