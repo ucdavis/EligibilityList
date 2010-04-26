@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <class name="EligibilityList.Core.Domain.Eligibility, EligibilityList.Core" table="EligibilityList">
+    <id name="Id" column="AppointmentID" unsaved-value="0">
+      <generator class="identity" />
+    </id>
+
+    <property name="DeanKerb" column="DADKerb" />
+    <property name="AnalystKerb" column="AnalystKerb" />
+    <!--<property name="DeptCode" column="DIST_DEPT_CODE" />-->    
+    <!--<property name="DeanID" column="DADAssociateDeanID" />-->
+    <!--<property name="AnalystID" column="AnalystID" />-->
+    <!--<property name="ActionID" column="ActionID" />-->
+    <property name="YearsAtRank" column="YearsAtRank" />
+    <property name="YearsAtStep" column="YearsAtStep" />
+    <property name="AppointmentPercent" column="AppointmentPercent" />
+    <!--<property name="CommitteeID" column="CommitteeID" />-->
+    <!--<property name="TitleCode" column="TITLE_CODE" />-->
+    <!--<property name="CurrentStep" column="CurrentStep" />-->
+    <property name="CurrentBlankTitle" column="CurrentBlankTitle" />
+    <!--<property name="ProposedTitleCode" column="ProposedTitleCode" />-->
+    <!--<property name="ProposedStep" column="ProposedStep" />-->
+    <property name="ProposedBlankTitle" column="ProposedBlankTitle" />
+    <property name="YearsAccelerated" column="YearsAccelerated" />
+    <property name="YearsDecelerated" column="YearsDecelerated" />
+    <property name="Defer" column="Defer" />
+    <property name="DateDue" column="DateDue" />
+    <property name="DateToCommittee" column="DateToCommittee" />
+    <property name="DateCommitteeReceived" column="DateCommitteeReceived" />
+    <property name="DateEffective" column="DateEffective" />
+    <property name="Comment" column="Comment" />
+    <property name="FinalAction" column="FinalAction" />
+    <property name="TPCCode" column="TPC_PAY_REP_CODE" />
+    <property name="AppNum" column="APPT_NUM" />
+    <property name="LastUpdated" column="LastUpdated" />
+    <property name="ProposedAppointmentPercent" column="ProposedAppointmentPercent" />
+    <property name="Inactive" column="Inactive" />
+    
+    <!--///TODO: Ask Adam if OrigEL needs to be not null-->
+    <many-to-one name="OriginalEligibility" column="OriginalApptID" class="EligibilityList.Core.Domain.Eligibility, EligibilityList.Core" not-null="false"></many-to-one>
+    <many-to-one name="Employee" column="EmployeeID" class="EligibilityList.Core.Domain.Employee, EligibilityList.Core" not-null="true"></many-to-one>
+    <many-to-one name="Committee" column="CommitteeID" class="EligibilityList.Core.Domain.Committee, EligibilityList.Core" not-null="true"></many-to-one>
+    <many-to-one name="Dean" property-ref="Login" column="DADKerb" class="EligibilityList.Core.Domain.User, EligibilityList.Core"></many-to-one>
+    <many-to-one name="Analyst" property-ref="Login" column="AnalystKerb" class="EligibilityList.Core.Domain.User, EligibilityList.Core"></many-to-one>
+    <many-to-one name="Unit" property-ref="FISCode" column="FISCode" class="EligibilityList.Core.Domain.Unit, EligibilityList.Core" not-null="true"></many-to-one>
+    <many-to-one name="Action" column="ActionID" class="EligibilityList.Core.Domain.Action, EligibilityList.Core" not-null="true"></many-to-one>
+    <many-to-one name="CurrentStep" column="CurrentStep" class="EligibilityList.Core.Domain.Step, EligibilityList.Core" not-null="true"></many-to-one>
+    <many-to-one name="ProposedStep" column="ProposedStep" class="EligibilityList.Core.Domain.Step, EligibilityList.Core"></many-to-one>
+    <many-to-one name="CurrentTitle" column="TITLE_CODE" class="EligibilityList.Core.Domain.Title, EligibilityList.Core" not-null="true"></many-to-one>
+    <many-to-one name="ProposedTitle" column="ProposedTitleCode" class="EligibilityList.Core.Domain.Title, EligibilityList.Core" not-null="false"></many-to-one>
+
+
+  </class>
+
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+    <class
+      name="EligibilityList.Core.Domain.User, EligibilityList.Core"
+      table="vUsers" >
+        <id name="Id" column="UserID" unsaved-value="0">
+            <generator class="identity" />
+        </id>
+
+        <property name="Login" column="LoginID" />
+        <property name="FirstName" column="FirstName" />
+        <property name="LastName" column="LastName" />
+        <property name="EmployeeID" column="EmployeeID" />
+        <property name="SID" column="SID" />
+        <property name="UserKey" column="UserKey" />
+
+        <bag name="Units" table="vUnitAssociations">
+            <key column="UserID" />
+            <many-to-many column="UnitID" class="EligibilityList.Core.Domain.Unit, EligibilityList.Core.Core" />
+        </bag>
+
+    </class>
+</hibernate-mapping>
