@@ -136,7 +136,7 @@
     $(function() {
         $(".pickable-date").datepicker();
         $("#updateAllAppointments").click(function() {
-            if (confirm("This will update all appointments for the current employee when you click save.  Fields changed for every appointment: Current years @ rank, Current years @ step, proposed step, and comment.") == false) {
+            if (confirm("This will update all appointments for the current employee when you click save.  All fields will be changed for every appointment except: Department, Current Title, Proposed Title.") == false) {
                 this.checked = false;
             }
         });
