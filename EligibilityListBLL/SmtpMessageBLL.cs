@@ -29,16 +29,14 @@ namespace EligibilityListBLL
         public void SendReviewMessage(Eligibility modifiedEligibility, string comments, bool accepted, string editorEmail)
         {
             //send emails to the editor of this eligibility and the associated analyst
-            //var to = editorEmail + "; " + modifiedEligibility.AnalystEmail;
-            var to = "srkirkland@ucdavis.edu"; //TODO: remove, testing only
+            var to = editorEmail + "; " + modifiedEligibility.AnalystEmail;
 
             var subject = string.Format(ReviewSubject, modifiedEligibility.Employee.FullName);
-            
+
             var body = new StringBuilder();
-            body.AppendLine("Test: " + (accepted ? "Accepted" : "Rejected"));
-            body.AppendLine("Test: Comment-- " + comments);
-            body.AppendLine("Test: Would be sent to " + editorEmail + "; " +
-                            modifiedEligibility.AnalystEmail);
+            body.AppendLine("An Eligibility List Review Has Been " + (accepted ? "Accepted" : "Rejected") + " With The Following Comments (If Any): ");
+            body.AppendLine("");
+            body.AppendLine(comments);
 
             SendMessage(to, subject, body.ToString());
         }
