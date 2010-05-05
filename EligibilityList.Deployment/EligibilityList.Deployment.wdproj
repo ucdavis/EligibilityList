@@ -32,6 +32,7 @@
     <EnableUpdateable>true</EnableUpdateable>
     <UseMerge>true</UseMerge>
     <SingleAssemblyName>EligibilityList.Deployment</SingleAssemblyName>
+    <UseWebConfigReplacement>true</UseWebConfigReplacement>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Test|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,6 +49,14 @@
       <Section>appSettings</Section>
     </WebConfigReplacementFiles>
     <WebConfigReplacementFiles Include="ConnectionStringsTest.config">
+      <Section>connectionStrings</Section>
+    </WebConfigReplacementFiles>
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <WebConfigReplacementFiles Include="AppSettingsProd.config">
+      <Section>appSettings</Section>
+    </WebConfigReplacementFiles>
+    <WebConfigReplacementFiles Include="ConnectionStringsProd.config">
       <Section>connectionStrings</Section>
     </WebConfigReplacementFiles>
   </ItemGroup>
