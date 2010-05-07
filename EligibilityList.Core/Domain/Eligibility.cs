@@ -96,7 +96,7 @@ namespace EligibilityList.Core.Domain
         public virtual int YearsAtStep { get; set; }
 
         [NotNull]
-        [Range(1,100)]
+        [Range(0,100)]
         public virtual decimal CurrentAppointmentPercent { get; set; }
 
         [NotNull]
@@ -165,7 +165,7 @@ namespace EligibilityList.Core.Domain
         public virtual DateTime? LastUpdated { get; set; }
 
         [NotNull]
-        [Range(1, 100)]
+        [Range(0, 100)]
         public virtual decimal ProposedAppointmentPercent { get; set; }
 
         [NotNull]
