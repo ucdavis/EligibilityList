@@ -286,6 +286,35 @@ namespace EligibilityList.Controllers
             return View(viewModel);
         }
 
+        public ActionResult Delete(int id)
+        {
+            var el = _eligibilityRepository.GetNullableById(id);
+
+            if (el == null)
+            {
+                Message = "Eligibility Not Found";
+                return RedirectToAction("Index");
+            }
+
+            return View(el);
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult DeleteEligibility(int id)
+        {
+            var el = _eligibilityRepository.GetNullableById(id);
+
+            if (el == null)
+            {
+                Message = "Eligibility Not Found";
+                return RedirectToAction("Index");
+            }
+
+            _eligibilityRepository.Remove(el);
+
+            return RedirectToAction("Index");
+        }
+
         /// <summary>
         /// Returns current user
         /// </summary>

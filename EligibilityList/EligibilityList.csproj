@@ -231,6 +231,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ConnectionStringsProd.config" />
+    <Content Include="Views\Eligibility\Delete.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

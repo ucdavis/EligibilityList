@@ -123,6 +123,9 @@
     </li>
     <li>
         <input type="submit" value="Save" class="save" /></li>
+        <li>
+            <%= Html.ActionLink<EligibilityController>(a=>a.Delete(Model.Eligibility.Id), "Delete") %>
+        </li>
     </ul>
     </div>
 </fieldset>
