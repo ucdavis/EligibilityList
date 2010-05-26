@@ -11,7 +11,7 @@
     <p>
         Are you sure you would like to delete this eligibility?  This action cannot be undone.
     </p>
-
+    <span class="button">
     <% using (Html.BeginForm()) { %>
     
         <%= Html.Hidden("Id", Model.Id) %>
@@ -19,7 +19,7 @@
     
         <%= Html.ActionLink<EligibilityController>(a=>a.Edit(Model.Id), "Cancel") %>
     
-    <% } %>
+    <% } %></span>
 
 </asp:Content>
 

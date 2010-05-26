@@ -181,7 +181,12 @@ fieldset li span , fieldset li label
 
 textarea#Comment {height: 8em; width: 350px;}
 
-input.save {margin: 2em 0;}
+input.save {margin: 2em 1em;}
+
+li.button:hover {background: transparent;}
+.button input {background: transparent; border: 0px none;}
+.button input, .button a {font-size: 12px; background: #716e65; -moz-border-radius: 8px; -webkit-border-radius: 8px; color: #fff; font-weight: bold; padding: 6px 12px 2px;}
+.button input:hover, .button a:hover {cursor: pointer; color: #eee; background: #15395b;}
 
 
 /* TABLE

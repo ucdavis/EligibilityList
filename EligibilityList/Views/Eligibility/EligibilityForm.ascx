@@ -121,11 +121,9 @@
             <%= this.CheckBox("updateAllAppointments").Label("Update All Appointments for " + Model.Eligibility.Employee.FullName) %>
         <% } %>
     </li>
-    <li>
-        <input type="submit" value="Save" class="save" /></li>
-        <li>
-            <%= Html.ActionLink<EligibilityController>(a=>a.Delete(Model.Eligibility.Id), "Delete") %>
-        </li>
+    <li class="button">
+        <input type="submit" value="Save" class="save" />
+        <%= Html.ActionLink<EligibilityController>(a=>a.Delete(Model.Eligibility.Id), "Delete") %></li>
     </ul>
     </div>
 </fieldset>
