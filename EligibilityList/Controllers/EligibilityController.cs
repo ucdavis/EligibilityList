@@ -318,6 +318,7 @@ namespace EligibilityList.Controllers
 
             _eligibilityRepository.Remove(el);
 
+            Message = "Eligibility was deleted.";
             return RedirectToAction("Index");
         }
 

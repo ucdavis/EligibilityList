@@ -12,9 +12,12 @@
         Are you sure you would like to delete this eligibility?  This action cannot be undone.
     </p>
     <span class="button">
-    <% using (Html.BeginForm()) { %>
+
+    <% using (Html.BeginForm<EligibilityController>(a=>a.DeleteEligibility(Model.Id))) { %>
     
-        <%= Html.Hidden("Id", Model.Id) %>
+        <%= Html.AntiForgeryToken() %>
+    
+        <%--<%= Html.Hidden("Id", Model.Id) %>--%>
         <%= Html.SubmitButton("Delete", "Delete") %>
     
         <%= Html.ActionLink<EligibilityController>(a=>a.Edit(Model.Id), "Cancel") %>
