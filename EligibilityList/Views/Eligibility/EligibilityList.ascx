@@ -1,6 +1,4 @@
-<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<IQueryable<EligibilityListQuery>>" %>
-<%@ Import Namespace="EligibilityList.Core.Queries"%>
-<%@ Import Namespace="EligibilityList.Core.Domain"%>
+<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<IQueryable<EligibilityList.Core.Queries.EligibilityListQuery>>" %>
 
     <%Html.Grid(Model)
               .DisplayAlternateMessageWhen(Model.Count() == 0, "No Eligibilities Found")
@@ -29,7 +27,7 @@
                                c.Bound(x => x.Defer);   
                            })
               //.Groupable(groupings => groupings.Groups(group=>group.Add(x=> x.Employee.FullName)))
-              .Sortable()
+              .Sortable(g=>g.OrderBy(c=>c.Add(o=>o.Name)))
               .Pageable(x => x.PageSize(20))
               .Render();
         %>

@@ -115,7 +115,7 @@ namespace EligibilityList.Controllers
 
             var viewModel = ViewByDepartmentViewModel.Create(Repository, userUnits, id);
 
-            viewModel.Eligibilities = eligibilities.OrderBy(x=>x.Name);
+            viewModel.Eligibilities = eligibilities;
 
             return View(viewModel);
         }
@@ -139,7 +139,7 @@ namespace EligibilityList.Controllers
 
             var viewModel = ViewByDepartmentViewModel.Create(Repository, userUnits, id);
 
-            viewModel.Eligibilities = eligibilities.OrderBy(x=>x.Name);
+            viewModel.Eligibilities = eligibilities;
 
             return View(viewModel);
         }
