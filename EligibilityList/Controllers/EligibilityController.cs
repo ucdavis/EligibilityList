@@ -170,7 +170,7 @@ namespace EligibilityList.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Edit(int id, Eligibility eligibility, bool hasOriginalEligibility, bool updateAllAppointments)
+        public ActionResult Edit(int id, Eligibility eligibility, bool hasOriginalEligibility, bool? updateAllAppointments)
         {
             var userIsAdmin = CurrentUser.IsInRole(RoleNames.Admin);
 
@@ -203,7 +203,7 @@ namespace EligibilityList.Controllers
 
                 _eligibilityRepository.EnsurePersistent(eligibilityToEdit);
 
-                if (updateAllAppointments && userIsAdmin)
+                if (userIsAdmin && updateAllAppointments.HasValue && updateAllAppointments.Value == true)
                 {
                     //Update all of the original appointments for this employee
                     UpdateAllAppointments(eligibilityToEdit);
