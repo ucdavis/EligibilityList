@@ -25,6 +25,16 @@ namespace EligibilityList.Controllers
         private readonly IRepository<EligibilityListQuery> _eligibilityListQueryRepository;
         private readonly IUserBLL _userBLL;
 
+        private string _urlReferrerOrIndex
+        {
+            get
+            {
+                var uri = TempData["UrlReferrer"] as Uri;
+
+                return uri != null ? uri.ToString() : Url.Action("Index", "Home");
+            }
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -143,7 +153,8 @@ namespace EligibilityList.Controllers
 
             return View(viewModel);
         }
-        
+
+        [CaptureReferringUrl]
         public ActionResult Edit(int id)
         {
             var el = _eligibilityRepository.GetNullableById(id);
@@ -211,7 +222,7 @@ namespace EligibilityList.Controllers
 
                 Message = "Eligibility Saved Successfully";
 
-                return RedirectToAction("Index", "Home");
+                return Redirect(_urlReferrerOrIndex);
             }
 
             var viewModel = EligibilityModifyViewModel.Create(Repository, _userBLL);

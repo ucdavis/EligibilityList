@@ -134,7 +134,7 @@
 <% } %>
 
 <div>
-    <%=Html.ActionLink("Back to List", "Index") %>
+    <a href="<%= TempData["UrlReferrer"] ?? Url.Action("Index") %>">Back to List</a>
 </div>
 
 <script type="text/javascript">
