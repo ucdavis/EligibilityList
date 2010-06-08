@@ -164,6 +164,7 @@ namespace EligibilityList.Controllers
 
             var viewModel = EligibilityModifyViewModel.Create(Repository, _userBLL);
             viewModel.Eligibility = el;
+            viewModel.AllowDelete = el.OriginalEligibility == null && !_eligibilityRepository.Queryable.Where(a => a.OriginalEligibility == el).Any();
 
             return View(viewModel);
         }
@@ -296,6 +297,11 @@ namespace EligibilityList.Controllers
                 return RedirectToAction("Index");
             }
 
+            if (el.OriginalEligibility != null || _eligibilityRepository.Queryable.Where(a=>a.OriginalEligibility == el).Any())
+            {
+                return this.RedirectToAction(a => a.Edit(id));
+            }
+            
             return View(el);
         }
 
@@ -308,12 +314,6 @@ namespace EligibilityList.Controllers
             {
                 Message = "Eligibility Not Found";
                 return RedirectToAction("Index");
-            }
-
-            if (el.OriginalEligibility != null || _eligibilityRepository.Queryable.Where(a=>a.OriginalEligibility == el).Any())
-            {
-                Message = "Eligibility cannot be deleted, please complete any pending action first.";
-                return this.RedirectToAction(a => a.Edit(id));
             }
 
             _eligibilityRepository.Remove(el);
@@ -370,6 +370,8 @@ namespace EligibilityList.Controllers
         public IDictionary<string, string> Analysts { get; set; }
 
         public Eligibility Eligibility { get; set; }
+
+        public bool AllowDelete { get; set; }
     }
 
     public class ViewByDepartmentViewModel
