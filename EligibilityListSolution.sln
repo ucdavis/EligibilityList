@@ -108,6 +108,7 @@ Global
 		{D2FB92C4-BFA8-46A5-A9C0-A925ADF5F35F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2FB92C4-BFA8-46A5-A9C0-A925ADF5F35F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D2FB92C4-BFA8-46A5-A9C0-A925ADF5F35F}.Test|Any CPU.ActiveCfg = Test|Any CPU
+		{D2FB92C4-BFA8-46A5-A9C0-A925ADF5F35F}.Test|Any CPU.Build.0 = Test|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
