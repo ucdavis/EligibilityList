@@ -310,7 +310,7 @@ namespace EligibilityList.Controllers
                 return RedirectToAction("Index");
             }
 
-            if (el.OriginalEligibility != null || Repository.OfType<Eligibility>().Queryable.Where(a=>a.OriginalEligibility == el).Any())
+            if (el.OriginalEligibility != null || _eligibilityRepository.Queryable.Where(a=>a.OriginalEligibility == el).Any())
             {
                 Message = "Eligibility cannot be deleted, please complete any pending action first.";
                 return this.RedirectToAction(a => a.Edit(id));
