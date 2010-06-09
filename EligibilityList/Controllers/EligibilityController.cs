@@ -175,7 +175,7 @@ namespace EligibilityList.Controllers
 
             var viewModel = EligibilityModifyViewModel.Create(Repository, _userBLL);
             viewModel.Eligibility = el;
-            viewModel.AllowDelete = el.OriginalEligibility == null && !_eligibilityRepository.Queryable.Where(a => a.OriginalEligibility == el).Any();
+            viewModel.AllowDelete = CurrentUser.IsInRole(RoleNames.Admin) && el.OriginalEligibility == null && !_eligibilityRepository.Queryable.Where(a => a.OriginalEligibility == el).Any();
 
             return View(viewModel);
         }
@@ -317,6 +317,7 @@ namespace EligibilityList.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
+        [AdminOnly]
         public ActionResult DeleteEligibility(int id)
         {
             var el = _eligibilityRepository.GetNullableById(id);
