@@ -10,6 +10,7 @@ Begin DataProject = "EligibilityList.DB"
    End
    Begin Folder = "Create Scripts"
       Script = "CreateDB.sql"
+      Script = "CreateTitleCodeTable.sql"
       Script = "InsertLookups.sql"
    End
    Begin DBRefFolder = "Database References"
