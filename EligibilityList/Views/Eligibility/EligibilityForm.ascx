@@ -48,7 +48,7 @@
     </li>
     <li>
         <%= this.Select("CurrentTitle") 
-                        .Options(Model.Titles, x=>x.Id, x=>x.AbbreviatedName)
+                        .Options(Model.Titles.OrderBy(x=>x.AbbreviatedName), x=>x.Id, x=>x.AbbreviatedName)
                         .Selected(Model.Eligibility.CurrentTitle.Id)
                         .Label("Current Title: ")
         %>
@@ -79,7 +79,7 @@
     <div class="col right"><ul>
     <li>
         <%= this.Select("ProposedTitle") 
-                        .Options(Model.Titles, x=>x.Id, x=>x.AbbreviatedName)
+                        .Options(Model.Titles.OrderBy(x=>x.AbbreviatedName), x=>x.Id, x=>x.AbbreviatedName)
                         .Selected(Model.Eligibility.ProposedTitle == null ? string.Empty : Model.Eligibility.ProposedTitle.Id)
                         //.FirstOption("--No Title--")
                         .Label("Proposed Title: ")
