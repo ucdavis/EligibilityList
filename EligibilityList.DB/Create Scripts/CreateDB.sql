@@ -983,6 +983,10 @@ CREATE VIEW [dbo].[vTitles]
 AS
 SELECT     TitleCode, Name, AbbreviatedName, PersonnelProgramCode, UnitCode, TitleGroup, OvertimeExemptionCode, EffectiveDate, UpdateTimestamp
 FROM         PPSDataMart.dbo.Titles
+WHERE     (TitleCode IN
+                          (SELECT     TCI_TITLE_CODE
+                            FROM          dbo.TitleCode
+                            WHERE      (Visible = 1)))
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
 Begin DesignProperties = 
