@@ -81,7 +81,7 @@
         <%= this.Select("ProposedTitle") 
                         .Options(Model.Titles.OrderBy(x=>x.AbbreviatedName), x=>x.Id, x=>x.AbbreviatedName)
                         .Selected(Model.Eligibility.ProposedTitle == null ? string.Empty : Model.Eligibility.ProposedTitle.Id)
-                        //.FirstOption("--No Title--")
+                        .FirstOption("-- No Title --")
                         .Label("Proposed Title: ")
         %>
     </li>
