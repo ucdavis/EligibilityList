@@ -29,7 +29,7 @@ namespace EligibilityListBLL
         public void SendReviewMessage(Eligibility modifiedEligibility, string comments, bool accepted, string editorEmail)
         {
             //send emails to the editor of this eligibility and the associated analyst
-            var to = editorEmail + "; " + modifiedEligibility.AnalystEmail;
+            var to = editorEmail + ", " + modifiedEligibility.AnalystEmail;
 
             var subject = string.Format(ReviewSubject, modifiedEligibility.Employee.FullName);
 

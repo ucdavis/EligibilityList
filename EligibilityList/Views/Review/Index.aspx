@@ -97,8 +97,8 @@
             </tr>
             <tr class='odd <%= Model.Eligibility.ProposedTitle != Model.Eligibility.OriginalEligibility.ProposedTitle ? "Changed" : string.Empty %>'>
                 <td class="field-name">Proposed Title:</td>
-                <td class="field-value"><%= Html.Encode(Model.Eligibility.ProposedTitle.Name) %></td>
-                <td class="field-value"><%= Html.Encode(Model.Eligibility.OriginalEligibility.ProposedTitle.Name) %></td>
+                <td class="field-value"><%= Html.Encode(Model.Eligibility.ProposedTitle == null ? "No Title" : Model.Eligibility.ProposedTitle.Name) %></td>
+                <td class="field-value"><%= Html.Encode(Model.Eligibility.OriginalEligibility.ProposedTitle == null ? "No Title" : Model.Eligibility.OriginalEligibility.ProposedTitle.Name) %></td>
             </tr>            
             <tr class='<%= Model.Eligibility.ProposedStep != Model.Eligibility.OriginalEligibility.ProposedStep ? "Changed" : string.Empty %>'>
                 <td class="field-name">Proposed Step:</td>
