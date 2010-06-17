@@ -11,13 +11,13 @@ namespace EligibilityList.Helpers
             destination.Dean = source.Dean;
             destination.Analyst = source.Analyst;
             destination.CurrentStep = source.CurrentStep;
-            destination.CurrentAppointmentPercent = source.CurrentAppointmentPercent;
+            //destination.CurrentAppointmentPercent = source.CurrentAppointmentPercent;
             destination.CurrentBlankTitle = source.CurrentBlankTitle;
             destination.YearsAtRank = source.YearsAtRank;
             destination.YearsAtStep = source.YearsAtStep;
 
             destination.ProposedStep = source.ProposedStep;
-            destination.ProposedAppointmentPercent = source.ProposedAppointmentPercent;
+            //destination.ProposedAppointmentPercent = source.ProposedAppointmentPercent;
             destination.ProposedBlankTitle = source.ProposedBlankTitle;
 
             destination.Defer = source.Defer;
