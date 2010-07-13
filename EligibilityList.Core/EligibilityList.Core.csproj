@@ -71,6 +71,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstractions\ReportResult.cs" />
     <Compile Include="Domain\Action.cs" />
     <Compile Include="Domain\Committee.cs" />
     <Compile Include="Domain\Eligibility.cs" />

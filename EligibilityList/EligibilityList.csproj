@@ -143,6 +143,7 @@
     <Compile Include="Controllers\CommitteeController.cs" />
     <Compile Include="Controllers\EligibilityController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\StepController.cs" />
     <Compile Include="Default.aspx.cs">
@@ -152,6 +153,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ActionResultExtensions.cs" />
     <Compile Include="Helpers\CaptureReferringUrlAttribute.cs" />
     <Compile Include="Helpers\CopyHelper.cs" />
     <Compile Include="Helpers\CustomGridBuilder.cs" />
@@ -233,6 +235,8 @@
   <ItemGroup>
     <Content Include="ConnectionStringsProd.config" />
     <Content Include="Views\Eligibility\Delete.aspx" />
+    <Content Include="Views\Report\EligibilityListReport.aspx" />
+    <Content Include="Views\Report\Index.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
