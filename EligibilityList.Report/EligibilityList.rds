@@ -3,7 +3,7 @@
   <Name>EligibilityList</Name>
   <ConnectionProperties>
     <Extension>SQL</Extension>
-    <ConnectString>Data Source=vogel;Initial Catalog=EL</ConnectString>
+    <ConnectString>Data Source=donbot;Initial Catalog=EL</ConnectString>
     <IntegratedSecurity>true</IntegratedSecurity>
   </ConnectionProperties>
   <DataSourceID>01453c3f-2f14-40b8-a1ce-e7ac6b7935d6</DataSourceID>

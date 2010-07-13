@@ -35,7 +35,16 @@
       <Name>Release</Name>
       <Platform>Win32</Platform>
       <Options>
-        <TargetFolder>EligibilityList.Report</TargetFolder>
+        <TargetServerURL>http://blotto.caesdo.caes.ucdavis.edu/reportserver</TargetServerURL>
+        <TargetFolder>EligibilityList</TargetFolder>
+        <TargetDataSourceFolder>Data Sources</TargetDataSourceFolder>
+      </Options>
+    </Configuration>
+    <Configuration>
+      <Name>Test</Name>
+      <Options>
+        <TargetServerURL>http://lou.caesdo.caes.ucdavis.edu/reportserver</TargetServerURL>
+        <TargetFolder>EligibilityList</TargetFolder>
         <TargetDataSourceFolder>Data Sources</TargetDataSourceFolder>
       </Options>
     </Configuration>
