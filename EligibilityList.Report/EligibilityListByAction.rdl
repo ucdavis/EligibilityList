@@ -81,10 +81,14 @@
       ,CASE WHEN ([Defer] = 0) THEN 'FALSE' ELSE 'TRUE' END AS Defer
   FROM [EL].[dbo].[vEligibilityListQuery]
  WHERE ActionType like @Action
+        AND [FISCode] like @Department
 ORDER BY Name</CommandText>
         <QueryParameters>
           <QueryParameter Name="@Action">
             <Value>=Parameters!Action.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Department">
+            <Value>=Parameters!Department.Value</Value>
           </QueryParameter>
         </QueryParameters>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
@@ -981,6 +985,16 @@ ORDER BY Name</CommandText>
       </DefaultValue>
       <AllowBlank>true</AllowBlank>
       <Prompt>Action</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Department">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>%</Value>
+        </Values>
+      </DefaultValue>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Department</Prompt>
     </ReportParameter>
   </ReportParameters>
   <Width>13in</Width>

@@ -6,19 +6,20 @@ namespace EligibilityListBLL
 {
     public interface IReportBLL
     {
-        ReportResult GenerateELReport(string actionName, ReportType reportType);
+        ReportResult GenerateELReport(string actionName, string fisCode, ReportType reportType);
         //ReportResult GenerateIndividualTimeRecordReport(TimeRecord timeRecord, ReportType reportType);
         //ReportResult GenerateCostShare(Project project, int year, ReportType reportType);
     }
 
     public class ReportBLL : IReportBLL
     {
-        public ReportResult GenerateELReport(string actionName, ReportType reportType)
+        public ReportResult GenerateELReport(string actionName, string fisCode, ReportType reportType)
         {
             const string reportPath = "/EligibilityList/EligibilityListByAction";
 
             var parameters = new ListDictionary();
             parameters["Action"] = string.IsNullOrEmpty(actionName) ? "%" : actionName;
+            parameters["Department"] = string.IsNullOrEmpty(fisCode) ? "%" : fisCode;
 
             return GetReport(reportPath, parameters, reportType);
         }
