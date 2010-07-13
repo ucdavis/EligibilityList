@@ -25,7 +25,7 @@ namespace EligibilityList
         {
             container.AddComponent("userBLL", typeof (IUserBLL), typeof (UserBLL));
             container.AddComponent("messageBLL", typeof (IMessageBLL), typeof (SmtpMessageBLL));
-
+            container.AddComponent("reportBLL", typeof (IReportBLL), typeof (ReportBLL));
         }
 
         private static void AddRepositoriesTo(IWindsorContainer container)
