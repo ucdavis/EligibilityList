@@ -1124,7 +1124,8 @@ SELECT     dbo.EligibilityList.AppointmentID, dbo.Person.EMP_NAME AS Name, dbo.A
                       CurrentTitles.AbbreviatedName + ' Step: ' + CurrentSteps.Name + ' ' + CAST(dbo.EligibilityList.AppointmentPercent AS varchar(16)) + '%' AS CurrentStatus, 
                       dbo.EligibilityList.ProposedAppointmentPercent, ProposedTitles.AbbreviatedName AS ProposedTitle, ProposedSteps.Name AS ProposedStep, 
                       ProposedTitles.AbbreviatedName + ' Step: ' + ProposedSteps.Name + ' ' + CAST(dbo.EligibilityList.ProposedAppointmentPercent AS varchar(16)) 
-                      + '%' AS ProposedStatus, (CASE WHEN dbo.EligibilityList.OriginalApptID IS NOT NULL THEN 1 ELSE 0 END) AS HasOriginalEligibility, dbo.EligibilityList.FISCode
+                      + '%' AS ProposedStatus, (CASE WHEN dbo.EligibilityList.OriginalApptID IS NOT NULL THEN 1 ELSE 0 END) AS HasOriginalEligibility, dbo.EligibilityList.FISCode, 
+                      dbo.EligibilityList.Comment
 FROM         dbo.EligibilityList INNER JOIN
                       dbo.Person ON dbo.EligibilityList.EmployeeID = dbo.Person.EMPLOYEE_ID INNER JOIN
                       dbo.ActionTypes ON dbo.EligibilityList.ActionID = dbo.ActionTypes.ID INNER JOIN
