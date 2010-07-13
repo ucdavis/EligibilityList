@@ -1,25 +1,24 @@
 ﻿using System;
 using System.Collections.Specialized;
 using EligibilityList.Core.Abstractions;
-using Action = EligibilityList.Core.Domain.Action;
 
 namespace EligibilityListBLL
 {
     public interface IReportBLL
     {
-        ReportResult GenerateELReport(int? actionId, ReportType reportType);
+        ReportResult GenerateELReport(string actionName, ReportType reportType);
         //ReportResult GenerateIndividualTimeRecordReport(TimeRecord timeRecord, ReportType reportType);
         //ReportResult GenerateCostShare(Project project, int year, ReportType reportType);
     }
 
     public class ReportBLL : IReportBLL
     {
-        public ReportResult GenerateELReport(int? actionId, ReportType reportType)
+        public ReportResult GenerateELReport(string actionName, ReportType reportType)
         {
-            const string reportPath = "/FSNEP2/IndividualActivityRecord";
+            const string reportPath = "/EligibilityList/EligibilityListByAction";
 
             var parameters = new ListDictionary();
-            parameters["ActionID"] = actionId;
+            parameters["Action"] = string.IsNullOrEmpty(actionName) ? "%" : actionName;
 
             return GetReport(reportPath, parameters, reportType);
         }

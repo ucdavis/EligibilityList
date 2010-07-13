@@ -35,9 +35,9 @@ namespace EligibilityList.Controllers
 
         [AcceptPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EligibilityListReport(int? actionTypeId)
+        public ActionResult EligibilityListReport(string actionName)
         {
-            return _reportBLL.GenerateELReport(actionTypeId, ReportType.Excel).ToFileResult("ELReport.xls");
+            return _reportBLL.GenerateELReport(actionName, ReportType.Excel).ToFileResult("ELReport.xls");
         }
     }
 }

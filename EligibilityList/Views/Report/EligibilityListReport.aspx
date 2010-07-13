@@ -9,7 +9,7 @@
 
 <%= Html.AntiForgeryToken() %>
 
-Selection an action:  <%= this.Select("actionTypeId").Options(Model, x => x.Id, x => x.Name).FirstOption("", "All Actions")%>
+Selection an action:  <%= this.Select("actionName").Options(Model, x => x.Name, x => x.Name).FirstOption("", "All Actions")%>
 
 <input type="submit" value="Get Report!" />
 
