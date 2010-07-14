@@ -21,17 +21,21 @@
 
     <h2>Viewing All Eligibilities for <%= Model.Unit == null ? "All units" : Model.Unit.FullName %></h2>
     
+    <% var fisCodeOrEmpty = Model.Unit == null ? string.Empty : Model.Unit.FISCode; %>
+    
     <span class="switch-view">
         <%= Html.ActionLink("Click here to view pending Eligibilities", "ViewPending") %>
     </span>
     <span class="switch-units">
         <%= this.Select("Units")
                 .Options(Model.Units, x=>x.FISCode, x=>x.ShortName)
-                .Selected(Model.Unit == null ? string.Empty : Model.Unit.FISCode)
+                .Selected(fisCodeOrEmpty)
                 .FirstOption("-- All Units --")
                 .Label("Select Unit: ")
         %>
     </span>
+    
+    <span><%= Html.ActionLink("Export To Excel", "GetEligibilityListReport", "Report", new { fisCode = fisCodeOrEmpty }, null)%></span>
     
     <% Html.RenderPartial("EligibilityList", Model.Eligibilities); %>
 
