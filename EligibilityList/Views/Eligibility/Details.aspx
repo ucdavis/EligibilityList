@@ -39,7 +39,7 @@
             <span>Current Appt %:</span> <%= Html.Encode(Model.CurrentAppointmentPercent) %>
         </li>
         <li>
-            <span>Current Blank In the ---:</span> <%= Html.Encode(Model.CurrentBlankTitle) %>
+            <span>Current Working Title:</span> <%= Html.Encode(Model.CurrentWorkingTitle) %>
         </li>
         <li>
             <span>Current Years @ Rank:</span> <%= Html.Encode(Model.YearsAtRank) %>
@@ -61,7 +61,7 @@
             <span>Proposed Appt %:</span> <%= Html.Encode(Model.ProposedAppointmentPercent) %>
         </li>
         <li>
-            <span>Proposed Blank in The ---:</span> <%= Html.Encode(Model.ProposedBlankTitle) %>
+            <span>Proposed Working Title:</span> <%= Html.Encode(Model.ProposedWorkingTitle) %>
         </li>
         <li>
             <span>Defer?:</span> <%= Html.Encode(Model.Defer) %>

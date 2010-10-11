@@ -128,7 +128,7 @@ namespace EligibilityList.Core.Domain
         }
 
         [Length(50)]
-        public virtual string CurrentBlankTitle { get; set; }
+        public virtual string CurrentWorkingTitle { get; set; }
 
         public virtual Title ProposedTitle { get; set; }
 
@@ -136,7 +136,7 @@ namespace EligibilityList.Core.Domain
         public virtual Step ProposedStep { get; set; }
 
         [Length(50)]
-        public virtual string ProposedBlankTitle { get; set; }
+        public virtual string ProposedWorkingTitle { get; set; }
 
         public virtual int? YearsAccelerated { get; set; }
 

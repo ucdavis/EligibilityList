@@ -67,7 +67,7 @@
         %>
     </li>
     <li>
-        <%= this.TextBox("CurrentBlankTitle").Value(Model.Eligibility.CurrentBlankTitle).Label("Current Blank In the ---: ")%>
+        <%= this.TextBox("CurrentWorkingTitle").Value(Model.Eligibility.CurrentWorkingTitle).Label("Current Working Title: ")%>
     </li>
     <li>
         <%= this.TextBox("YearsAtRank").Value(Model.Eligibility.YearsAtRank).Label("Current Years @ Rank: ")%>
@@ -96,7 +96,7 @@
         <%= this.TextBox("ProposedAppointmentPercent").Value(Model.Eligibility.ProposedAppointmentPercent).Label("Proposed Appt %: ")%>
     </li>
     <li>
-        <%= this.TextBox("ProposedBlankTitle").Value(Model.Eligibility.ProposedBlankTitle).Label("Proposed Blank In the ---: ")%>
+        <%= this.TextBox("ProposedWorkingTitle").Value(Model.Eligibility.ProposedWorkingTitle).Label("Proposed Working Title: ")%>
     </li>
     <li>
         <%= this.CheckBox("Defer").Checked(Model.Eligibility.Defer).Label("Defer?: ") %>

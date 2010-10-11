@@ -19,10 +19,10 @@
     <!--<property name="CommitteeID" column="CommitteeID" />-->
     <!--<property name="TitleCode" column="TITLE_CODE" />-->
     <!--<property name="CurrentStep" column="CurrentStep" />-->
-    <property name="CurrentBlankTitle" column="CurrentBlankTitle" />
+    <property name="CurrentWorkingTitle" column="CurrentBlankTitle" />
     <!--<property name="ProposedTitleCode" column="ProposedTitleCode" />-->
     <!--<property name="ProposedStep" column="ProposedStep" />-->
-    <property name="ProposedBlankTitle" column="ProposedBlankTitle" />
+    <property name="ProposedWorkingTitle" column="ProposedBlankTitle" />
     <property name="YearsAccelerated" column="YearsAccelerated" />
     <property name="YearsDecelerated" column="YearsDecelerated" />
     <property name="Defer" column="Defer" />

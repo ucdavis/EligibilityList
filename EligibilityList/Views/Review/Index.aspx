@@ -90,10 +90,10 @@
                 <td class="field-value"><%= Html.Encode(Model.Eligibility.ProposedStatus) %></td>
                 <td class="field-value"><%= Html.Encode(Model.Eligibility.OriginalEligibility.ProposedStatus) %></td>
             </tr>
-            <tr class='<%= Model.Eligibility.CurrentBlankTitle != Model.Eligibility.OriginalEligibility.CurrentBlankTitle ? "Changed" : string.Empty %>'>
+            <tr class='<%= Model.Eligibility.CurrentWorkingTitle != Model.Eligibility.OriginalEligibility.CurrentWorkingTitle ? "Changed" : string.Empty %>'>
                 <td class="field-name">Current Blank Title:</td>
-                <td class="field-value"><%= Html.Encode(Model.Eligibility.CurrentBlankTitle) %></td>
-                <td class="field-value"><%= Html.Encode(Model.Eligibility.OriginalEligibility.CurrentBlankTitle) %></td>
+                <td class="field-value"><%= Html.Encode(Model.Eligibility.CurrentWorkingTitle) %></td>
+                <td class="field-value"><%= Html.Encode(Model.Eligibility.OriginalEligibility.CurrentWorkingTitle) %></td>
             </tr>
             <tr class='odd <%= Model.Eligibility.ProposedTitle != Model.Eligibility.OriginalEligibility.ProposedTitle ? "Changed" : string.Empty %>'>
                 <td class="field-name">Proposed Title:</td>
@@ -105,10 +105,10 @@
                 <td class="field-value"><%= Html.Encode(Model.Eligibility.ProposedStep.Name) %></td>
                 <td class="field-value"><%= Html.Encode(Model.Eligibility.OriginalEligibility.ProposedStep.Name) %></td>
             </tr>
-            <tr class='odd <%= Model.Eligibility.ProposedBlankTitle != Model.Eligibility.OriginalEligibility.ProposedBlankTitle ? "Changed" : string.Empty %>'>
+            <tr class='odd <%= Model.Eligibility.ProposedWorkingTitle != Model.Eligibility.OriginalEligibility.ProposedWorkingTitle ? "Changed" : string.Empty %>'>
                 <td class="field-name">Proposed Blank Title:</td>
-                <td class="field-value"><%= Html.Encode(Model.Eligibility.ProposedBlankTitle) %></td>
-                <td class="field-value"><%= Html.Encode(Model.Eligibility.OriginalEligibility.ProposedBlankTitle) %></td>
+                <td class="field-value"><%= Html.Encode(Model.Eligibility.ProposedWorkingTitle) %></td>
+                <td class="field-value"><%= Html.Encode(Model.Eligibility.OriginalEligibility.ProposedWorkingTitle) %></td>
             </tr>            
             <tr class='<%= Model.Eligibility.YearsAccelerated != Model.Eligibility.OriginalEligibility.YearsAccelerated ? "Changed" : string.Empty %>'>
                 <td class="field-name">Years Accelerated:</td>

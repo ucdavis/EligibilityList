@@ -12,13 +12,13 @@ namespace EligibilityList.Helpers
             destination.Analyst = source.Analyst;
             destination.CurrentStep = source.CurrentStep;
             //destination.CurrentAppointmentPercent = source.CurrentAppointmentPercent;
-            destination.CurrentBlankTitle = source.CurrentBlankTitle;
+            destination.CurrentWorkingTitle = source.CurrentWorkingTitle;
             destination.YearsAtRank = source.YearsAtRank;
             destination.YearsAtStep = source.YearsAtStep;
 
             destination.ProposedStep = source.ProposedStep;
             //destination.ProposedAppointmentPercent = source.ProposedAppointmentPercent;
-            destination.ProposedBlankTitle = source.ProposedBlankTitle;
+            destination.ProposedWorkingTitle = source.ProposedWorkingTitle;
 
             destination.Defer = source.Defer;
             destination.YearsAccelerated = source.YearsAccelerated;
@@ -42,14 +42,14 @@ namespace EligibilityList.Helpers
             destination.CurrentTitle = source.CurrentTitle;
             destination.CurrentStep = source.CurrentStep;
             destination.CurrentAppointmentPercent = source.CurrentAppointmentPercent;
-            destination.CurrentBlankTitle = source.CurrentBlankTitle;
+            destination.CurrentWorkingTitle = source.CurrentWorkingTitle;
             destination.YearsAtRank = source.YearsAtRank;
             destination.YearsAtStep = source.YearsAtStep;
 
             destination.ProposedTitle = source.ProposedTitle;
             destination.ProposedStep = source.ProposedStep;
             destination.ProposedAppointmentPercent = source.ProposedAppointmentPercent;
-            destination.ProposedBlankTitle = source.ProposedBlankTitle;
+            destination.ProposedWorkingTitle = source.ProposedWorkingTitle;
 
             destination.Defer = source.Defer;
             destination.YearsAccelerated = source.YearsAccelerated;
