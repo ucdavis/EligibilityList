@@ -147,6 +147,12 @@ namespace EligibilityList.Controllers
                 eligibilities = eligibilities.Where(x => unitFisCodes.Contains(x.FisCode));
             }
 
+            if (eligibilities.Count() == 0)
+            {
+                Message = "No Pending Eligibilities Found.  You are now viewing all Eligibility List";
+                return RedirectToAction("ViewByDepartment");
+            }
+
             var viewModel = ViewByDepartmentViewModel.Create(Repository, userUnits, id);
 
             viewModel.Eligibilities = eligibilities;
