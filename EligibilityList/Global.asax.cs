@@ -19,12 +19,12 @@ namespace EligibilityList
             new RouteConfigurator().RegisterRoutes();
 
             #if DEBUG
-            HibernatingRhinos.NHibernate.Profiler.Appender.NHibernateProfiler.Initialize();
+            HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
             #endif
 
             xVal.ActiveRuleProviders.Providers.Add(new ValidatorRulesProvider());
 
-            ModelBinders.Binders.DefaultBinder = new UCDArchModelBinder(false /* do not auto validate */);
+            ModelBinders.Binders.DefaultBinder = new UCDArchModelBinder();
 
             IWindsorContainer container = InitializeServiceLocator();
         }

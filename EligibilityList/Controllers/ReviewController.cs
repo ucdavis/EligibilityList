@@ -49,7 +49,7 @@ namespace EligibilityList.Controllers
         /// <param name="reviewAction">Accept or Deny</param>
         /// <param name="comments"></param>
         /// <returns></returns>
-        [AcceptPost]
+        [HttpPost]
         public ActionResult Index(int id, string reviewAction, string comments)
         {
             var child = Repository.OfType<Eligibility>().GetNullableById(id);

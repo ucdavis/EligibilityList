@@ -1,19 +1,17 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EligibilityList", "EligibilityList\EligibilityList.csproj", "{35E45A1E-5A86-4FB1-AD6C-A4DB8F5829E7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EligibilityList.Tests", "EligibilityList.Tests\EligibilityList.Tests.csproj", "{25534833-2792-4409-AADA-A8F5981E58FA}"
-EndProject
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{2933D765-8E4A-4725-8ABB-F9529421C9D2}"
 	ProjectSection(SolutionItems) = preProject
+		Bin\AutoMapper.dll = Bin\AutoMapper.dll
 		Bin\Castle.Core.dll = Bin\Castle.Core.dll
 		Bin\Castle.DynamicProxy2.dll = Bin\Castle.DynamicProxy2.dll
 		Bin\Castle.MicroKernel.dll = Bin\Castle.MicroKernel.dll
 		Bin\Castle.Windsor.dll = Bin\Castle.Windsor.dll
 		Bin\Common.Logging.dll = Bin\Common.Logging.dll
 		Bin\Elmah.dll = Bin\Elmah.dll
-		Bin\HibernatingRhinos.NHibernate.Profiler.Appender.dll = Bin\HibernatingRhinos.NHibernate.Profiler.Appender.dll
+		Bin\FluentNHibernate.dll = Bin\FluentNHibernate.dll
+		Bin\HibernatingRhinos.Profiler.Appender.dll = Bin\HibernatingRhinos.Profiler.Appender.dll
 		Bin\Iesi.Collections.dll = Bin\Iesi.Collections.dll
 		Bin\log4net.dll = Bin\log4net.dll
 		Bin\Microsoft.Practices.ServiceLocation.dll = Bin\Microsoft.Practices.ServiceLocation.dll
@@ -41,13 +39,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		Bin\xVal.dll = Bin\xVal.dll
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EligibilityList", "EligibilityList\EligibilityList.csproj", "{35E45A1E-5A86-4FB1-AD6C-A4DB8F5829E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EligibilityList.Tests", "EligibilityList.Tests\EligibilityList.Tests.csproj", "{25534833-2792-4409-AADA-A8F5981E58FA}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EligibilityList.Core", "EligibilityList.Core\EligibilityList.Core.csproj", "{280EAFA4-DFE0-41E7-A74D-A7D7918BEC4D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EligibilityListBLL", "EligibilityListBLL\EligibilityListBLL.csproj", "{7178DA25-3A21-45B3-B15A-3BAE1C7E85B9}"
 EndProject
 Project("{2CFEAB61-6A3B-4EB8-B523-560B4BEEF521}") = "EligibilityList.Deployment", "EligibilityList.Deployment\EligibilityList.Deployment.wdproj", "{D2FB92C4-BFA8-46A5-A9C0-A925ADF5F35F}"
 EndProject
-Project("{4F174C21-8C12-11D0-8340-0000F80270F8}") = "EligibilityList.DB", "EligibilityList.DB\EligibilityList.DB.dbp", "{FBBDAC9A-2014-4FBE-A14C-7B1A5CEC6303}"
+Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "EligibilityList.DB", "EligibilityList.DB\EligibilityList.DB.dbproj", "{67CBC824-A49E-4E9B-A947-360F3DFE65C3}"
 EndProject
 Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "EligibilityList.Report", "EligibilityList.Report\EligibilityList.Report.rptproj", "{12D264CB-2A2C-47C6-BD85-78EF4875EC0F}"
 EndProject
@@ -55,7 +57,7 @@ Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 8
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://tfs.caes.ucdavis.edu:8088/tfs
+		SccTeamFoundationServer = https://tfs.caes.ucdavis.edu:8088/tfs/defaultcollection
 		SccLocalPath0 = .
 		SccProjectUniqueName1 = EligibilityList.Core\\EligibilityList.Core.csproj
 		SccProjectName1 = EligibilityList.Core
@@ -72,12 +74,12 @@ Global
 		SccProjectUniqueName5 = EligibilityList.Deployment\\EligibilityList.Deployment.wdproj
 		SccProjectName5 = EligibilityList.Deployment
 		SccLocalPath5 = EligibilityList.Deployment
-		SccProjectUniqueName6 = EligibilityList.DB\\EligibilityList.DB.dbp
-		SccProjectName6 = EligibilityList.DB
-		SccLocalPath6 = EligibilityList.DB
-		SccProjectUniqueName7 = EligibilityList.Report\\EligibilityList.Report.rptproj
-		SccProjectName7 = EligibilityList.Report
-		SccLocalPath7 = EligibilityList.Report
+		SccProjectUniqueName6 = EligibilityList.Report\\EligibilityList.Report.rptproj
+		SccProjectName6 = EligibilityList.Report
+		SccLocalPath6 = EligibilityList.Report
+		SccProjectUniqueName7 = EligibilityList.DB\\EligibilityList.DB.dbproj
+		SccProjectName7 = EligibilityList.DB
+		SccLocalPath7 = EligibilityList.DB
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -125,6 +127,10 @@ Global
 		{D2FB92C4-BFA8-46A5-A9C0-A925ADF5F35F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D2FB92C4-BFA8-46A5-A9C0-A925ADF5F35F}.Test|Any CPU.ActiveCfg = Test|Any CPU
 		{D2FB92C4-BFA8-46A5-A9C0-A925ADF5F35F}.Test|Any CPU.Build.0 = Test|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Test|Any CPU.ActiveCfg = Debug|Any CPU
 		{12D264CB-2A2C-47C6-BD85-78EF4875EC0F}.Debug|Any CPU.ActiveCfg = DebugLocal
 		{12D264CB-2A2C-47C6-BD85-78EF4875EC0F}.DebugLocal|Any CPU.ActiveCfg = DebugLocal
 		{12D264CB-2A2C-47C6-BD85-78EF4875EC0F}.DebugLocal|Any CPU.Build.0 = DebugLocal
