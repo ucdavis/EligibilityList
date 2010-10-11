@@ -28,8 +28,15 @@ namespace EligibilityListBLL
         /// <param name="editorEmail">Email of the editor who should get a copy of the review</param>
         public void SendReviewMessage(Eligibility modifiedEligibility, string comments, bool accepted, string editorEmail)
         {
-            //send emails to the editor of this eligibility and the associated analyst
-            var to = editorEmail + ", " + modifiedEligibility.AnalystEmail;
+            //send emails to the editor of this eligibility and the associated analyst, if they exist
+            var to = editorEmail;
+
+            var analystEmail = modifiedEligibility.AnalystEmail;
+
+            if (!string.IsNullOrWhiteSpace(analystEmail))
+            {
+                to += (", " + analystEmail);
+            }
 
             var subject = string.Format(ReviewSubject, modifiedEligibility.Employee.FullName);
 
