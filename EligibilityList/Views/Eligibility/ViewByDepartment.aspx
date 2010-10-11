@@ -24,7 +24,7 @@
     <% var fisCodeOrEmpty = Model.Unit == null ? string.Empty : Model.Unit.FISCode; %>
     
     <span class="switch-view">
-        <%= Html.ActionLink("Click here to view pending Eligibilities", "ViewPending") %>
+        <%= Html.ActionLink("Click here to view changes to Eligibility List", "ViewPending")%>
     </span>
     <span class="switch-units">
         <%= this.Select("Units")

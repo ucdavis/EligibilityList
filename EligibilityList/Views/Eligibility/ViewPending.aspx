@@ -22,7 +22,7 @@
     <h2>Viewing Pending Eligibilities for <%= Model.Unit == null ? "All units" : Model.Unit.FullName %></h2>
 
     <span class="switch-view">
-        <%= Html.ActionLink("Click here to view all Eligibilities", "ViewByDepartment") %>
+        <%= Html.ActionLink("Click here to view all Eligibility List", "ViewByDepartment")%>
     </span>
     <span class="switch-units">
         <%= this.Select("Units")
