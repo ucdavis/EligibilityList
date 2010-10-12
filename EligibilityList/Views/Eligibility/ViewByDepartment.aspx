@@ -34,8 +34,13 @@
                 .Label("Select Unit: ")
         %>
     </span>
-    
-    <span><%= Html.ActionLink("Export To Excel", "GetEligibilityListReport", "Report", new { fisCode = fisCodeOrEmpty }, null)%></span>
+    <span class="switch-view"><%= Html.ActionLink("Export To Excel", "GetEligibilityListReport", "Report", new { fisCode = fisCodeOrEmpty }, null)%></span>
+    <span class="switch-units">
+        <% using (Html.BeginForm("ViewByDepartment", "Eligibility", FormMethod.Get)) { %>
+            <%= this.TextBox("name-filter").Label("Filter By Name: ") %>
+            <input type="submit" value="Filter!" />
+        <% } %>
+    </span>
     
     <% Html.RenderPartial("EligibilityList", Model.Eligibilities); %>
 

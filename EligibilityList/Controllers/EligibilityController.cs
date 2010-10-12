@@ -113,6 +113,13 @@ namespace EligibilityList.Controllers
             
             var eligibilities = _eligibilityListQueryRepository.Queryable;
 
+            var nameFilter = HttpContext.Request.Params["name-filter"];
+
+            if (!string.IsNullOrWhiteSpace(nameFilter))
+            {
+                eligibilities = eligibilities.Where(x => x.Name.Contains(nameFilter));
+            }
+
             //If an FIS id was passed and the user has that FISCode in their units list
             if (!string.IsNullOrEmpty(id) && unitFisCodes.Contains(id))
             {
