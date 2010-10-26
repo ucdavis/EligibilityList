@@ -108,6 +108,11 @@
     <li>
         <%= this.TextBox("ProposedWorkingTitle").Value(Model.Eligibility.ProposedWorkingTitle).Label("Proposed Working Title: ")%>
     </li>
+    </ul>
+    </div>
+    <hr style="margin: 4em 0em; border: #ccc solid 1px; clear: both;" />
+    <div class="col left">
+    <ul>
     <li>
         <%= this.CheckBox("Defer").Checked(Model.Eligibility.Defer).Label("Defer?: ") %>
     </li>
@@ -117,19 +122,14 @@
     <li>
         <%= this.TextBox("YearsDecelerated").Value(Model.Eligibility.YearsDecelerated).Label("Years at Decel: ")%>
     </li>
-    </ul>
-    </div>
-    <hr style="margin: 4em 0em; border: #ccc solid 1px; clear: both;" />
-    <div class="col left">
-    <ul>
+    </ul></div>
+    <div class="col right"><ul>
     <li>
         <%= this.TextBox("DateDue").Class("pickable-date").Value(Model.Eligibility.DateDue).Format("d").Label("Date Due: ")%>
     </li>
     <li>
         <%= this.TextBox("DateEffective").Class("pickable-date").Value(Model.Eligibility.DateEffective).Format("d").Label("Date Effective: ") %>
     </li>
-    </ul></div>
-    <div class="col right"><ul>
     <li>
         <%= this.TextArea("Comment").Value(Model.Eligibility.Comment).Label("Comment: ")%>
     </li>
