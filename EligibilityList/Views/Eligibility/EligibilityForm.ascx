@@ -22,6 +22,8 @@
                         
         %>
     </li>
+    </ul></div>
+    <div class="col right"><ul>
     <li>
         <%= this.Select("Committee")
                         .Options(Model.Committees, x=>x.Id, x=>x.Name)
@@ -46,6 +48,12 @@
                         .Label("Analyst: ")
         %>
     </li>
+    </ul>
+    </div>
+    <hr style="margin: 4em 0em; border: #ccc solid 1px; clear: both;" />
+    <div class="col left">
+    <h2>Current</h2>
+    <ul>
     <li>
         <%= this.Select("CurrentTitle") 
                         .Options(Model.Titles.OrderBy(x=>x.AbbreviatedName), x=>x.Id, x=>x.AbbreviatedName)
@@ -76,7 +84,9 @@
         <%= this.TextBox("YearsAtStep").Value(Model.Eligibility.YearsAtStep).Label("Current Years @ Step: ")%>
     </li></ul>
     </div>
-    <div class="col right"><ul>
+    <div class="col right">
+    <h2>Proposed</h2>
+    <ul>
     <li>
         <%= this.Select("ProposedTitle") 
                         .Options(Model.Titles.OrderBy(x=>x.AbbreviatedName), x=>x.Id, x=>x.AbbreviatedName)
@@ -107,12 +117,19 @@
     <li>
         <%= this.TextBox("YearsDecelerated").Value(Model.Eligibility.YearsDecelerated).Label("Years at Decel: ")%>
     </li>
+    </ul>
+    </div>
+    <hr style="margin: 4em 0em; border: #ccc solid 1px; clear: both;" />
+    <div class="col left">
+    <ul>
     <li>
         <%= this.TextBox("DateDue").Class("pickable-date").Value(Model.Eligibility.DateDue).Format("d").Label("Date Due: ")%>
     </li>
     <li>
         <%= this.TextBox("DateEffective").Class("pickable-date").Value(Model.Eligibility.DateEffective).Format("d").Label("Date Effective: ") %>
     </li>
+    </ul></div>
+    <div class="col right"><ul>
     <li>
         <%= this.TextArea("Comment").Value(Model.Eligibility.Comment).Label("Comment: ")%>
     </li>
