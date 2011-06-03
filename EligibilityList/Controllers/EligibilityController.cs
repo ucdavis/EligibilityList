@@ -70,7 +70,7 @@ namespace EligibilityList.Controllers
                 Message = string.Empty;
 
                 var employees =
-                    Repository.OfType<PayrollPerson>().Queryable.Where(x => x.Department == id).OrderBy(x => x.Name);
+                    Repository.OfType<PayrollPerson>().Queryable.Where(x => x.Department == id || x.HomeDepartment == id).OrderBy(x => x.Name);
 
                 viewModel.PayrollPersons = employees.ToList();
             }

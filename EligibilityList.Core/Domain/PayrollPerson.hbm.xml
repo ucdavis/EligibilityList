@@ -12,6 +12,7 @@
       <property name="TitleCode" />
       <property name="EmployeeID" />
       <property name="Department" />
+      <property name="HomeDepartment" />
       
   </class>
 </hibernate-mapping>

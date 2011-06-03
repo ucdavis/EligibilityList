@@ -6,6 +6,7 @@ namespace EligibilityList.Core.Domain
     {
         public virtual string EmployeeID { get; set; }
         public virtual string Department { get; set; }
+        public virtual string HomeDepartment { get; set; }
         public virtual string TitleCode { get; set; }
         public virtual string Name { get; set; }
     }

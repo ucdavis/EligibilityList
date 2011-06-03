@@ -39,7 +39,8 @@
                                  col.Add(x => x.Name);
                                  col.Add(x => x.EmployeeID);
                                  col.Add(x => x.TitleCode);
-                                 col.Add(x => x.Department).Title("Department Code");
+                                 col.Add(x => x.Department).Title("Appt. Department");
+                                 col.Add(x => x.HomeDepartment).Title("Home Department");
                              })
                 .Sortable()
                 .Render(); 
