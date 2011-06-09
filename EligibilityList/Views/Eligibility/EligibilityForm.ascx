@@ -2,6 +2,7 @@
 <% using (Html.BeginForm()) {%>
 
     <%= Html.AntiForgeryToken() %>
+    <%= Html.Hidden("referrer", TempData["UrlReferrer"]) %>
     <%= Html.Hidden("Employee", Model.Eligibility.Employee.Id) %>
     <%= Html.Hidden("HasOriginalEligibility", Model.Eligibility.OriginalEligibility != null) %>
 <fieldset>

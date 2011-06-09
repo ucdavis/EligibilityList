@@ -194,7 +194,7 @@ namespace EligibilityList.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Edit(int id, Eligibility eligibility, bool hasOriginalEligibility, bool? updateAllAppointments)
+        public ActionResult Edit(int id, Eligibility eligibility, bool hasOriginalEligibility, bool? updateAllAppointments, string referrer)
         {
             var userIsAdmin = CurrentUser.IsInRole(RoleNames.Admin);
 
@@ -235,7 +235,8 @@ namespace EligibilityList.Controllers
 
                 Message = "Eligibility Saved Successfully";
 
-                return Redirect(_urlReferrerOrIndex);
+                var redirectTo = string.IsNullOrWhiteSpace(referrer) ? Url.Action("Index", "Home") : referrer;
+                return Redirect(redirectTo);
             }
 
             var viewModel = EligibilityModifyViewModel.Create(Repository, _userBLL);
