@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Specialized;
+using System.Net;
 using EligibilityList.Core.Abstractions;
+using Microsoft.Reporting.WebForms;
 
 namespace EligibilityListBLL
 {
@@ -13,6 +15,10 @@ namespace EligibilityListBLL
 
     public class ReportBLL : IReportBLL
     {
+        private static readonly string ReportViewerUserName = System.Web.Configuration.WebConfigurationManager.AppSettings["ReportViewerUser"];
+        private static readonly string ReportViewerPassword = System.Web.Configuration.WebConfigurationManager.AppSettings["ReportViewerPassword"];
+        private static readonly string ReportViewerDomainName = System.Web.Configuration.WebConfigurationManager.AppSettings["ReportViewerDomain"];
+
         public ReportResult GenerateELReport(string actionName, string fisCode, ReportType reportType)
         {
             const string reportPath = "/EligibilityList/EligibilityListByAction";
@@ -50,6 +56,10 @@ namespace EligibilityListBLL
         {
             var rview = new Microsoft.Reporting.WebForms.ReportViewer();
 
+            IReportServerCredentials myCredentials = new CustomReportCredentials(ReportViewerUserName, ReportViewerPassword, ReportViewerDomainName);
+
+            rview.ServerReport.ReportServerCredentials = myCredentials;
+            //rview.ServerReport.ReportServerUrl = new Uri(ReportServerUrl);
             rview.ServerReport.ReportServerUrl = new Uri(System.Web.Configuration.WebConfigurationManager.AppSettings["ReportServer"]);
 
             rview.ServerReport.ReportPath = reportPath;
@@ -81,6 +91,39 @@ namespace EligibilityListBLL
             var result = new ReportResult(bytes, mimeType);
 
             return result;
+        }
+
+        public class CustomReportCredentials : IReportServerCredentials
+        {
+            private string _userName;
+            private string _passWord;
+            private string _domainName;
+
+            public CustomReportCredentials(string userName, string passWord, string domainName)
+            {
+                _userName = userName;
+                _passWord = passWord;
+                _domainName = domainName;
+            }
+
+            public System.Security.Principal.WindowsIdentity ImpersonationUser
+            {
+                get { return null; }
+            }
+
+            public ICredentials NetworkCredentials
+            {
+                get { return new NetworkCredential(_userName, _passWord, _domainName); }
+            }
+
+            public bool GetFormsCredentials(out Cookie authCookie, out string user, out string password,
+                out string authority)
+            {
+                authCookie = null;
+                user = password = authority = null;
+                return false;
+            }
+
         }
     }
 

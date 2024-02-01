@@ -1,0 +1,59 @@
+<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <link href="<%= Url.Content("~/Content/Site.css") %>" rel="stylesheet" type="text/css" />
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-lightness/jquery-ui.css" rel="Stylesheet" type="text/css" media="screen" />
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+    
+    <!-- http://www.asp.net/ajax/cdn/ for info -->
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.5.5/jquery.validate.min.js"></script>
+    <script src='<%= Url.Content("~/Scripts/xVal.jquery.validate.js") %>' type="text/javascript"></script>
+    
+    <asp:ContentPlaceHolder ID="AdditionalScripts" runat="server">
+    
+    </asp:ContentPlaceHolder>
+    <% if(false){ //Load the jquery docs for intellisense %>
+        <script src="../../Scripts/jquery-1.3.2-vsdoc.js" type="text/javascript"></script>
+    <%} %>
+    
+</head>
+
+<body>
+    <div id="branding">
+    
+    <div id="title">
+        <%= Html.ImageLink("logo-el.jpg", "Eligibility List", "Index", "Eligibility") %>
+    </div>
+            
+    <span class="logos">
+    
+    <span class="ucdavis"><a href="http://www.ucdavis.edu"><img src="<%= Url.Content("~/Images/logo-ucdavis.jpg") %>" alt="UC Davis" /></a></span>
+    <span class="caes"><a href="http://caes.ucdavis.edu"><img src="<%= Url.Content("~/Images/logo-caes.jpg") %>" alt="College of Agricultural &amp; Environmental Sciences" /></a></span>
+    </span>
+    </div>
+    <div class="page">
+
+        <div id="header">
+            <div id="menu">
+                <% Html.RenderPartial("Menu"); %>
+            </div>
+            <div id="logindisplay">
+                <% Html.RenderPartial("LogOnUserControl"); %>
+            </div> 
+        </div>
+
+        <div id="main">
+            <h3><span style="color:Blue;"><%= Html.Encode(TempData["Message"]) %></span></h3>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+
+            <div id="footer">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

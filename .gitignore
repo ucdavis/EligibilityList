@@ -31,3 +31,9 @@ obj/
 _ReSharper*/
 [Tt]est[Rr]esult*
 !Bin/
+WebSite/connectionStrings.config
+
+/EligibilityList/appSettings.config
+/EligibilityList/connectionStrings.config
+/WebSite/connectionStrings.config
+/WebSite/appSettings.config
