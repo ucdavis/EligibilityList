@@ -17,6 +17,10 @@ namespace EligibilityListBLL
 
     public class SmtpMessageBLL : IMessageBLL
     {
+        private static readonly string EmailHost = System.Web.Configuration.WebConfigurationManager.AppSettings["EmailHost"];
+        private static readonly string EmailPassword = System.Web.Configuration.WebConfigurationManager.AppSettings["EmailPassword"];
+        private static readonly string EmailFrom = System.Web.Configuration.WebConfigurationManager.AppSettings["EmailFrom"];
+
         public static readonly string ReviewSubject = "CAESDO Eligibility List Review for {0}";
 
         /// <summary>
@@ -53,9 +57,11 @@ namespace EligibilityListBLL
         /// </summary>
         private static void SendMessage(string to, string subject, string body)
         {
-            var message = new System.Net.Mail.MailMessage("automatedemail@caes.ucdavis.edu", to, subject, body); //TODO: Move to web.config
+            var message = new System.Net.Mail.MailMessage(EmailFrom, to, subject, body); 
 
-            var smtpClient = new System.Net.Mail.SmtpClient("smtp.ucdavis.edu");
+            var smtpClient = new System.Net.Mail.SmtpClient();
+            smtpClient.Host = EmailHost;
+            smtpClient.Credentials = new System.Net.NetworkCredential("", EmailPassword);
 
             smtpClient.Send(message);
         }
