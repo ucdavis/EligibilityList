@@ -186,8 +186,8 @@
     <BuildContributorArgument Include="OutDir=$(OutDir)" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Debug_1.publish.xml" />
-    <None Include="Release_1.publish.xml" />
+    <None Include="Debug_2.publish.xml" />
+    <None Include="Release_2.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Pre-Deployment\Script.PreDeployment.sql" />
@@ -196,6 +196,6 @@
     <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Permissions_1.sql" />
+    <Build Include="Permissions_2.sql" />
   </ItemGroup>
 </Project>

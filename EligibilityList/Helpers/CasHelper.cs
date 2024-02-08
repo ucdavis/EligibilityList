@@ -9,9 +9,9 @@ namespace EligibilityList.Helpers
     public static class CasHelper
     {
 #if DEBUG
-        private const string CasBaseUrl = "https://ssodev.ucdavis.edu/cas/";
+        private static readonly string CasBaseUrl = System.Web.Configuration.WebConfigurationManager.AppSettings["CASTestServer"];
 #else
-        private const string CasBaseUrl = "https://cas.ucdavis.edu/cas/";
+        private static readonly string CasBaseUrl = System.Web.Configuration.WebConfigurationManager.AppSettings["CASProdServer"];
 #endif
         private const string StrTicket = "ticket";
         private const string StrReturnUrl = "ReturnURL";

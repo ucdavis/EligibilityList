@@ -26,6 +26,21 @@ Thumbs.db
 [Dd]ebug*/
 *.lib
 *.sbr
+/VS2010 version
+/.vs
+UpgradeLog*
+#ignore *.dtbcache
+*.dtbcache.json
+
+#ignore packages because Git os supposed to restore them.
+/packages
+
+#ignore rosylyn
+/EligibilityList/bin/roslyn*
+
+#ignore Backup files
+/Backup*
+
 obj/
 [Rr]elease*/
 _ReSharper*/

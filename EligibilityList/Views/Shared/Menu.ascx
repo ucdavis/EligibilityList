@@ -13,5 +13,6 @@
 | <%= Html.ActionLink<ReportController>(a=>a.Index(), "Reports") %>
 
 <% if (HttpContext.Current.User.IsInRole(RoleNames.ManageAllUsers)) {%>
-| <%= Html.ActionLink<AccountController>(a => a.Management(), "User Management") %>
+| <%= Html.ActionLink<AccountController>(a => a.Management(), "User Management") %> | 
+    <a href=<%=ConfigurationManager.AppSettings["UserManagementPortal"] %> >User Management App</a>
 <% } %>

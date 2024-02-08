@@ -6,6 +6,11 @@ namespace EligibilityList.Controllers
 {
     public class AccountController : Controller
     {
+#if DEBUG
+        private static readonly string CasUrl = System.Web.Configuration.WebConfigurationManager.AppSettings["CASTestServer"];
+#else
+        private static readonly string CasUrl = System.Web.Configuration.WebConfigurationManager.AppSettings["CASProdServer"];
+#endif
         public ActionResult LogOn(string returnUrl)
         {
             string resultUrl = CasHelper.Login(); //Do the CAS Login
@@ -20,11 +25,11 @@ namespace EligibilityList.Controllers
             return View();
         }
 
-        public RedirectToRouteResult LogOff()
+        public RedirectResult LogOff()
         {
             FormsAuthentication.SignOut();
 
-            return RedirectToAction("Index", "Home");
+            return Redirect(CasUrl + "/logout");
         }
 
         [UserManagerOnly]
