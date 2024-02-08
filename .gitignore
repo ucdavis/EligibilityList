@@ -55,3 +55,6 @@ WebSite/connectionStrings.config
 /EligibilityList/connectionStrings.config
 /WebSite/connectionStrings.config
 /WebSite/appSettings.config
+/EligibilityList/bin/EligibilityList.dll
+/EligibilityList/bin/EligibilityListBLL.dll
+/EligibilityList/bin/EligibilityList.dll.config
