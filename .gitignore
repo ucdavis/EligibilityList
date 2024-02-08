@@ -41,6 +41,9 @@ UpgradeLog*
 #ignore Backup files
 /Backup*
 
+#ignore published website files:
+/EligibilityList/bin/app.publish
+
 obj/
 [Rr]elease*/
 _ReSharper*/
