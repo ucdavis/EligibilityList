@@ -1,4 +1,6 @@
 using EligibilityList.Core.Domain;
+using System;
+using System.Net.Mail;
 using System.Text;
 
 namespace EligibilityListBLL
@@ -18,6 +20,8 @@ namespace EligibilityListBLL
     public class SmtpMessageBLL : IMessageBLL
     {
         private static readonly string EmailHost = System.Web.Configuration.WebConfigurationManager.AppSettings["EmailHost"];
+        private static readonly int    EmailPort = Convert.ToInt32(System.Web.Configuration.WebConfigurationManager.AppSettings["EmailPort"]);
+        private static readonly string EmailUser = System.Web.Configuration.WebConfigurationManager.AppSettings["EmailUser"];
         private static readonly string EmailPassword = System.Web.Configuration.WebConfigurationManager.AppSettings["EmailPassword"];
         private static readonly string EmailFrom = System.Web.Configuration.WebConfigurationManager.AppSettings["EmailFrom"];
 
@@ -61,7 +65,10 @@ namespace EligibilityListBLL
 
             var smtpClient = new System.Net.Mail.SmtpClient();
             smtpClient.Host = EmailHost;
-            smtpClient.Credentials = new System.Net.NetworkCredential("", EmailPassword);
+            smtpClient.Port = EmailPort;
+            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtpClient.EnableSsl = true;
+            smtpClient.Credentials = new System.Net.NetworkCredential(EmailUser, EmailPassword);
 
             smtpClient.Send(message);
         }
